@@ -4,3 +4,10 @@ image:
 tasks:
   - init: 'echo "TODO: Replace with init/build command"'
     command: npm install
+
+vscode:
+  extensions:
+    - dbaeumer.vscode-eslint@2.1.8:02aHhbJ0Q4aGdjHXlTdVKg==
+    - HookyQR.beautify@1.4.11:n9DJEUFbYD/YHaBXxm+pYw==
+    - DigitalBrainstem.javascript-ejs-support@1.2.1:GwQXj4idohxMWd1UN6aNmw==
+    - ionutvmi.path-autocomplete@1.14.0:v849GEbOhxBaEuspHxe8SQ==
