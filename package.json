@@ -17,7 +17,7 @@
     "http-errors": "~1.6.3",
     "mailgun-js": "^0.22.0",
     "morgan": "~1.9.1",
-    "pg-promise": "^10.7.0"
+    "pg": "^8.4.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
