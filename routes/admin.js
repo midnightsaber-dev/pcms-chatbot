@@ -12,6 +12,7 @@ router.get("/login", function (req, res, next) {
 router.get("/", function (req, res, next) {
   res.render("admin/index", {
     title: "Admin Dashboard | PCMS",
+    place: "",
   });
 });
 
@@ -20,6 +21,19 @@ router.get("/merchant/view", function (req, res, next) {
   try {
     res.render("admin/merchant/view_merchant", {
       title: "Merchant List | PCMS",
+      place: "Merchant",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+/* GET merchant create form */
+router.get("/merchant/create", function (req, res, next) {
+  try {
+    res.render("admin/merchant/create_merchant", {
+      title: "Create Merchant | PCMS",
+      place: "Merchant",
     });
   } catch (error) {
     console.log(error);
@@ -31,6 +45,19 @@ router.get("/event/view", function (req, res, next) {
   try {
     res.render("admin/event/view_event", {
       title: "Event List | PCMS",
+      place: "Event",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+/* GET event create form */
+router.get("/event/create", function (req, res, next) {
+  try {
+    res.render("admin/event/create_event", {
+      title: "Create Event | PCMS",
+      place: "Event",
     });
   } catch (error) {
     console.log(error);
@@ -42,6 +69,7 @@ router.get("/report/topup", function (req, res, next) {
   try {
     res.render("admin/report/topup_report", {
       title: "Topup List | PCMS",
+      place: "Report (Top Up)",
     });
   } catch (error) {
     console.log(error);
@@ -53,6 +81,7 @@ router.get("/report/item", function (req, res, next) {
   try {
     res.render("admin/report/item_report", {
       title: "Item List | PCMS",
+      place: "Report (Item)",
     });
   } catch (error) {
     console.log(error);
