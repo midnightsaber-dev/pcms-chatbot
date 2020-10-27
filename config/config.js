@@ -12,5 +12,5 @@ module.exports = {
     DOMAIN_NAME: process.env.MAILGUN_DOMAIN_NAME,
     API_KEY: process.env.MAILGUN_API_KEY,
   },
-  pool: pool,
+  query: (text, params) => pool.query(text, params),
 };

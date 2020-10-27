@@ -1,1 +1,123 @@
-v
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <% include ../partials/head %> <% include ../partials/table_head %>
+  </head>
+  <body>
+    <div id="wrapper">
+      <% include ../partials/sidebar %>
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <% include ../partials/topbar %>
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">Merchant List</h1>
+            <div
+              class="d-sm-flex align-items-center justify-content-between mb-4"
+            >
+              <a
+                href="/admin/merchant/new"
+                class="d-none d-sm-inline-block btn btn-sm btn btn-outline-primary shadow-sm"
+                >Create New Merchant</a
+              >
+
+              <a
+                href="#"
+                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                ><i class="fas fa-download fa-sm text-white-50"></i> Generate
+                Report</a
+              >
+            </div>
+            <div
+              class="d-sm-flex align-items-center justify-content-between mb-4"
+            >
+              <table class="table table-borderless">
+                <tbody>
+                  <tr>
+                    <td>
+                      <!-- Search form -->
+                      <input
+                        class="form-control"
+                        type="text"
+                        placeholder="Merchant_ID"
+                        aria-label="Search"
+                      />
+                    </td>
+                    <td>
+                      <select class="browser-default custom-select">
+                        <option selected>Choose Merchant Name</option>
+                        <option value="1">SPY Beverage</option>
+                        <option value="2">100 Plus</option>
+                        <option value="3">ABC</option>
+                      </select>
+                    </td>
+                    <td>
+                      <!-- Search form -->
+                      <input
+                        class="form-control"
+                        type="text"
+                        placeholder="Phone-Number"
+                        aria-label="Search"
+                      />
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-outline-primary">
+                        Search
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table
+                    class="table table-bordered dataTables_wrapper"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                    <thead align="center">
+                      <tr>
+                        <th>Merchant ID</th>
+                        <th>Merchant Name</th>
+                        <th>Address</th>
+                        <th>Contact Email</th>
+                        <th>Contact Phone Number</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Your Website 2020</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <% include ../partials/scripts %> <% include ../partials/table_scripts %>
+  </body>
+</html>
