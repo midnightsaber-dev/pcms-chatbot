@@ -24,7 +24,10 @@ router.post("/login", async (req, res) => {
         [username, passwd]
       );
       console.log(login);
-      login.then((result) => console.log(result));
+
+      login.then(function (result) {
+        console.log(result);
+      });
     } else {
       res.send("there is error");
     }
