@@ -15,13 +15,12 @@ router.get("/login", function (req, res, next) {
 router.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
-    const hash = bcrypt.hashSync(password, 12);
-    console.log(hash);
     console.log(" Name:" + username + " password:" + password);
     if (username && password) {
-      let login = await db.query("SELECT * FROM admin WHERE username = $1", [
-        username,
-      ]);
+      let login = await db.query(
+        "SELECT * FROM admin WHERE username = $1 and password= $2",
+        [username, password]
+      );
       res.status(200).json({
         status: "success",
         data: {
