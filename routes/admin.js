@@ -25,7 +25,7 @@ router.post("/login", async (req, res) => {
       );
       console.log(result);
     } else {
-      console.log("It must not be empty");
+      res.send("there is error");
     }
   } catch (error) {
     console.log(error);
