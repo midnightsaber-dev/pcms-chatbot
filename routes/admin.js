@@ -110,9 +110,8 @@ router.post("/merchant/create", async (req, res) => {
           "INSERT INTO merchant (merchant_id, merchant_name, merchant_email, merchant_phone_number, api_key, org_key, address, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
           [id, name, email, phone_number, apikey, orgkey, address, status]
         );
-        console.log(data.rows);
         if (data.rows.length > 0) {
-          res.redirect("/admin/merchant/detail/");
+          res.render(`/admin/merchant/detail/${data.rows.merchant_id}`);
         } else {
           res.send("database query error");
         }
@@ -128,12 +127,29 @@ router.post("/merchant/create", async (req, res) => {
 });
 
 /* GET merchant detail. */
-router.get("/merchant/detail", function (req, res, next) {
+router.get("/merchant/detail/:id", function (req, res, next) {
   try {
     if (req.session.loggedin) {
+      const { id } = req.params;
+      if (id) {
+        let data = await db.query(
+          "SELECT * FROM merchant WHERE merchant_id = $1",
+          [id]
+        );
+        if (data.rows.length > 0) {
+          res.render("/admin/merchant/view_merchant_detail", {
+            data: data
+          });
+        } else {
+          res.send("your input is wrong." + login.rows);
+        }
+      } else {
+        res.send("there is no data");
+      }
       res.render("admin/merchant/view_merchant_detail", {
         title: "Merchant Detail | PCMS",
         place: "Merchant",
+        deta,
       });
     } else {
       res.redirect("/admin/login");
