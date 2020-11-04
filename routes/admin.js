@@ -21,12 +21,13 @@ router.post("/login", async (req, res) => {
         "SELECT * FROM admin WHERE username = $1 AND password= $2",
         [username, password]
       );
-      res.status(200).json({
-        status: "success",
-        data: {
-          user: login.rows,
-        },
-      });
+      if (login.rows > 0) {
+        req.session.loggedin = true;
+        req.session.username = username;
+        res.redirect("/admin/");
+      } else {
+        res.send("Your input is wrong.");
+      }
     } else {
       res.send("there is error");
     }
@@ -36,10 +37,15 @@ router.post("/login", async (req, res) => {
 });
 /* GET index page. */
 router.get("/", function (req, res, next) {
-  res.render("admin/index", {
-    title: "Admin Dashboard | PCMS",
-    place: "",
-  });
+  if (req.session.loggedin) {
+    res.render("admin/index", {
+      title: "Admin Dashboard | PCMS",
+      place: "",
+    });
+  } else {
+    res.redirect("/admin/login");
+  }
+  response.end();
 });
 
 /* GET merchant list. */
