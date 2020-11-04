@@ -23,6 +23,7 @@ router.post("/login", async (req, res) => {
         "SELECT * FROM admin WHERE username = $1 and password = $2",
         [username, passwd]
       );
+      console.log(login);
       login.then((result) => console.log(result));
     } else {
       res.send("there is error");
