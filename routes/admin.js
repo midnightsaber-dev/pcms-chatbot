@@ -20,7 +20,7 @@ router.post("/login", async (req, res) => {
     console.log(" Name:" + username + " password:" + password);
     if (username && password) {
       let login = await db.query(
-        "SELECT * FROM admin WHERE username = $1 and password = $2",
+        "SELECT * FROM public.admin WHERE username = $1 and password = $2",
         [username, hash]
       );
       res.status(200).json({
