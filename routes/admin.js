@@ -110,11 +110,14 @@ router.post("/merchant/create", async (req, res) => {
           "INSERT INTO merchant (merchant_id, merchant_name, merchant_email, merchant_phone_number, apikey, orgkey, address, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
           [id, name, email, phone_number, apikey, org_key, address, status]
         );
+        console.log(data.rows);
         if (data.rows.length > 0) {
           res.redirect("/admin/merchant/detail/");
+        } else {
+          res.send("database query error");
         }
       } else {
-        res.send("database query error");
+        res.send("please fill correctly.");
       }
     } else {
       res.redirect("/admin/login");
