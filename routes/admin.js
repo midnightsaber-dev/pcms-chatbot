@@ -136,6 +136,7 @@ router.get("/logout", function (req, res, next) {
   try {
     if (req.session.loggedin) {
       req.session = null;
+      req.session.loggedin = false;
       res.redirect("/admin/login");
     }
   } catch (error) {
