@@ -17,23 +17,13 @@ router.post("/login", async (req, res) => {
     const { username, password } = req.body;
     const passwd = bcrypt.hash(password, 12);
     console.log(passwd);
-    let errors = [];
     console.log(" Name:" + username + " password:" + password);
     if (username && password) {
-      await db.query(
+      let result = await db.query(
         "SELECT * FROM admin WHERE username = $1 and password = $2",
-        [username, passwd],
-        function (error, result, fields) {
-          if (results.length > 0) {
-            request.session.loggedin = true;
-            request.session.username = username;
-            response.redirect("/admin/index");
-          } else {
-            response.send("Incorrect Username and/or Password!");
-          }
-          response.end();
-        }
+        [username, passwd]
       );
+      console.log(result);
     } else {
       console.log("It must not be empty");
     }
