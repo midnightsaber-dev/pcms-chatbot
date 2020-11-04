@@ -1,6 +1,5 @@
 var express = require("express");
 var router = express.Router();
-const bcrypt = require("bcrypt");
 const db = require("../db");
 var TripleDES = require("../service/3desencrypt");
 
@@ -15,13 +14,12 @@ router.get("/login", function (req, res, next) {
 router.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
-    const hash = bcrypt.hash(password, 12);
 
     console.log(" Name:" + username + " password:" + password);
     if (username && password) {
       let login = await db.query(
         "SELECT * FROM admin WHERE username = $1 and password= $2",
-        [username, hash]
+        [username, password]
       );
       res.status(200).json({
         status: "success",
