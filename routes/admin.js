@@ -83,7 +83,7 @@ router.get("/merchant/create", function (req, res, next) {
 });
 
 /* GET merchant create form */
-router.post("/merchant/create", function (req, res, next) {
+router.post("/merchant/create", async (req, res) => {
   try {
     if (req.session.loggedin) {
       const {
@@ -94,15 +94,27 @@ router.post("/merchant/create", function (req, res, next) {
         apikey,
         org_key,
         address,
-        status
+        status,
       } = req.body;
-      if ( id && name && email && phone_number && apikey && org_key && address && status) {
-        let data = await db.query("INSERT INTO merchant (merchant_id, merchant_name, merchant_email, merchant_phone_number, apikey, orgkey, address, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *", [id, name, email, phone_number, apikey, org_key, address, status]);
+      if (
+        id &&
+        name &&
+        email &&
+        phone_number &&
+        apikey &&
+        org_key &&
+        address &&
+        status
+      ) {
+        let data = await db.query(
+          "INSERT INTO merchant (merchant_id, merchant_name, merchant_email, merchant_phone_number, apikey, orgkey, address, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+          [id, name, email, phone_number, apikey, org_key, address, status]
+        );
         if (data.rows.length > 0) {
-          res.redirect('/admin/merchant/detail/');
+          res.redirect("/admin/merchant/detail/");
         }
       } else {
-        res.send("database query error")
+        res.send("database query error");
       }
     } else {
       res.redirect("/admin/login");
