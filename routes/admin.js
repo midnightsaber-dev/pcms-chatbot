@@ -14,7 +14,7 @@ router.get("/login", function (req, res, next) {
 /* POST login page. */
 router.post("/login", async (req, res) => {
   try {
-    const { username, password } = req.params;
+    const { username, password } = req.body;
     const hash = bcrypt.hashSync(password, 12);
     console.log(hash);
     console.log(" Name:" + username + " password:" + password);
