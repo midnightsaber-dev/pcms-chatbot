@@ -31,8 +31,6 @@
                             </h1>
                           </div>
                           <form action="/admin/merchant/create" method="POST">
-                            <!-- <form action="/merchant/create" method="GET"> -->
-
                             <div class="form-group">
                               <input
                                 type="text"
@@ -51,7 +49,7 @@
                             </div>
                             <div class="form-group">
                               <input
-                                type="event"
+                                type="email"
                                 class="form-control form-control-user"
                                 name="email"
                                 aria-describedby="emailHelp"
@@ -62,7 +60,7 @@
                               <input
                                 type="text"
                                 class="form-control form-control-user"
-                                name="phonenum"
+                                name="phone_number"
                                 placeholder="Phone Number .."
                               />
                             </div>
@@ -91,18 +89,22 @@
                                 placeholder="Address .."
                               />
                             </div>
-
+                            <div class="form-group">
+                              <select
+                                class="form-control form-control-user"
+                                id="status"
+                              >
+                                <option value="active" selected>Active</option>
+                                <option value="inactive">Inactive</option>
+                              </select>
+                            </div>
                             <div class="row">
                               <div class="col-sm-6 mb-3 mb-sm-0">
-                                <!-- <a class="btn btn-primary btn-user btn-block">Create</a> -->
                                 <input
                                   class="btn btn-primary butn-user btn-block"
                                   type="submit"
                                 />
                               </div>
-                              <!-- <div class="col-sm-6">
-                              <a href="/admin//merchant/create" class="btn btn-primary btn-user btn-block">Cancel </a>
-                            </div> -->
                             </div>
                           </form>
                           <hr />

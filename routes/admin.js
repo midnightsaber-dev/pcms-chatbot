@@ -14,8 +14,6 @@ router.get("/login", function (req, res, next) {
 router.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
-
-    console.log(" Name:" + username + " password:" + password);
     if (username && password) {
       let login = await db.query(
         "SELECT * FROM admin WHERE username = $1 AND password= $2",
@@ -74,6 +72,52 @@ router.get("/merchant/create", function (req, res, next) {
     if (req.session.loggedin) {
       res.render("admin/merchant/create_merchant", {
         title: "Create Merchant | PCMS",
+        place: "Merchant",
+      });
+    } else {
+      res.redirect("/admin/login");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+/* GET merchant create form */
+router.post("/merchant/create", function (req, res, next) {
+  try {
+    if (req.session.loggedin) {
+      const {
+        id,
+        name,
+        email,
+        phone_number,
+        apikey,
+        org_key,
+        address,
+        status
+      } = req.body;
+      if ( id && name && email && phone_number && apikey && org_key && address && status) {
+        let data = await db.query("INSERT INTO merchant (merchant_id, merchant_name, merchant_email, merchant_phone_number, apikey, orgkey, address, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *", [id, name, email, phone_number, apikey, org_key, address, status]);
+        if (data.rows.length > 0) {
+          res.redirect('/admin/merchant/detail/');
+        }
+      } else {
+        res.send("database query error")
+      }
+    } else {
+      res.redirect("/admin/login");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+/* GET merchant detail. */
+router.get("/merchant/detail", function (req, res, next) {
+  try {
+    if (req.session.loggedin) {
+      res.render("admin/merchant/view_merchant_detail", {
+        title: "Merchant Detail | PCMS",
         place: "Merchant",
       });
     } else {
