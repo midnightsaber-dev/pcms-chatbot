@@ -19,14 +19,13 @@ router.post("/login", async (req, res) => {
     console.log(hash);
     console.log(" Name:" + username + " password:" + password);
     if (username && password) {
-      let login = await db.query(
-        "SELECT * FROM public.admin WHERE username = $1 and password = $2",
-        [username, hash]
-      );
+      let login = await db.query("SELECT * FROM admin WHERE username = $1", [
+        username,
+      ]);
       res.status(200).json({
         status: "success",
         data: {
-          restaurant: login.rows,
+          user: login.rows,
         },
       });
     } else {
