@@ -41,7 +41,7 @@ router.get("/", function (req, res, next) {
   } else {
     res.redirect("/admin/login");
   }
-  response.end();
+  res.end();
 });
 
 /* GET merchant list. */
@@ -130,7 +130,8 @@ router.get("/changepwd", function (req, res, next) {
 /*  Logout */
 router.get("/logout", function (req, res, next) {
   try {
-    res.render("admin/login", {
+    req.session = null;
+    res.redirect("admin/login", {
       title: "Login | PCMS",
     });
   } catch (error) {
