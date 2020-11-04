@@ -1,5 +1,8 @@
 var express = require("express");
 var router = express.Router();
+const bcrypt = require("bcrypt");
+const db = require("../db");
+var TripleDES = require("../service/3desencrypt");
 
 /* GET login page. */
 router.get("/login", function (req, res, next) {
@@ -8,6 +11,36 @@ router.get("/login", function (req, res, next) {
   });
 });
 
+/* POST login page. */
+router.post("/login", async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const passwd = bcrypt.hash(password, 12);
+    console.log(passwd);
+    let errors = [];
+    console.log(" Name:" + username + " password:" + password);
+    if (username && password) {
+      await db.query(
+        "SELECT * FROM admin WHERE username = $1 and password = $2",
+        [username, passwd],
+        function (error, result, fields) {
+          if (results.length > 0) {
+            request.session.loggedin = true;
+            request.session.username = username;
+            response.redirect("/admin/index");
+          } else {
+            response.send("Incorrect Username and/or Password!");
+          }
+          response.end();
+        }
+      );
+    } else {
+      console.log("It must not be empty");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
 /* GET index page. */
 router.get("/", function (req, res, next) {
   res.render("admin/index", {
@@ -105,6 +138,24 @@ router.get("/logout", function (req, res, next) {
     res.render("admin/login", {
       title: "Login | PCMS",
     });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/topup", (req, res) => {
+  res.render("admin/topup", {
+    title: "Topup",
+  });
+});
+
+router.post("/topup", (req, res) => {
+  try {
+    console.log(req.body);
+    let transid = "MPSS" + Date.now();
+    let iteration = req.body.iteration;
+    let interval = req.body.interval;
+    req.body.transid = transid;
   } catch (error) {
     console.log(error);
   }

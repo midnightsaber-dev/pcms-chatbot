@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../admin/partials/head %>
+  </head>
+
+  <body class="bg-gradient-primary">
+    <div class="container">
+      <!-- Outer Row -->
+      <div class="card w-50 my-5 mx-auto">
+        <div class="card-body">
+          <h1 class="h4 card-center text-gray-900 mb-4 text-center">Welcome Back!</h1>
+          <p class="card-text">
+            <form action="/admin/login" method="POST" >
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" name="username" class="form-control form-control-user" id="username" aria-describedby="username" required>
+                  <small id="username" class="form-text text-muted">We'll never share your credentials with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control form-control-user" id="password" name="password" required>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="remember">
+                  <label class="form-check-label" for="remember">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+              </form>
+              <hr>
+            <div class="text-center">
+                <a class="small" href="forgot-password.html">Forgot Password?</a>
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+    <% include ../admin/partials/scripts %>
+  </body>
+</html>

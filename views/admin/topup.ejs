@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ./partials/head %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="w-50 mx-auto card my-1">
+        <div class="card-body">
+          <form class="form-group" action="/admin/topup" method="post">
+            <div class="form-group">
+              <label for="phoneno">Phone Number</label>
+              <input
+                class="form-control"
+                type="text"
+                name="phoneno"
+                id="phoneno"
+                placeholder="Enter your phone number."
+              />
+            </div>
+            <div class="form-group">
+              <label for="amount">Amount</label>
+              <input
+                class="form-control"
+                type="text"
+                name="amount"
+                id="amount"
+                value="1000"
+                placeholder="Enter Amount"
+              />
+            </div>
+            <div class="form-group">
+              <label for="operator">Operator</label>
+              <select class="form-control" id="operator">
+                <option value="1">MPT</option>
+                <option value="2">Ooredoo</option>
+                <option value="3">Telenor</option>
+                <option value="4">MECTel</option>
+                <option value="5">MyTel</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="companyid">Company ID</label>
+              <input
+                class="form-control"
+                type="text"
+                name="companyid"
+                id="companyid"
+                placeholder="Enter your companyid."
+              />
+            </div>
+            <div class="form-group">
+              <label for="iterationcount">Iteration</label>
+              <input
+                class="form-control"
+                type="text"
+                name="iterationcount"
+                id="iterationcount"
+                placeholder="How many time do you want to process?"
+              />
+            </div>
+            <div class="form-group">
+              <label for="interval">Interval (in seconds)</label>
+              <input
+                class="form-control"
+                type="text"
+                name="interval"
+                id="interval"
+                placeholder="Break time between each process"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="key">Encryption Key</label>
+              <input
+                class="form-control"
+                type="text"
+                name="key"
+                id="key"
+                placeholder="Enter encryption key"
+              />
+            </div>
+            <button type="submit" class="btn btn-block btn-primary py-2">
+              Submit
+            </button>
+          </form>
+          <a href="/admin/" class="btn btn-link p-2">Back to dashboard </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
