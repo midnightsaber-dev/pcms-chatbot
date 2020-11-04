@@ -37,24 +37,32 @@ router.post("/login", async (req, res) => {
 });
 /* GET index page. */
 router.get("/", function (req, res, next) {
-  if (req.session.loggedin) {
-    res.render("admin/index", {
-      title: "Admin Dashboard | PCMS",
-      place: "",
-    });
-  } else {
-    res.redirect("/admin/login");
+  try {
+    if (req.session.loggedin) {
+      res.render("admin/index", {
+        title: "Admin Dashboard | PCMS",
+        place: "",
+      });
+    } else {
+      res.redirect("/admin/login");
+    }
+    res.end();
+  } catch (error) {
+    console.log(error);
   }
-  res.end();
 });
 
 /* GET merchant list. */
 router.get("/merchant/view", function (req, res, next) {
   try {
-    res.render("admin/merchant/view_merchant", {
-      title: "Merchant List | PCMS",
-      place: "Merchant",
-    });
+    if (req.session.loggedin) {
+      res.render("admin/merchant/view_merchant", {
+        title: "Merchant List | PCMS",
+        place: "Merchant",
+      });
+    } else {
+      res.redirect("/admin/login");
+    }
   } catch (error) {
     console.log(error);
   }
@@ -63,10 +71,14 @@ router.get("/merchant/view", function (req, res, next) {
 /* GET merchant create form */
 router.get("/merchant/create", function (req, res, next) {
   try {
-    res.render("admin/merchant/create_merchant", {
-      title: "Create Merchant | PCMS",
-      place: "Merchant",
-    });
+    if (req.session.loggedin) {
+      res.render("admin/merchant/create_merchant", {
+        title: "Create Merchant | PCMS",
+        place: "Merchant",
+      });
+    } else {
+      res.redirect("/admin/login");
+    }
   } catch (error) {
     console.log(error);
   }
@@ -75,10 +87,14 @@ router.get("/merchant/create", function (req, res, next) {
 /* GET event list. */
 router.get("/event/view", function (req, res, next) {
   try {
-    res.render("admin/event/view_event", {
-      title: "Event List | PCMS",
-      place: "Event",
-    });
+    if (req.session.loggedin) {
+      res.render("admin/event/view_event", {
+        title: "Event List | PCMS",
+        place: "Event",
+      });
+    } else {
+      res.redirect("/admin/login");
+    }
   } catch (error) {
     console.log(error);
   }
@@ -87,10 +103,14 @@ router.get("/event/view", function (req, res, next) {
 /* GET event create form */
 router.get("/event/create", function (req, res, next) {
   try {
-    res.render("admin/event/create_event", {
-      title: "Create Event | PCMS",
-      place: "Event",
-    });
+    if (req.session.loggedin) {
+      res.render("admin/event/create_event", {
+        title: "Create Event | PCMS",
+        place: "Event",
+      });
+    } else {
+      res.redirect("/admin/login");
+    }
   } catch (error) {
     console.log(error);
   }
@@ -99,10 +119,14 @@ router.get("/event/create", function (req, res, next) {
 /* GET topup transaction list. */
 router.get("/report/topup", function (req, res, next) {
   try {
-    res.render("admin/report/topup_report", {
-      title: "Topup List | PCMS",
-      place: "Report (Top Up)",
-    });
+    if (req.session.loggedin) {
+      res.render("admin/report/topup_report", {
+        title: "Topup List | PCMS",
+        place: "Report (Top Up)",
+      });
+    } else {
+      res.redirect("/admin/login");
+    }
   } catch (error) {
     console.log(error);
   }
@@ -111,10 +135,14 @@ router.get("/report/topup", function (req, res, next) {
 /* GET item transaction list. */
 router.get("/report/item", function (req, res, next) {
   try {
-    res.render("admin/report/item_report", {
-      title: "Item List | PCMS",
-      place: "Report (Item)",
-    });
+    if (req.session.loggedin) {
+      res.render("admin/report/item_report", {
+        title: "Item List | PCMS",
+        place: "Report (Item)",
+      });
+    } else {
+      res.redirect("/admin/login");
+    }
   } catch (error) {
     console.log(error);
   }
@@ -123,9 +151,13 @@ router.get("/report/item", function (req, res, next) {
 /* GET change password form. */
 router.get("/changepwd", function (req, res, next) {
   try {
-    res.render("admin/changepassword", {
-      title: "Change Password | PCMS",
-    });
+    if (req.session.loggedin) {
+      res.render("admin/changepassword", {
+        title: "Change Password | PCMS",
+      });
+    } else {
+      res.redirect("/admin/login");
+    }
   } catch (error) {
     console.log(error);
   }
@@ -142,20 +174,33 @@ router.get("/logout", function (req, res, next) {
 });
 
 router.get("/topup", (req, res) => {
-  res.render("admin/topup", {
-    title: "Topup",
-  });
-});
-
-router.post("/topup", (req, res) => {
   try {
-    console.log(req.body);
-    let transid = "MPSS" + Date.now();
-    let iteration = req.body.iteration;
-    let interval = req.body.interval;
-    req.body.transid = transid;
+    if (req.session.loggedin) {
+      res.render("admin/topup", {
+        title: "Topup",
+      });
+    } else {
+      res.redirect("/admin/login");
+    }
   } catch (error) {
     console.log(error);
   }
 });
+
+router.post("/topup", (req, res) => {
+  try {
+    if (req.session.loggedin) {
+      console.log(req.body);
+      let transid = "MPSS" + Date.now();
+      let iteration = req.body.iteration;
+      let interval = req.body.interval;
+      req.body.transid = transid;
+    } else {
+      res.redirect("/admin/login");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = router;
