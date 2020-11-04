@@ -21,14 +21,9 @@ router.post("/login", async (req, res) => {
         "SELECT * FROM admin WHERE username = $1 AND password= $2",
         [username, password]
       );
-      console.log(login.rows);
-      if (login.rows > 0) {
-        req.session.loggedin = true;
-        req.session.username = username;
-        res.redirect("/admin");
-      } else {
-        res.send("Your input is wrong.");
-      }
+      req.session.loggedin = true;
+      req.session.username = username;
+      res.redirect("/admin");
     } else {
       res.send("there is error");
     }
