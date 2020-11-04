@@ -19,12 +19,11 @@ router.post("/login", async (req, res) => {
     console.log(passwd);
     console.log(" Name:" + username + " password:" + password);
     if (username && password) {
-      let result = await db
-        .query("SELECT * FROM admin WHERE username = $1 and password = $2", [
-          username,
-          passwd,
-        ])
-        .then(console.log(result));
+      let login = await db.query(
+        "SELECT * FROM admin WHERE username = $1 and password = $2",
+        [username, passwd]
+      );
+      login.then((result) => console.log(result));
     } else {
       res.send("there is error");
     }
