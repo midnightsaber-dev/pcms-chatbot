@@ -8,9 +8,5 @@ const pool = new Pool({
 });
 
 module.exports = {
-  MAILGUN_CONFIG: {
-    DOMAIN_NAME: process.env.MAILGUN_DOMAIN_NAME,
-    API_KEY: process.env.MAILGUN_API_KEY,
-  },
   query: (text, params) => pool.query(text, params),
 };
