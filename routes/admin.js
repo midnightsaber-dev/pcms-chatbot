@@ -23,10 +23,11 @@ router.post("/login", async (req, res) => {
         "SELECT * FROM admin WHERE username = $1 and password = $2",
         [username, hash]
       );
-      console.log(login);
-
-      login.then(function (result) {
-        console.log(result);
+      res.status(200).json({
+        status: "success",
+        data: {
+          restaurant: login.rows,
+        },
       });
     } else {
       res.send("there is error");
