@@ -107,7 +107,7 @@ router.post("/merchant/create", async (req, res) => {
         status
       ) {
         let data = await db.query(
-          "INSERT INTO merchant (merchant_id, merchant_name, merchant_email, merchant_phone_number, apikey, orgkey, address, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+          "INSERT INTO merchant (merchant_id, merchant_name, merchant_email, merchant_phone_number, api_key, org_key, address, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
           [id, name, email, phone_number, apikey, orgkey, address, status]
         );
         console.log(data.rows);
