@@ -130,10 +130,10 @@ router.get("/changepwd", function (req, res, next) {
 /*  Logout */
 router.get("/logout", function (req, res, next) {
   try {
-    req.session = null;
-    res.render("admin/login", {
-      title: "Login | PCMS",
-    });
+    if (req.session.loggedin) {
+      req.session = null;
+      res.redirect("/admin/login");
+    }
   } catch (error) {
     console.log(error);
   }
