@@ -59,7 +59,7 @@ router.get("/merchant/view", async (req, res) => {
       res.render("admin/merchant/view_merchant", {
         title: "Merchant List | PCMS",
         place: "Merchant",
-        merchants: merchants.rows,
+        merchants: merchants,
       });
     } else {
       res.redirect("/admin/login");

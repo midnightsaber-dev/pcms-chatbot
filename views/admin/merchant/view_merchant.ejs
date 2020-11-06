@@ -94,16 +94,17 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <% for (let i = 0; i < 5; i++) { %>
+                      <% for (let merchant = 0; merchant < merchants.length;
+                      merchant++) { %>
                       <tr>
-                        <td><%= i %></td>
-                        <td><%= i %></td>
-                        <td><%= i %></td>
-                        <td><%= i %></td>
-                        <td><%= i %></td>
-                        <td><%= i %></td>
-                        <td><%= i %></td>
-                        <td><%= i %></td>
+                        <td><%= merchant.merchant_id %></td>
+                        <td><%= merchant.merchant_id %></td>
+                        <td><%= merchant.merchant_id %></td>
+                        <td><%= merchant.merchant_id %></td>
+                        <td><%= merchant.merchant_id %></td>
+                        <td><%= merchant.merchant_id %></td>
+                        <td><%= merchant.merchant_id %></td>
+                        <td><%= merchant.merchant_id %></td>
                       </tr>
                       <% } %>
                     </tbody>
