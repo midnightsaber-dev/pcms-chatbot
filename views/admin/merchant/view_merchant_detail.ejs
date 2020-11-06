@@ -36,31 +36,37 @@
                       </tr>
                       <tr>
                         <th>Contact Email</th>
-                        <td><%= merchant %></td>
+                        <td><%= merchant.merchant_email %></td>
                       </tr>
                       <tr>
                         <th>Contact Phone Number</th>
-                        <td><%= merchant %></td>
+                        <td><%= merchant.merchant_phone_number %></td>
                       </tr>
                       <tr>
                         <th>API Key</th>
-                        <td><%= merchant %></td>
+                        <td><%= merchant.api_key %></td>
                       </tr>
                       <tr>
                         <th>Org Key</th>
-                        <td><%= merchant %></td>
+                        <td><%= merchant.org_key %></td>
                       </tr>
                       <tr>
                         <th>Address</th>
-                        <td><%= merchant %></td>
+                        <td><%= merchant.address %></td>
                       </tr>
                       <tr>
                         <th>Status</th>
-                        <td><%= merchant %></td>
+                        <td><%= merchant.status %></td>
                       </tr>
                     </thead>
                   </table>
                 </div>
+                <a href="/admin/merchant/view" class="btn btn-primary"
+                  >Back to Merchant List</a
+                >
+                <a href="/admin/merchant/update" class="btn btn-warning"
+                  >Update</a
+                >
               </div>
             </div>
           </div>
