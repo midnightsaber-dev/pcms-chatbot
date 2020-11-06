@@ -1,4 +1,4 @@
-const db = require("../db");
+const db = require("../../db");
 
 // Get Merchant List
 // Handle merchant update on POST.
