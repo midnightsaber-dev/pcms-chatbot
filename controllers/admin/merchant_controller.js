@@ -15,8 +15,8 @@ exports.merchant_update_post = async (req, res) => {
         orgkey,
         address,
         status,
-      } = req.params;
-      console.log(req.params);
+      } = req.body;
+      console.log(req.body);
       const merchant = await db.query(
         "UPDATE merchant SET pcms_merchant_id = $1, merchant_name = $2, merchant_email = $3, merchant_phone_number= $4, api_key = $5, org_key= $6, address= $7, status= $8 WHERE sys_merchant_id= $9 RETURNING *",
         [
