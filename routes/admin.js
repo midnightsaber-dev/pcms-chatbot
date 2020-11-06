@@ -123,6 +123,7 @@ router.post("/merchant/create", async (req, res) => {
             status,
           ]
         );
+        console.log(data.rows[0]);
         if (data.rows.length > 0) {
           res.render(`/admin/merchant/detail/${data.rows[0].sys_merchant_id}`);
         } else {
