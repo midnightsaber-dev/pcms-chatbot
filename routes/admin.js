@@ -99,6 +99,7 @@ router.post("/merchant/create", async (req, res) => {
         address,
         status,
       } = req.body;
+      console.log(pcms_merchant_id);
       if (
         pcms_merchant_id &&
         name &&
