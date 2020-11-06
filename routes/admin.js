@@ -99,7 +99,6 @@ router.post("/merchant/create", async (req, res) => {
         address,
         status,
       } = req.body;
-      console.log(pcms_merchant_id);
       if (
         pcms_merchant_id &&
         name &&
@@ -125,7 +124,9 @@ router.post("/merchant/create", async (req, res) => {
         );
         console.log(data.rows[0]);
         if (data.rows.length > 0) {
-          res.render(`/admin/merchant/detail/${data.rows[0].sys_merchant_id}`);
+          res.redirect(
+            `/admin/merchant/detail/${data.rows[0].sys_merchant_id}`
+          );
         } else {
           res.send("database query error");
         }
