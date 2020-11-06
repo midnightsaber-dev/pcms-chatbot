@@ -82,7 +82,7 @@ router.get("/merchant/create", function (req, res, next) {
   }
 });
 
-/* GET merchant create form */
+/* Create merchant  */
 router.post("/merchant/create", async (req, res) => {
   try {
     if (req.session.loggedin) {
@@ -127,7 +127,7 @@ router.post("/merchant/create", async (req, res) => {
 });
 
 /* GET merchant detail. */
-router.get("/merchant/detail/:id", function (req, res, next) {
+router.get("/merchant/detail/:id", async function (req, res, next) {
   try {
     if (req.session.loggedin) {
       const { id } = req.params;
@@ -138,7 +138,7 @@ router.get("/merchant/detail/:id", function (req, res, next) {
         );
         if (data.rows.length > 0) {
           res.render("/admin/merchant/view_merchant_detail", {
-            data: data
+            data: data,
           });
         } else {
           res.send("your input is wrong." + login.rows);
