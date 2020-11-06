@@ -87,6 +87,7 @@
                   >
                     <thead align="center">
                       <tr>
+                        <th>ID</th>
                         <th>Merchant ID</th>
                         <th>Merchant Name</th>
                         <th>Address</th>
@@ -100,7 +101,8 @@
                       <% for (let merchant = 0; merchant < merchants.length;
                       merchant++) { %>
                       <tr>
-                        <td><%= merchants[merchant].merchant_id %></td>
+                        <td><%= merchants[merchant].sys_merchant_id %></td>
+                        <td><%= merchants[merchant].pcms_merchant_id %></td>
                         <td><%= merchants[merchant].merchant_name %></td>
                         <td><%= merchants[merchant].address %></td>
                         <td><%= merchants[merchant].merchant_email%></td>
@@ -110,14 +112,14 @@
                         <td><%= merchants[merchant].status %></td>
                         <td>
                           <a
-                            href="/admin/merchant/detail/<%= merchants[merchant].merchant_id %> %>"
+                            href="/admin/merchant/detail/<%= merchants[merchant].sys_merchant_id %> %>"
                             class="btn btn-info"
                             >Detail</a
                           >
                         </td>
                         <td>
                           <a
-                            href="/admin/merchant/update/<%= merchants[merchant].merchant_id %> %>"
+                            href="/admin/merchant/update/<%= merchants[merchant].sys_merchant_id %> %>"
                             class="btn btn-danger"
                             >Update</a
                           >

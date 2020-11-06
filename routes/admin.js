@@ -1,7 +1,8 @@
 var express = require("express");
 var router = express.Router();
 const db = require("../db");
-var TripleDES = require("../service/3desencrypt");
+const TripleDES = require("../service/3desencrypt");
+const merchant_controller = require("../controllers/admin/merchant_controller");
 
 /* GET login page. */
 router.get("/login", function (req, res, next) {
@@ -89,7 +90,7 @@ router.post("/merchant/create", async (req, res) => {
   try {
     if (req.session.loggedin) {
       const {
-        id,
+        pcms_merchant_id,
         name,
         email,
         phone_number,
@@ -99,7 +100,7 @@ router.post("/merchant/create", async (req, res) => {
         status,
       } = req.body;
       if (
-        id &&
+        pcms_merchant_id &&
         name &&
         email &&
         phone_number &&
@@ -109,11 +110,20 @@ router.post("/merchant/create", async (req, res) => {
         status
       ) {
         let data = await db.query(
-          "INSERT INTO merchant (merchant_id, merchant_name, merchant_email, merchant_phone_number, api_key, org_key, address, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
-          [id, name, email, phone_number, apikey, orgkey, address, status]
+          "INSERT INTO merchant (pcms_merchant_id, merchant_name, merchant_email, merchant_phone_number, api_key, org_key, address, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+          [
+            pcms_merchant_id,
+            name,
+            email,
+            phone_number,
+            apikey,
+            orgkey,
+            address,
+            status,
+          ]
         );
         if (data.rows.length > 0) {
-          res.render(`/admin/merchant/detail/${data.rows[0].merchant_id}`);
+          res.render(`/admin/merchant/detail/${data.rows[0].sys_merchant_id}`);
         } else {
           res.send("database query error");
         }
@@ -135,7 +145,7 @@ router.get("/merchant/detail/:id", async function (req, res, next) {
       const { id } = req.params;
       if (id) {
         let data = await db.query(
-          "SELECT * FROM merchant WHERE merchant_id = $1",
+          "SELECT * FROM merchant WHERE sys_merchant_id = $1",
           [id]
         );
         if (data.rows.length > 0) {
@@ -164,7 +174,7 @@ router.get("/merchant/update/:id", async (req, res) => {
     if (req.session.loggedin) {
       let { id } = req.params;
       const merchant = await db.query(
-        "SELECT * FROM merchant WHERE merchant_id = $1",
+        "SELECT * FROM merchant WHERE sys_merchant_id = $1",
         [id]
       );
       res.render("admin/merchant/update_merchant", {
@@ -179,9 +189,9 @@ router.get("/merchant/update/:id", async (req, res) => {
     console.log(error);
   }
 });
-
+/* Merchant Routes */
 /* Update Merchant */
-
+router.post("/merchant/update/:id", merchant_controller.merchant_update_post);
 /* GET event list. */
 router.get("/event/view", function (req, res, next) {
   try {
