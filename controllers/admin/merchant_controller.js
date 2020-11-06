@@ -31,7 +31,7 @@ exports.merchant_update_post = async (req, res) => {
           sys_merchant_id,
         ]
       );
-      if (data.rows.length > 0) {
+      if (merchant.rows.length > 0) {
         res.render(
           `/admin/merchant/detail/${merchant.rows[0].sys_merchant_id}`
         );
