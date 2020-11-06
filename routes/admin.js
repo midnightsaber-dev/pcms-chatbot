@@ -4,6 +4,7 @@ const db = require("../db");
 const TripleDES = require("../service/3desencrypt");
 const merchant_controller = require("../controllers/admin/merchant_controller");
 const auth_controller = require("../controllers/admin/auth_controller");
+const event_controller = require("../controllers/admin/event_controller");
 
 /* DASHBOARD, LOGIN AND LOGOUT ROUTES*/
 // =========================================
@@ -57,20 +58,7 @@ router.get("/event/view", function (req, res, next) {
 });
 
 /* GET event create form */
-router.get("/event/create", function (req, res, next) {
-  try {
-    if (req.session.loggedin) {
-      res.render("admin/event/create_event", {
-        title: "Create Event | PCMS",
-        place: "Event",
-      });
-    } else {
-      res.redirect("/admin/login");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-});
+router.get("/event/create", event_controller.event_create_get);
 
 /* GET topup transaction list. */
 router.get("/report/topup", function (req, res, next) {
