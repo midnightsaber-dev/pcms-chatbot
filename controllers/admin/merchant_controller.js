@@ -5,8 +5,8 @@ const db = require("../../db");
 exports.merchant_update_post = async (req, res) => {
   try {
     if (req.session.loggedin) {
+      const sys_merchant_id = req.params;
       const {
-        sys_merchant_id,
         pcms_merchant_id,
         name,
         email,
@@ -16,7 +16,7 @@ exports.merchant_update_post = async (req, res) => {
         address,
         status,
       } = req.body;
-      console.log(req.body);
+      console.log(req.params, req.body);
       const merchant = await db.query(
         "UPDATE merchant SET pcms_merchant_id = $1, merchant_name = $2, merchant_email = $3, merchant_phone_number= $4, api_key = $5, org_key= $6, address= $7, status= $8 WHERE sys_merchant_id= $9 RETURNING *",
         [
@@ -31,7 +31,7 @@ exports.merchant_update_post = async (req, res) => {
           sys_merchant_id,
         ]
       );
-      console.log(merchant);
+      console.log(merchant.rows);
       if (merchant.rows.length > 0) {
         res.render(
           `/admin/merchant/detail/${merchant.rows[0].sys_merchant_id}`
