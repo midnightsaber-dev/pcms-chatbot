@@ -54,12 +54,12 @@ router.get("/", function (req, res, next) {
 router.get("/merchant/view", async (req, res) => {
   try {
     if (req.session.loggedin) {
-      const merchant = await db.query("SELECT * FROM merchant");
+      const merchants = await db.query("SELECT * FROM merchant");
       console.log(merchant);
       res.render("admin/merchant/view_merchant", {
         title: "Merchant List | PCMS",
         place: "Merchant",
-        merchants: merchant,
+        merchants: merchants,
       });
     } else {
       res.redirect("/admin/login");
