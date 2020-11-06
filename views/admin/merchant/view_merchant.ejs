@@ -49,9 +49,12 @@
                     <td>
                       <select class="browser-default custom-select">
                         <option selected>Choose Merchant Name</option>
-                        <option value="1">SPY Beverage</option>
-                        <option value="2">100 Plus</option>
-                        <option value="3">ABC</option>
+                        <% for (let merchant = 0; merchant < merchants.length;
+                        merchant++) { %>
+                        <option value="<%= merchants[merchant].merchant_id %>">
+                          <%= merchants[merchant].merchant_name %>
+                        </option>
+                        <% } %>
                       </select>
                     </td>
                     <td>
