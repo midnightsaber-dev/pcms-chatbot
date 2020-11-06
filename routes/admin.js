@@ -51,12 +51,14 @@ router.get("/", function (req, res, next) {
 });
 
 /* GET merchant list. */
-router.get("/merchant/view", function (req, res, next) {
+router.get("/merchant/view", async (req, res) => {
   try {
     if (req.session.loggedin) {
+      const merchant = await db.query("SELECT * FROM merchant");
       res.render("admin/merchant/view_merchant", {
         title: "Merchant List | PCMS",
         place: "Merchant",
+        data: merchant,
       });
     } else {
       res.redirect("/admin/login");
