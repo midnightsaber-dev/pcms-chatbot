@@ -158,6 +158,30 @@ router.get("/merchant/detail/:id", async function (req, res, next) {
   }
 });
 
+/* Get merchant update form */
+router.get("/merchant/update/:id", async (req, res) => {
+  try {
+    if (req.session.loggedin) {
+      let { id } = req.params;
+      const merchant = await db.query(
+        "SELECT * FROM merchant WHERE merchant_id = $1",
+        [id]
+      );
+      res.render("admin/merchant/update_merchant", {
+        title: "Update Merchant | PCMS",
+        place: "Merchant",
+        merchant: merchant.rows[0],
+      });
+    } else {
+      res.redirect("/admin/login");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+/* Update Merchant */
+
 /* GET event list. */
 router.get("/event/view", function (req, res, next) {
   try {
