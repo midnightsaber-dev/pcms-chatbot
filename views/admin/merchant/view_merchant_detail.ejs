@@ -1,1 +1,85 @@
-<%- JSON.stringify(data.rows) %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %> <% include ../partials/table_head %>
+  </head>
+  <body>
+    <div id="wrapper">
+      <% include ../partials/sidebar %>
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <% include ../partials/topbar %>
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">Merchant Detail</h1>
+            <!--  Merchant Detail Table -->
+            <div class="card shadow mb-4">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table
+                    class="table table-bordered dataTables_wrapper"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                    <thead align="center">
+                      <tr>
+                        <th>Merchant ID</th>
+                        <td><%= merchant.merchant_id %></td>
+                      </tr>
+                      <tr>
+                        <th>Merchant Name</th>
+                        <td><%= merchant.merchant_name %></td>
+                      </tr>
+                      <tr>
+                        <th>Contact Email</th>
+                        <td><%= merchant.merchant_email %></td>
+                      </tr>
+                      <tr>
+                        <th>Contact Phone Number</th>
+                        <td><%= merchant.merchant_phone_number %></td>
+                      </tr>
+                      <tr>
+                        <th>API Key</th>
+                        <td><%= merchant.api_key %></td>
+                      </tr>
+                      <tr>
+                        <th>Org Key</th>
+                        <td><%= merchant.org_key %></td>
+                      </tr>
+                      <tr>
+                        <th>Address</th>
+                        <td><%= merchant.merchant_address %></td>
+                      </tr>
+                      <tr>
+                        <th>Status</th>
+                        <td><%= merchant.status %></td>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Your Website 2020</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <% include ../partials/scripts %> <% include ../partials/table_scripts %>
+  </body>
+</html>

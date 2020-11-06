@@ -143,7 +143,7 @@ router.get("/merchant/detail/:id", async function (req, res, next) {
           res.render("admin/merchant/view_merchant_detail", {
             title: "Merchant Detail | PCMS",
             place: "Merchant",
-            data: data,
+            data: data[0],
           });
         } else {
           res.send("your input is wrong." + login.rows);
