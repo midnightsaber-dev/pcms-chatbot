@@ -94,30 +94,24 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <% merchants.forEach(merchant => { %>
-                      <tr>
-                        <td><%= merchant.merchant_id %></td>
-                        <td><%= merchant.merchant_name %></td>
-                        <td><%= merchant.address %></td>
-                        <td><%= merchant.merchant_email %></td>
-                        <td><%= merchant.merchant_phone_number %></td>
-                        <td><%= merchant.status %></td>
-                        <td>
-                          <a
-                            href="/admin/merchant/detail/<%= merchant.merchant_id %>"
-                            class="btn btn-warning"
-                            >Detail</a
-                          >
-                        </td>
-                        <td>
-                          <a
-                            href="/admin/merchant/update/<%= merchant.merchant_id %>"
-                            class="btn btn-danger"
-                            >Update</a
-                          >
-                        </td>
-                      </tr>
-                      <% }) %>
+                      <% for( let merchant = 0; index < merchants.length;
+                      merchant++ ) { %>
+                      <td><% merchant.merchant_id</td>
+                      <td>
+                        <a
+                          href="/admin/merchant/detail/<%= merchant.merchant_id %>"
+                          class="btn btn-warning"
+                          >Detail</a
+                        >
+                      </td>
+                      <td>
+                        <a
+                          href="/admin/merchant/update/<%= merchant.merchant_id %>"
+                          class="btn btn-danger"
+                          >Update</a
+                        >
+                      </td>
+                      <% } %>
                     </tbody>
                   </table>
                 </div>
