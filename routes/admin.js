@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const db = require("../db");
 const TripleDES = require("../service/3desencrypt");
 const merchant_controller = require("../controllers/admin/merchant_controller");
