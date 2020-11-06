@@ -113,7 +113,7 @@ router.post("/merchant/create", async (req, res) => {
           [id, name, email, phone_number, apikey, orgkey, address, status]
         );
         if (data.rows.length > 0) {
-          res.render(`/admin/merchant/detail/${data.rows.merchant_id}`);
+          res.render(`/admin/merchant/detail/${data.rows[0].merchant_id}`);
         } else {
           res.send("database query error");
         }
@@ -138,7 +138,6 @@ router.get("/merchant/detail/:id", async function (req, res, next) {
           "SELECT * FROM merchant WHERE merchant_id = $1",
           [id]
         );
-        console.log(data.rows);
         if (data.rows.length > 0) {
           res.render("admin/merchant/view_merchant_detail", {
             title: "Merchant Detail | PCMS",
