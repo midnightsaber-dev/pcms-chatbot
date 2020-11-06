@@ -5,7 +5,7 @@ const db = require("../../db");
 exports.merchant_update_post = async (req, res) => {
   try {
     if (req.session.loggedin) {
-      const { sys_merchant_id } = req.params;
+      const { sys_merchant_id } = req.params.id;
       const {
         pcms_merchant_id,
         name,
