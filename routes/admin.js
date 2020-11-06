@@ -140,7 +140,9 @@ router.get("/merchant/detail/:id", async function (req, res, next) {
           [id]
         );
         if (data.rows.length > 0) {
-          res.render("/admin/merchant/view_merchant_detail", {
+          res.render("admin/merchant/view_merchant_detail", {
+            title: "Merchant Detail | PCMS",
+            place: "Merchant",
             data: data,
           });
         } else {
@@ -149,11 +151,6 @@ router.get("/merchant/detail/:id", async function (req, res, next) {
       } else {
         res.send("there is no data");
       }
-      res.render("admin/merchant/view_merchant_detail", {
-        title: "Merchant Detail | PCMS",
-        place: "Merchant",
-        deta,
-      });
     } else {
       res.redirect("/admin/login");
     }
