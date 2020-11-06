@@ -139,12 +139,11 @@ router.get("/merchant/detail/:id", async function (req, res, next) {
           "SELECT * FROM merchant WHERE merchant_id = $1",
           [id]
         );
-        console.log(data);
         if (data.rows.length > 0) {
           res.render("admin/merchant/view_merchant_detail", {
             title: "Merchant Detail | PCMS",
             place: "Merchant",
-            merchant: data,
+            merchant: data[0],
           });
         } else {
           res.send("your input is wrong.");
