@@ -33,7 +33,7 @@ exports.merchant_update_post = async (req, res) => {
       );
       console.log(merchant.rows);
       if (merchant.rows.length > 0) {
-        res.render(
+        res.redirect(
           `/admin/merchant/detail/${merchant.rows[0].sys_merchant_id}`
         );
       } else {
