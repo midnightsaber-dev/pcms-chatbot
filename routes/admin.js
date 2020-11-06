@@ -55,7 +55,7 @@ router.get("/merchant/view", async (req, res) => {
   try {
     if (req.session.loggedin) {
       const merchants = await db.query("SELECT * FROM merchant");
-      console.log(merchant);
+      console.log(merchants);
       res.render("admin/merchant/view_merchant", {
         title: "Merchant List | PCMS",
         place: "Merchant",
