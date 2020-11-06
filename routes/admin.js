@@ -3,198 +3,43 @@ const router = express.Router();
 const db = require("../db");
 const TripleDES = require("../service/3desencrypt");
 const merchant_controller = require("../controllers/admin/merchant_controller");
+const auth_controller = require("../controllers/admin/auth_controller");
 
+/* DASHBOARD, LOGIN AND LOGOUT ROUTES*/
+// =========================================
 /* GET login page. */
-router.get("/login", function (req, res, next) {
-  res.render("admin/login", {
-    title: "Login | PCMS",
-  });
-});
+router.get("/login", auth_controller.admin_login);
 
 /* POST login page. */
-router.post("/login", async (req, res) => {
-  try {
-    const { username, password } = req.body;
-    if (username && password) {
-      let login = await db.query(
-        "SELECT * FROM admin WHERE username = $1 AND password= $2",
-        [username, password]
-      );
-      if (login.rows.length > 0) {
-        req.session.loggedin = true;
-        req.session.username = username;
-        res.redirect("/admin");
-      } else {
-        res.send("your input is wrong." + login.rows);
-      }
-    } else {
-      res.send("there is error");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-});
+router.post("/login", auth_controller.admin_login_post);
 /* GET index page. */
-router.get("/", function (req, res, next) {
-  try {
-    if (req.session.loggedin) {
-      res.render("admin/index", {
-        title: "Admin Dashboard | PCMS",
-        place: "",
-      });
-    } else {
-      res.redirect("/admin/login");
-    }
-    res.end();
-  } catch (error) {
-    console.log(error);
-  }
-});
+router.get("/", auth_controller.admin_dashboard_get);
 
+/*  Logout */
+router.get("/logout", auth_controller.admin_logout_get);
+
+/* Merchant Routes */
+// =======================
 /* GET merchant list. */
-router.get("/merchant/view", async (req, res) => {
-  try {
-    if (req.session.loggedin) {
-      const merchants = await db.query("SELECT * FROM merchant");
-      res.render("admin/merchant/view_merchant", {
-        title: "Merchant List | PCMS",
-        place: "Merchant",
-        merchants: merchants.rows,
-      });
-    } else {
-      res.redirect("/admin/login");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-});
+router.get("/merchant/view", merchant_controller.merchant_index);
 
 /* GET merchant create form */
-router.get("/merchant/create", function (req, res, next) {
-  try {
-    if (req.session.loggedin) {
-      res.render("admin/merchant/create_merchant", {
-        title: "Create Merchant | PCMS",
-        place: "Merchant",
-      });
-    } else {
-      res.redirect("/admin/login");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-});
+router.get("/merchant/create", merchant_controller.merchant_create_get);
 
 /* Create merchant  */
-router.post("/merchant/create", async (req, res) => {
-  try {
-    if (req.session.loggedin) {
-      const {
-        pcms_merchant_id,
-        name,
-        email,
-        phone_number,
-        apikey,
-        orgkey,
-        address,
-        status,
-      } = req.body;
-      if (
-        pcms_merchant_id &&
-        name &&
-        email &&
-        phone_number &&
-        apikey &&
-        orgkey &&
-        address &&
-        status
-      ) {
-        let data = await db.query(
-          "INSERT INTO merchant (pcms_merchant_id, merchant_name, merchant_email, merchant_phone_number, api_key, org_key, address, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
-          [
-            pcms_merchant_id,
-            name,
-            email,
-            phone_number,
-            apikey,
-            orgkey,
-            address,
-            status,
-          ]
-        );
-        console.log(data.rows[0]);
-        if (data.rows.length > 0) {
-          res.redirect(
-            `/admin/merchant/detail/${data.rows[0].sys_merchant_id}`
-          );
-        } else {
-          res.send("database query error");
-        }
-      } else {
-        res.send("please fill correctly.");
-      }
-    } else {
-      res.redirect("/admin/login");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-});
+router.post("/merchant/create", merchant_controller.merchant_create_post);
 
 /* GET merchant detail. */
-router.get("/merchant/detail/:id", async function (req, res, next) {
-  try {
-    if (req.session.loggedin) {
-      const { id } = req.params;
-      if (id) {
-        let data = await db.query(
-          "SELECT * FROM merchant WHERE sys_merchant_id = $1",
-          [id]
-        );
-        if (data.rows.length > 0) {
-          res.render("admin/merchant/view_merchant_detail", {
-            title: "Merchant Detail | PCMS",
-            place: "Merchant",
-            merchant: data.rows[0],
-          });
-        } else {
-          res.send("your input is wrong.");
-        }
-      } else {
-        res.send("there is no data");
-      }
-    } else {
-      res.redirect("/admin/login");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-});
+router.get("/merchant/detail/:id", merchant_controller.merchant_detail_get);
 
 /* Get merchant update form */
-router.get("/merchant/update/:id", async (req, res) => {
-  try {
-    if (req.session.loggedin) {
-      let { id } = req.params;
-      const merchant = await db.query(
-        "SELECT * FROM merchant WHERE sys_merchant_id = $1",
-        [id]
-      );
-      res.render("admin/merchant/update_merchant", {
-        title: "Update Merchant | PCMS",
-        place: "Merchant",
-        merchant: merchant.rows[0],
-      });
-    } else {
-      res.redirect("/admin/login");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-});
-/* Merchant Routes */
+router.get("/merchant/update/:id", merchant_controller.merchant_update_get);
+
 /* Update Merchant */
 router.post("/merchant/update/:id", merchant_controller.merchant_update_post);
+
+/* Event Routes */
+// ==========================
 /* GET event list. */
 router.get("/event/view", function (req, res, next) {
   try {
@@ -269,16 +114,6 @@ router.get("/changepwd", function (req, res, next) {
     } else {
       res.redirect("/admin/login");
     }
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-/*  Logout */
-router.get("/logout", function (req, res, next) {
-  try {
-    req.session.loggedin = false;
-    res.redirect("/admin/login");
   } catch (error) {
     console.log(error);
   }
