@@ -98,13 +98,27 @@
                       merchant++) { %>
                       <tr>
                         <td><%= merchants[merchant].merchant_id %></td>
-                        <td><%= merchants[merchant].merchant_id %></td>
-                        <td><%= merchants[merchant].merchant_id %></td>
-                        <td><%= merchants[merchant].merchant_id %></td>
-                        <td><%= merchants[merchant].merchant_id %></td>
-                        <td><%= merchants[merchant].merchant_id %></td>
-                        <td><%= merchants[merchant].merchant_id %></td>
-                        <td><%= merchants[merchant].merchant_id %></td>
+                        <td><%= merchants[merchant].merchant_name %></td>
+                        <td><%= merchants[merchant].address %></td>
+                        <td><%= merchants[merchant].merchant_email%></td>
+                        <td>
+                          <%= merchants[merchant].merchant_phone_number %>
+                        </td>
+                        <td><%= merchants[merchant].status %></td>
+                        <td>
+                          <a
+                            href="/admin/merchant/detail/<%= merchant.merchant_id %>"
+                            class="btn btn-warning"
+                            >Detail</a
+                          >
+                        </td>
+                        <td>
+                          <a
+                            href="/admin/merchant/update/<%= merchant.merchant_id %>"
+                            class="btn btn-danger"
+                            >Update</a
+                          >
+                        </td>
                       </tr>
                       <% } %>
                     </tbody>
