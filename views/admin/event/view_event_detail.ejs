@@ -51,22 +51,14 @@
                         <td><%= event.end_date %></td>
                       </tr>
                       <tr>
-                        <th>Contact Phone Number</th>
-                        <td><%= merchant.merchant_phone_number %></td>
-                      </tr>
-                      <tr>
-                        <th>Address</th>
-                        <td><%= merchant.address %></td>
-                      </tr>
-                      <tr>
                         <th>Status</th>
-                        <td><%= merchant.status %></td>
+                        <td><%= event.status %></td>
                       </tr>
                     </thead>
                   </table>
                 </div>
                 <a href="/admin/event/view" class="btn btn-info"
-                  >Back to Merchant List</a
+                  >Back to Event List</a
                 >
                 <a
                   href="/admin/event/update/<%= event.sys_event_id %>"
