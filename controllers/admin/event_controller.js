@@ -8,7 +8,7 @@ exports.event_index = async (req, res) => {
       res.render("admin/event/view_event", {
         title: "Event List | PCMS",
         place: "Event",
-        events: events.rows
+        events: events.rows,
       });
     } else {
       res.redirect("/admin/login");
@@ -19,14 +19,16 @@ exports.event_index = async (req, res) => {
 };
 
 //Handle event create on GET
-exports.event_create_get = (req, res) => {
+exports.event_create_get = async (req, res) => {
   try {
     if (req.session.loggedin) {
-      const merchants = await db.query("SELECT sys_merchant_id, merchant_name FROM merchant");
+      const merchants = await db.query(
+        "SELECT sys_merchant_id, merchant_name FROM merchant"
+      );
       res.render("admin/event/create_event", {
         title: "Create Event | PCMS",
         place: "Event",
-        merchants: merchants.rows
+        merchants: merchants.rows,
       });
     } else {
       res.redirect("/admin/login");
@@ -68,9 +70,7 @@ exports.event_create_post = async (req, res) => {
           ]
         );
         if (data.rows.length > 0) {
-          res.redirect(
-            `/admin/merchant/detail/${data.rows[0].sys_event_id}`
-          );
+          res.redirect(`/admin/merchant/detail/${data.rows[0].sys_event_id}`);
         } else {
           res.send("database query error");
         }
@@ -84,4 +84,3 @@ exports.event_create_post = async (req, res) => {
     console.log(error);
   }
 };
-
