@@ -4,7 +4,9 @@ const db = require("../../db");
 exports.event_index = async (req, res) => {
   try {
     if (req.session.loggedin) {
-      const events = await db.query("SELECT * FROM event");
+      const events = await db.query(
+        "SELECT event.*,merchant.merchant_name FROM event LEFT JOIN merchant ON event.sys_merchant_id = merchant.sys_merchant_id"
+      );
       res.render("admin/event/view_event", {
         title: "Event List | PCMS",
         place: "Event",
