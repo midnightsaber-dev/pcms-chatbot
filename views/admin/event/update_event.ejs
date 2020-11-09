@@ -73,11 +73,9 @@
                                 required
                               >
                                 <option selected>Select merchant</option>
-                                <% merchants.forEach(merchant => { %>
-                                <option
-                                  value="<%= merchant.sys_merchant_id %> "
-                                >
-                                  <%= merchant.merchant_name %>
+                                <% event.forEach( res => { %>
+                                <option value="<%= res.sys_merchant_id %> ">
+                                  <%= res.merchant_name %>
                                 </option>
                                 <% }) %>
                               </select>
