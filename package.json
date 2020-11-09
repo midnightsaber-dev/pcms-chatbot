@@ -15,7 +15,7 @@
     "express"
   ],
   "scripts": {
-    "start": "pm2 start ./bin/www",
+    "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
     "serverstart": "DEBUG=pcms-chatbot:* npm run devstart"
   },
@@ -32,8 +32,7 @@
     "http-errors": "~1.6.3",
     "mailgun-js": "^0.22.0",
     "morgan": "~1.9.1",
-    "pg": "^8.4.1",
-    "pm2": "^4.5.0"
+    "pg": "^8.4.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
