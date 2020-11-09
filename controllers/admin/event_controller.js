@@ -131,7 +131,7 @@ exports.event_update_get = async (req, res) => {
       const merchants = await db.query(
         "SELECT sys_merchant_id, merchant_name FROM merchant"
       );
-      console.log(event.rows[0]);
+      console.log(merchants.rows[0]);
       res.render("admin/event/update_event", {
         title: "Update Event | PCMS",
         place: "Event",
