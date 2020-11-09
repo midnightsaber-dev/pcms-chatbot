@@ -86,6 +86,7 @@
                   >
                     <thead align="center">
                       <tr>
+                        <th>ID</th>
                         <th>Event ID</th>
                         <th>Event Name</th>
                         <th>Merchant Name</th>
@@ -98,6 +99,7 @@
                     <tbody>
                       <% events.forEach(event => { %>
                       <tr>
+                        <td><%= event.sys_event_id %></td>
                         <td><%= event.pcms_event_id %></td>
                         <td><%= event.event_name %></td>
                         <td><%= event.sys_merchant_id %></td>
