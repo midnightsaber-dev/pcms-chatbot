@@ -92,10 +92,35 @@
                         <th>Start Date</th>
                         <th>End Date</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        <th colspan="2">Action</th>
                       </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                      <% events.forEach(event => { %>
+                      <tr>
+                        <td><%= event.pcms_event_id %></td>
+                        <td><%= event.event_name %></td>
+                        <td><%= event.sys_merchant_id %></td>
+                        <td><%= event.start_date %></td>
+                        <td><%= event.end_date %></td>
+                        <td><%= event.status %></td>
+                        <td>
+                          <a
+                            href="/admin/event/detail/<%= event.sys_event_id %> %>"
+                            class="btn btn-info"
+                            >Detail</a
+                          >
+                        </td>
+                        <td>
+                          <a
+                            href="/admin/event/update/<%= event.sys_event_id %> %>"
+                            class="btn btn-danger"
+                            >Update</a
+                          >
+                        </td>
+                      </tr>
+                      <% }) %>
+                    </tbody>
                   </table>
                 </div>
               </div>
