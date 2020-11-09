@@ -5,7 +5,7 @@ exports.event_index = async (req, res) => {
   try {
     if (req.session.loggedin) {
       const events = await db.query("SELECT * FROM event");
-      console.log(events.rows);
+      console.log(events.rows[0]);
       res.render("admin/event/view_event", {
         title: "Event List | PCMS",
         place: "Event",
