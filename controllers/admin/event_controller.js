@@ -117,3 +117,63 @@ exports.event_detail_get = async (req, res) => {
     console.log(error);
   }
 };
+
+// Handle event update on GET
+exports.event_update_get = async (req, res) => {
+  try {
+    if (req.session.loggedin) {
+      let { id } = req.params;
+      const event = await db.query(
+        "SELECT event.sys_event_id,event.pcms_event_id, event.event_name, merchant.merchant_name,merchant.sys_merchant_id, event.start_date, event.end_date, event.status FROM merchant,event WHERE merchant.sys_merchant_id = (SELECT sys_merchant_id FROM event WHERE sys_event_id = $1)",
+        [id]
+      );
+      res.render("admin/event/update_merchant", {
+        title: "Update Event | PCMS",
+        place: "Event",
+        event: event.rows[0],
+      });
+    } else {
+      res.redirect("/admin/login");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// Handle event update on POST.
+exports.event_update_post = async (req, res) => {
+  try {
+    if (req.session.loggedin) {
+      const sys_event_id = req.params.id;
+      const {
+        pcms_event_id,
+        event_name,
+        sys_merchant_id,
+        start_date,
+        end_date,
+        status,
+      } = req.body;
+      const event = await db.query(
+        "UPDATE event SET pcms_event_id = $1, event_name = $2, sys_merchant_id = $3, start_date= $4, end_date = $5, status = $6 WHERE sys_event_id= $7 RETURNING *",
+        [
+          pcms_event_id,
+          event_name,
+          sys_merchant_id,
+          start_date,
+          end_date,
+          status,
+          sys_event_id,
+        ]
+      );
+      if (event.rows.length > 0) {
+        res.redirect(`/admin/event/detail/${event.rows[0].sys_event_id}`);
+      } else {
+        res.send("database query error");
+      }
+    } else {
+      res.redirect("/admin/login");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -52,6 +52,13 @@ router.post("/event/create", event_controller.event_create_post);
 
 /* GET event detail */
 router.get("/event/detail/:id", event_controller.event_detail_get);
+
+/* GET event update form */
+router.get("/event/update/:id", event_controller.event_update_get);
+
+/* Update event */
+router.post("/event/update/:id", event_controller.event_update_post);
+
 /* GET topup transaction list. */
 router.get("/report/topup", function (req, res, next) {
   try {
