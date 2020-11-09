@@ -1,7 +1,7 @@
 const db = require("../../db");
 
 // GET event list //
-exports.event_index = (req, res) => {
+exports.event_index = async (req, res) => {
   try {
     if (req.session.loggedin) {
       const events = await db.query("SELECT * FROM event");
