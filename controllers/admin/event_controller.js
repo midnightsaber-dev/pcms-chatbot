@@ -24,13 +24,13 @@ exports.event_index = async (req, res) => {
 exports.event_create_get = async (req, res) => {
   try {
     if (req.session.loggedin) {
-      const Events = await db.query(
-        "SELECT sys_Event_id, Event_name FROM Event"
+      const merchants = await db.query(
+        "SELECT sys_merchant_id, merchant_name FROM merchant"
       );
       res.render("admin/event/create_event", {
         title: "Create Event | PCMS",
         place: "Event",
-        Events: Events.rows,
+        merchants: merchants.rows,
       });
     } else {
       res.redirect("/admin/login");
@@ -47,7 +47,7 @@ exports.event_create_post = async (req, res) => {
       const {
         pcms_event_id,
         event_name,
-        sys_Event_id,
+        sys_event_id,
         start_date,
         end_date,
         status,
@@ -55,17 +55,17 @@ exports.event_create_post = async (req, res) => {
       if (
         pcms_event_id &&
         event_name &&
-        sys_Event_id &&
+        sys_event_id &&
         start_date &&
         end_date &&
         status
       ) {
         let data = await db.query(
-          "INSERT INTO event (pcms_event_id, event_name, sys_Event_id, start_date, end_date, status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+          "INSERT INTO event (pcms_event_id, event_name, sys_event_id, start_date, end_date, status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
           [
             pcms_event_id,
             event_name,
-            sys_Event_id,
+            sys_event_id,
             start_date,
             end_date,
             status,
