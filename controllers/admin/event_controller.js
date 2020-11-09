@@ -7,7 +7,6 @@ exports.event_index = async (req, res) => {
       const events = await db.query(
         "SELECT event.*,merchant.merchant_name FROM event LEFT JOIN merchant ON event.sys_merchant_id = merchant.sys_merchant_id"
       );
-      console.log(events.rows);
       res.render("admin/event/view_event", {
         title: "Event List | PCMS",
         place: "Event",
