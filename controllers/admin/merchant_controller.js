@@ -90,7 +90,7 @@ exports.merchant_create_post = async (req, res) => {
 };
 
 //Handle merchant detail on GET
-exports.merchant_detail_get = async function (req, res, next) {
+exports.merchant_detail_get = async (req, res) => {
   try {
     if (req.session.loggedin) {
       const { id } = req.params;
