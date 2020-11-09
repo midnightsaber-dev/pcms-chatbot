@@ -47,6 +47,9 @@ router.get("/event/view", event_controller.event_index);
 /* GET event create form */
 router.get("/event/create", event_controller.event_create_get);
 
+/* POST event create */
+router.post("/event/create", event_controller.event_create_post);
+
 /* GET topup transaction list. */
 router.get("/report/topup", function (req, res, next) {
   try {
