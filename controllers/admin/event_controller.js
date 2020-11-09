@@ -69,6 +69,7 @@ exports.event_create_post = async (req, res) => {
             status,
           ]
         );
+        console.log(data.rows[0]);
         if (data.rows.length > 0) {
           res.redirect(`/admin/merchant/detail/${data.rows[0].sys_event_id}`);
         } else {
