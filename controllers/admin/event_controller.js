@@ -93,7 +93,7 @@ exports.event_detail_get = async (req, res) => {
       const { id } = req.params;
       if (id) {
         let data = await db.query(
-          "SELECT event.sys_event_id,event.pcms_event_id, event.event_name, merchant.merchant_name,event.start_date, event.end_date, event.status, FROM merchant,event WHERE merchant.sys_merchant_id = (SELECT sys_merchant_id FROM event WHERE sys_event_id = $1)",
+          "SELECT event.sys_event_id,event.pcms_event_id, event.event_name, merchant.merchant_name,event.start_date, event.end_date, event.status FROM merchant,event WHERE merchant.sys_merchant_id = (SELECT sys_merchant_id FROM event WHERE sys_event_id = $1)",
           [id]
         );
         console.log(data.rows[0]);
