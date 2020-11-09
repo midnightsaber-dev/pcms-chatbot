@@ -5,6 +5,7 @@ exports.event_index = async (req, res) => {
   try {
     if (req.session.loggedin) {
       const events = await db.query("SELECT * FROM event");
+      console.log(events.rows);
       res.render("admin/event/view_event", {
         title: "Event List | PCMS",
         place: "Event",
@@ -38,7 +39,7 @@ exports.event_create_get = async (req, res) => {
   }
 };
 
-//Handle merchant create on POST
+//Handle event create on POST
 exports.event_create_post = async (req, res) => {
   try {
     if (req.session.loggedin) {
@@ -71,7 +72,7 @@ exports.event_create_post = async (req, res) => {
         );
         console.log(data.rows[0]);
         if (data.rows.length > 0) {
-          res.redirect(`/admin/merchant/detail/${data.rows[0].sys_event_id}`);
+          res.redirect(`/admin/event/detail/${data.rows[0].sys_event_id}`);
         } else {
           res.send("database query error");
         }
@@ -84,4 +85,9 @@ exports.event_create_post = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+// Handle event detail on GET
+exports.event_detail_get = async (req, res) => {
+  res.send("Event Detail");
 };
