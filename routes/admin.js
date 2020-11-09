@@ -42,20 +42,7 @@ router.post("/merchant/update/:id", merchant_controller.merchant_update_post);
 /* Event Routes */
 // ==========================
 /* GET event list. */
-router.get("/event/view", function (req, res, next) {
-  try {
-    if (req.session.loggedin) {
-      res.render("admin/event/view_event", {
-        title: "Event List | PCMS",
-        place: "Event",
-      });
-    } else {
-      res.redirect("/admin/login");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-});
+router.get("/event/view", event_controller.event_index);
 
 /* GET event create form */
 router.get("/event/create", event_controller.event_create_get);
