@@ -124,14 +124,19 @@ exports.event_update_get = async (req, res) => {
     if (req.session.loggedin) {
       let { id } = req.params;
       const event = await db.query(
-        "SELECT event.sys_event_id,event.pcms_event_id, event.event_name, merchant.merchant_name,merchant.sys_merchant_id, event.start_date, event.end_date, event.status FROM merchant,event WHERE merchant.sys_merchant_id = (SELECT sys_merchant_id FROM event WHERE sys_event_id = $1)",
+        "SELECT * FROM event WHERE sys_event_id = $1",
         [id]
+      );
+
+      const merchants = await db.query(
+        "SELECT sys_merchant_id, merchant_name FROM merchant"
       );
       console.log(event.rows[0]);
       res.render("admin/event/update_event", {
         title: "Update Event | PCMS",
         place: "Event",
         event: event.rows[0],
+        merchants: merchants.rows[0],
       });
     } else {
       res.redirect("/admin/login");
