@@ -131,12 +131,12 @@ exports.event_update_get = async (req, res) => {
       const merchants = await db.query(
         "SELECT sys_merchant_id, merchant_name FROM merchant"
       );
-      console.log(merchants.rows[0]);
+      console.log(merchants.rows);
       res.render("admin/event/update_event", {
         title: "Update Event | PCMS",
         place: "Event",
         event: event.rows[0],
-        merchants: merchants.rows[0],
+        merchants: merchants.rows,
       });
     } else {
       res.redirect("/admin/login");
