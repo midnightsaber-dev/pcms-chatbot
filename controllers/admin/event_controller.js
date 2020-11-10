@@ -47,26 +47,25 @@ exports.event_create_post = async (req, res) => {
       const {
         pcms_event_id,
         event_name,
-        sys_event_id,
+        sys_merchant_id,
         start_date,
         end_date,
         status,
       } = req.body;
-      console.log(pcms_event_id, event_name, sys_event_id);
       if (
         pcms_event_id &&
         event_name &&
-        sys_event_id &&
+        sys_merchant_id &&
         start_date &&
         end_date &&
         status
       ) {
         let data = await db.query(
-          "INSERT INTO event (pcms_event_id, event_name, sys_event_id, start_date, end_date, status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+          "INSERT INTO event (pcms_event_id, event_name, sys_merchant_id, start_date, end_date, status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
           [
             pcms_event_id,
             event_name,
-            sys_event_id,
+            sys_merchant_id,
             start_date,
             end_date,
             status,
