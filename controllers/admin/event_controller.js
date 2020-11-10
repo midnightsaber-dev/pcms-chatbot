@@ -157,6 +157,7 @@ exports.event_update_post = async (req, res) => {
         end_date,
         status,
       } = req.body;
+      console.log(req.body);
       const event = await db.query(
         "UPDATE event SET pcms_event_id = $1, event_name = $2, sys_merchant_id = $3, start_date= $4, end_date = $5, status = $6 WHERE sys_event_id= $7 RETURNING *",
         [
