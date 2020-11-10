@@ -52,6 +52,7 @@ exports.event_create_post = async (req, res) => {
         end_date,
         status,
       } = req.body;
+      console.log(pcms_event_id, event_name, sys_event_id);
       if (
         pcms_event_id &&
         event_name &&
