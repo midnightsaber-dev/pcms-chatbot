@@ -73,14 +73,21 @@
                                 name="sys_merchant_id"
                                 required
                               >
-                                <option selected>Select merchant</option>
-                                <% merchants.forEach( merchant => { %>
+                                <option value="">Select merchant</option>
+                                <% merchants.forEach( merchant => {
+                                if(merchant.sys_merchant_id ===
+                                event.sys_merchant_id) { %>
                                 <option
-                                  value="<%= merchant.sys_merchant_id %> "
+                                  value="<%= merchant.sys_merchant_id %>"
+                                  selected
                                 >
                                   <%= merchant.merchant_name %>
                                 </option>
-                                <% }) %>
+                                <% } else { %>
+                                <option value="<%= merchant.sys_merchant_id %>">
+                                  <%= merchant.sys_merchant_id %>
+                                </option>
+                                <% } }) %>
                               </select>
                             </div>
                             <div class="form-group">
