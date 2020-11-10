@@ -71,7 +71,6 @@ exports.event_create_post = async (req, res) => {
             status,
           ]
         );
-        console.log(data.rows[0]);
         if (data.rows.length > 0) {
           res.redirect(`/admin/event/detail/${data.rows[0].sys_event_id}`);
         } else {
@@ -131,7 +130,6 @@ exports.event_update_get = async (req, res) => {
       const merchants = await db.query(
         "SELECT sys_merchant_id, merchant_name FROM merchant"
       );
-      console.log(merchants.rows);
       res.render("admin/event/update_event", {
         title: "Update Event | PCMS",
         place: "Event",
