@@ -28,11 +28,12 @@
                       <div class="col-lg-6">
                         <div class="p-5">
                           <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">
-                              Create New Event
-                            </h1>
+                            <h1 class="h4 text-gray-900 mb-4">Update Event</h1>
                           </div>
-                          <form action="/admin/event/create" method="POST">
+                          <form
+                            action="/admin/event/update/<%= event.sys_event_id %>"
+                            method="POST"
+                          >
                             <div class="form-group">
                               <input
                                 type="text"
