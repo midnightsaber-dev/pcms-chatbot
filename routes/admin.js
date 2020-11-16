@@ -106,34 +106,4 @@ router.get("/changepwd", function (req, res, next) {
   }
 });
 
-router.get("/topup", (req, res) => {
-  try {
-    if (req.session.loggedin) {
-      res.render("admin/topup", {
-        title: "Topup",
-      });
-    } else {
-      res.redirect("/admin/login");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-router.post("/topup", (req, res) => {
-  try {
-    if (req.session.loggedin) {
-      console.log(req.body);
-      let transid = "MPSS" + Date.now();
-      let iteration = req.body.iteration;
-      let interval = req.body.interval;
-      req.body.transid = transid;
-    } else {
-      res.redirect("/admin/login");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-});
-
 module.exports = router;
