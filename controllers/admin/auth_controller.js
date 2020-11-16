@@ -48,6 +48,26 @@ exports.admin_dashboard_get = (req, res) => {
   }
 };
 
+/* Handles Password reset on GET */
+exports.password_reset_get = (req, res) => {
+  try {
+    res.render("admin/resetpassword", {
+      title: "Reset Password | PCMS",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+/* Handles Password reset on GET */
+exports.password_reset_post = (req, res) => {
+  try {
+    res.send("reset password resouce");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 /* Handles logout on GET */
 exports.admin_logout_get = (req, res) => {
   try {

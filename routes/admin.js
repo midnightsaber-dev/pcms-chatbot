@@ -13,8 +13,15 @@ router.get("/login", auth_controller.admin_login);
 
 /* POST login page. */
 router.post("/login", auth_controller.admin_login_post);
+
 /* GET index page. */
 router.get("/", auth_controller.admin_dashboard_get);
+
+/* GET Reset Password */
+router.get("/reset", auth_controller.password_reset_get);
+
+/* Post Reset Password */
+router.post("/reset", auth_controller.password_reset_post);
 
 /*  Logout */
 router.get("/logout", auth_controller.admin_logout_get);
