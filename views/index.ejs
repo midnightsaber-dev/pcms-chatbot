@@ -2,16 +2,28 @@
 <html lang="en">
 
 <head>
-    <% include ./partials/head %>
+    <!-- <% include ./partials/head %> -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/vendor/fontawesome-free/css/fontawesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/vendor/webview/animate.css" />
+    <link rel="stylesheet" type="text/css" href="/vendor/webview/hamburgers.min.css" />
+    <link rel="stylesheet" type="text/css" href="/vendor/webview/css/animsition.min.css" />
+    <link rel="stylesheet" type="text/css" href="/vendor/webview/select2.min.css" />
+    <link rel="stylesheet" type="text/css" href="/vendor/webview/daterangepicker.css" />
+    <link rel="stylesheet" type="text/css" href="/css/util.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <title>
+        <%= title %>
+    </title>
 </head>
 
 <body>
     <div class="container-contact100">
         <div class="wrap-contact100">
             <form class="contact100-form validate-form" action="/webviews/save" method="GET">
-                <h1>
-                    <%= title %>
-                </h1>
                 <input type="hidden" name="psid" id="psid">
                 <span class="contact100-form-title">
                 Please Fill Your Information!
