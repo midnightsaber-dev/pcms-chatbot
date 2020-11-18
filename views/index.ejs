@@ -157,7 +157,7 @@
         };
         
 
-        function configureDropDownLists(ddl1,ddl2) {
+        function configureDropDownLists(ddl,ddl2) {
     var Chin= ['Haka', 'Htantalang', 'Falam', 'Rihkhawdar', 'Htonzan', 'Chihka', 'Mindat', 'Kanpetlet', 'Matupi', 'Razue', 'Paletwa', 'Sami'];
             
     var Kachin = ['Myitkyina', 'Sinbo', 'Chibwe', 'Injangyang', 'Tanai', 'Shingbweyang', 'Tsawlaw', 'Waingmaw', 'Sadon', 'Bahmo', 'Mansi', 'Momauk', 'Lweje', 'Dawhpunyang', 'Shwegu', 'Myohla', 'Mohnyin', 'Hopin', 'Mogaung', 'Hpakant', 'Kamaing', 'Putao', 'Kaunglanghpu', 'Machanbaw', 'Naungmung', 'Pangnamdim', 'Sumprabum' ];
@@ -190,7 +190,7 @@
             
             
 
-    switch (ddl1.value) {
+    switch (ddl.value) {
         case 'Chin':
             ddl2.options.length = 0;
             for (i = 0; i < Chin.length; i++) {
