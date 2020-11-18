@@ -1,5 +1,5 @@
 const db = require("../../db");
-const sendMail = require("../../service/send-email");
+const { sendMail } = require("../../service/send-email");
 
 /* GET login page */
 exports.admin_login = (req, res) => {
@@ -65,7 +65,7 @@ exports.password_reset_post = (req, res) => {
   try {
     const { email } = req.body;
     console.log(email);
-    console.log(sendMail(email));
+    sendMail(email);
   } catch (error) {
     console.log(error);
   }
