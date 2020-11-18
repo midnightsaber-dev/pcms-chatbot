@@ -64,12 +64,9 @@ exports.password_reset_get = (req, res) => {
 exports.password_reset_post = (req, res) => {
   try {
     const { email } = req.body;
-    const sender_email = "test@salai.com";
-    const email_subject = "Mailgun Demo";
-    const email_body = "Greetings from salai";
 
     console.log(email);
-    sendMail(sender_email, email, email_subject, email_body);
+    sendMail(email);
   } catch (error) {
     console.log(error);
   }
