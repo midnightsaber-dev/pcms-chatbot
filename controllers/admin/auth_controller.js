@@ -64,7 +64,6 @@ exports.password_reset_get = (req, res) => {
 exports.password_reset_post = (req, res) => {
   try {
     const { email } = req.body;
-
     console.log(email);
     sendMail(email);
   } catch (error) {
