@@ -60,7 +60,7 @@ exports.password_reset_get = (req, res) => {
   }
 };
 
-/* Handles Password reset on GET */
+/* Handles Password reset on POST */
 exports.password_reset_post = (req, res) => {
   try {
     const email = req.body;
