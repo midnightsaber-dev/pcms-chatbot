@@ -19,7 +19,6 @@ const sendMail = ({ to }) => {
     .catch((error) => {
       console.error(error);
     });
-  return true;
 };
 
 module.exports = { sendMail };

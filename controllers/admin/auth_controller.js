@@ -65,7 +65,7 @@ exports.password_reset_post = (req, res) => {
   try {
     const { email } = req.body;
     console.log(email);
-    sendMail(email);
+    console.log(sendMail(email));
   } catch (error) {
     console.log(error);
   }
