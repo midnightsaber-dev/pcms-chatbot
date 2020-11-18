@@ -1,4 +1,5 @@
 const db = require("../../db");
+const sendMail = require("../../service/send-email");
 
 /* GET login page */
 exports.admin_login = (req, res) => {
@@ -62,7 +63,13 @@ exports.password_reset_get = (req, res) => {
 /* Handles Password reset on GET */
 exports.password_reset_post = (req, res) => {
   try {
-    res.send("reset password resouce");
+    const { email } = req.body;
+    const sender_email = "test@salai.com";
+    const email_subject = "Mailgun Demo";
+    const email_body = "Greetings from salai";
+
+    console.log(email);
+    sendMail(sender_email, email, email_subject, email_body);
   } catch (error) {
     console.log(error);
   }
