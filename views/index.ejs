@@ -34,7 +34,7 @@
                     <span class="focus-input100"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input" data-validate="Name is required">
+                <div class="wrap-input100 validate-input" data-validate="Age is required">
                     <span class="label-input100">Your Age :</span>
                     <input class="input100" type="text" name="age" placeholder="Enter your age">
                     <span class="focus-input100"></span>
@@ -71,59 +71,35 @@
                         <select id="ddl2">
                                 </select>
                     </div>
-                    <!-- <select class="selection-2" name="township">
-                        
-                        <option>Hlaing</option>
-                        <option>Dagon</option>
-                        <option>Okkalapa</option>
-                        <option>Sule</option>
-                        
-                    </select> -->
-
                 </div>
                 <span class="focus-input100"></span>
-        </div>
-    </div>
-    </div>
 
+                <div class="wrap-input100 validate-input" data-validate="Valid phonenum is required">
+                    <span class="label-input100">Phone Number :</span>
+                    <input class="input100" type="tel" name="phonenum" placeholder="09xx-xxx-xxxx" pattern="^\d{4}-\d{3}-\d{4}$" required>
+                    <span class="focus-input100"></span>
+                </div>
 
-    </div>
+                <div class="wrap-input100 validate-input" data-validate="pin-code is required">
+                    <span class="label-input100">Pin-Code Number :</span>
+                    <input class="input100" type="text" name="pin-code" placeholder="Enter your Pin-Number">
+                    <span class="focus-input100"></span>
+                </div>
 
-    <div class="wrap-input100 validate-input" data-validate="Valid phonenum is required">
-        <span class="label-input100">Phone Number :</span>
-        <input class="input100" type="tel" name="phonenum" placeholder="09xx-xxx-xxxx" pattern="^\d{4}-\d{3}-\d{4}$" required>
-        <span class="focus-input100"></span>
-    </div>
-
-    <div class="wrap-input100 validate-input" data-validate="pin-code is required">
-        <span class="label-input100">Pin-Code Number :</span>
-        <input class="input100" type="text" name="pin-code" placeholder="Enter your Pin-Number">
-        <span class="focus-input100"></span>
-    </div>
-
-    <div class="container-contact100-form-btn">
-        <div class="wrap-contact100-form-btn">
-            <div class="contact100-form-bgbtn"></div>
-
-            <button class="contact100-form-btn" type="submit" name="action" id="submitButton">
-                        
-                        <span>
-                        
-                            Submit
-                             <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i> 
-                            
+                <div class="container-contact100-form-btn">
+                    <div class="wrap-contact100-form-btn">
+                        <div class="contact100-form-bgbtn"></div>
+                        <button class="contact100-form-btn" type="submit" name="action" id="submitButton">                        
+                        <span> Submit <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>                             
                         </span>
                     </button>
 
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
-
-
-    </form>
-
-
-    </div>
     <script>
         (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
