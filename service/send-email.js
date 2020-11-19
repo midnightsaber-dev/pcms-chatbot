@@ -15,7 +15,8 @@ const sendMail = ({ email }) => {
   sgMail
     .send(msg)
     .then(() => {
-      return "Email has been sent";
+      let text = Date.now();
+      return text;
     })
     .catch((error) => {
       console.error(error);

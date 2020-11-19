@@ -54,11 +54,6 @@ exports.password_reset_get = (req, res) => {
   try {
     res.render("admin/resetpassword", {
       title: "Reset Password | PCMS",
-<<<<<<< HEAD
-      rendered: false,
-      alert: "",
-=======
->>>>>>> parent of ab29ef2... add alert in the reset password page
     });
   } catch (error) {
     console.log(error);
@@ -69,18 +64,8 @@ exports.password_reset_get = (req, res) => {
 exports.password_reset_post = (req, res) => {
   try {
     const email = req.body;
-<<<<<<< HEAD
-    let time = sendMail(email);
-    let alert = `<span>Email has been sent to your inbox on ${time}. Please check your inbox</span>`;
-    res.render("/admin/reset", {
-      title: "Reset Password | PCMS",
-      rendered: true,
-      alert: alert,
-    });
-=======
     let text = sendMail(email);
-    console.log(`${text} has been received by admin`);
->>>>>>> parent of ab29ef2... add alert in the reset password page
+    console.log(`Email has been sent at ${text}`);
     res.redirect("/admin/login");
   } catch (error) {
     console.log(error);
