@@ -1,24 +1,25 @@
-var API_KEY = process.env.MAILGUN_API_KEY;
-var DOMAIN = process.env.MAILGUN_DOMAIN_NAME;
-var mailgun = require("mailgun-js")({ apiKey: API_KEY, domain: DOMAIN });
+const sgMail = require("@sendgrid/mail");
 
-const sendMail = function (
-  sender_email,
-  reciever_email,
-  email_subject,
-  email_body
-) {
-  const data = {
-    from: sender_email,
-    to: reciever_email,
-    subject: email_subject,
-    text: email_body,
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+const sendMail = ({ email }) => {
+  const msg = {
+    to: email, // Change to your recipient
+    from: "swteam.mpss@gmail.com", // Change to your verified sender
+    subject: "Sending with SendGrid is Fun",
+    text:
+      "Sending with SendGrid is Fun and easy to do anywhere, even with Node.js",
+    html: "<strong>and easy to do anywhere, even with Node.js</strong>",
   };
 
-  mailgun.messages().send(data, (error, body) => {
-    if (error) console.log(error);
-    else console.log(body);
-  });
+  sgMail
+    .send(msg)
+    .then(() => {
+      return "Email has been sent";
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 };
 
-module.exports = sendMail;
+module.exports = { sendMail };
