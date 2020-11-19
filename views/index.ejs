@@ -41,10 +41,11 @@
                 </div>
                 <!-- </br> -->
 
-                <div class="wrap-input100 row">
-                    <div class="col-4">
-                        <span class="label-input100">State:</span>
-                        <select id="ddl" onchange="configureDropDownLists(this,document.getElementById('ddl2'))">
+                <div class="row">
+                    <div class="col">
+                        <div class="wrap-input100 input100-select">
+                            <span class="label-input100">State:</span>
+                            <select class="selection-2" id="ddl" onchange="configureDropDownLists(this,document.getElementById('ddl2'))">
                                 <option value=""></option>
                                 <option value="Chin">Chin State</option>
                                 <option value="Kachin">Kachin State</option>
@@ -61,12 +62,13 @@
                                 <option value="Thaninthayi">Thaninthayi Division</option>
                                 <option value="Yangon">Yangon Division</option>
                                 </select>
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <span class="label-input100">Township:</span>
-                        <select id="ddl2">
-                                </select>
-
+                    <div class="col">
+                        <div class="wrap-input100 input100-select">
+                            <span class="label-input100">Township:</span>
+                            <select class="selection-2" id="ddl2"></select>
+                        </div>
                     </div>
                     <span class="focus-input100"></span>
                 </div>
