@@ -54,6 +54,8 @@ exports.password_reset_get = (req, res) => {
   try {
     res.render("admin/resetpassword", {
       title: "Reset Password | PCMS",
+      rendered: false,
+      alert: alert,
     });
   } catch (error) {
     console.log(error);
@@ -64,8 +66,13 @@ exports.password_reset_get = (req, res) => {
 exports.password_reset_post = (req, res) => {
   try {
     const email = req.body;
-    let text = sendMail(email);
-    console.log(`${text} has been received by admin`);
+    let time = sendMail(email);
+    let alert = `<span>Email has been sent to your inbox on ${time}. Please check your inbox</span>`;
+    res.render("/admin/resetpassword", {
+      title: "Reset Password | PCMS",
+      rendered: true,
+      alert: alert,
+    });
     res.redirect("/admin/login");
   } catch (error) {
     console.log(error);
