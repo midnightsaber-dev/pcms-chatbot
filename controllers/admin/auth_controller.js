@@ -68,7 +68,7 @@ exports.password_reset_post = (req, res) => {
     const email = req.body;
     let time = sendMail(email);
     let alert = `<span>Email has been sent to your inbox on ${time}. Please check your inbox</span>`;
-    res.render("/admin/resetpassword", {
+    res.render("/admin/reset", {
       title: "Reset Password | PCMS",
       rendered: true,
       alert: alert,
