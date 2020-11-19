@@ -3,7 +3,7 @@
 
 <head>
     <% include ./partials/head %>
-    
+
 </head>
 
 <body>
@@ -42,14 +42,9 @@
                 <!-- </br> -->
 
                 <div class="row">
-
-                    <div class="col-4"></div>
-                      
-                            <div="row">
-                                <div class="col">
-                                     <span class="label-input100">State:</span>
-                                      
-                                    <select id="ddl" onchange="configureDropDownLists(this,document.getElementById('ddl2'))">
+                    <div class="col-4">
+                        <span class="label-input100">State:</span>
+                        <select id="ddl" onchange="configureDropDownLists(this,document.getElementById('ddl2'))">
                                 <option value=""></option>
                                 <option value="Chin">Chin State</option>
                                 <option value="Kachin">Kachin State</option>
@@ -66,37 +61,32 @@
                                 <option value="Thaninthayi">Thaninthayi Division</option>
                                 <option value="Yangon">Yangon Division</option>
                                 </select>
-                                </div>
-                              
-                                    <!-- <span class="label-input100">Township:</span> -->
-                                    <select id="ddl2">
-                                </select>                                   
-                               
-                                <!-- <span class="focus-input100"></span> -->
-                        </div>
-                  
+                    </div>
+                    <div class="col-4">
+                        <span class="label-input100">Township:</span>
+                        <select id="ddl2">
+                                </select>
+
+                        <span class="focus-input100"></span>
+                    </div>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Valid phonenum is required">
+                    <span class="label-input100">Phone Number :</span>
+                    <input class="input100" type="tel" name="phonenum" placeholder="09xx-xxx-xxxx" pattern="^\d{4}-\d{3}-\d{4}$" required>
+                    <span class="focus-input100"></span>
                 </div>
 
+                <div class="wrap-input100 validate-input" data-validate="pin-code is required">
+                    <span class="label-input100">Pin-Code Number :</span>
+                    <input class="input100" type="text" name="pin-code" placeholder="Enter your Pin-Number">
+                    <span class="focus-input100"></span>
+                </div>
 
-        </div>
+                <div class="container-contact100-form-btn">
+                    <div class="wrap-contact100-form-btn">
+                        <div class="contact100-form-bgbtn"></div>
 
-        <div class="wrap-input100 validate-input" data-validate="Valid phonenum is required">
-            <span class="label-input100">Phone Number :</span>
-            <input class="input100" type="tel" name="phonenum" placeholder="09xx-xxx-xxxx" pattern="^\d{4}-\d{3}-\d{4}$" required>
-            <span class="focus-input100"></span>
-        </div>
-
-        <div class="wrap-input100 validate-input" data-validate="pin-code is required">
-            <span class="label-input100">Pin-Code Number :</span>
-            <input class="input100" type="text" name="pin-code" placeholder="Enter your Pin-Number">
-            <span class="focus-input100"></span>
-        </div>
-
-        <div class="container-contact100-form-btn">
-            <div class="wrap-contact100-form-btn">
-                <div class="contact100-form-bgbtn"></div>
-
-                <button class="contact100-form-btn" type="submit" name="action" id="submitButton">
+                        <button class="contact100-form-btn" type="submit" name="action" id="submitButton">
                         
                         <span>
                         
@@ -106,15 +96,10 @@
                         </span>
                     </button>
 
-            </div>
+                    </div>
+                </div>
+            </form>
         </div>
-
-
-
-        </form>
-
-
-    </div>
     </div>
     <script>
         (function(d, s, id) {
@@ -129,30 +114,27 @@
         }(document, 'script', 'Messenger'));
 
         window.extAsyncInit = function() {
-        // the Messenger Extensions JS SDK is done loading 
+            // the Messenger Extensions JS SDK is done loading 
 
-        MessengerExtensions.getContext('598713654164093', function success(thread_context) {
-                document.getElementById('psid').value = thread_context.psid;
-            },
-            function error(err) {
-                // error
-            }
-        );
+            MessengerExtensions.getContext('598713654164093', function success(thread_context) {
+                    document.getElementById('psid').value = thread_context.psid;
+                },
+                function error(err) {
+                    // error
+                }
+            );
 
 
-        MessengerExtensions.requestCloseBrowser(function success() {
-            // webview closed
-        }, function error(err) {
-            // an error occurred
-        });
+            MessengerExtensions.requestCloseBrowser(function success() {
+                // webview closed
+            }, function error(err) {
+                // an error occurred
+            });
 
         };
-        
-
-        
     </script>
- 
-    
+
+
 </body>
 
 </html>
