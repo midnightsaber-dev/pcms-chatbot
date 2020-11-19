@@ -55,7 +55,7 @@ exports.password_reset_get = (req, res) => {
     res.render("admin/resetpassword", {
       title: "Reset Password | PCMS",
       rendered: false,
-      alert: alert,
+      alert: "",
     });
   } catch (error) {
     console.log(error);
