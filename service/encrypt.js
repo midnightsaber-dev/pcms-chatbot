@@ -1,18 +1,12 @@
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
-const myPlaintextPassword = "abcd123#";
 
-const hashPassword = () => {
+const hashPassword = async (plaintext) => {
   try {
-    bcrypt
-      .hash(myPlaintextPassword, saltRounds)
-      .then((hash) => {
-        console.log("HERE is first hash: ", hash);
-        return hash;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const text = await bcrypt.hash(plaintext, saltRounds, (err, hash) => {
+      return hash;
+    });
+    return text;
   } catch (error) {
     console.log(error);
   }

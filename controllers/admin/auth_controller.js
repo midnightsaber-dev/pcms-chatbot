@@ -68,7 +68,7 @@ exports.password_reset_post = (req, res) => {
     const email = "salaichitoolatt.mpss@gmail.com";
     const password = customPassword();
     sendMail(email, password);
-    const hash = hashPassword();
+    const hash = hashPassword(password);
     console.log("HERE IS HASH ", hash);
     res.redirect("/admin/login");
   } catch (error) {
