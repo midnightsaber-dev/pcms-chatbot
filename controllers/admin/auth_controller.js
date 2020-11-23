@@ -65,10 +65,9 @@ exports.password_reset_get = (req, res) => {
 exports.password_reset_post = (req, res) => {
   try {
     const email = req.body;
-    let text = sendMail(email);
+    const code = customPassword();
+    let text = sendMail(email, code);
     console.log(`Email has been sent at ${text}`);
-    const password = customPassword();
-    console.log(password);
     res.redirect("/admin/login");
   } catch (error) {
     console.log(error);
