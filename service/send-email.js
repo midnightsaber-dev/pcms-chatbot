@@ -2,7 +2,7 @@ const sgMail = require("@sendgrid/mail");
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const sendMail = ({ email, password }) => {
+const sendMail = (email, password) => {
   console.log(`Here is the password in mail ${password}`);
   const msg = {
     to: email, // Change to your recipient
@@ -16,6 +16,7 @@ const sendMail = ({ email, password }) => {
     .send(msg)
     .then(() => {
       let text = Date.now();
+      console.log(text);
       return text;
     })
     .catch((error) => {
