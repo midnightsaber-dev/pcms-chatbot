@@ -6,7 +6,7 @@ const hashPassword = async () => {
   try {
     const saltKey = await bcrypt.genSalt(saltRounds);
     await bcrypt.hash(myPlaintextPassword, saltKey).then((hash) => {
-      return hash;
+      console.log(hash);
     });
   } catch (error) {
     console.log(error);
