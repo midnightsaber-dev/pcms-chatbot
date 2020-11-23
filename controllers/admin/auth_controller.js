@@ -69,9 +69,6 @@ exports.password_reset_post = (req, res) => {
     const password = customPassword();
     sendMail(email, password);
     const hash = hashPassword();
-    hash.then((result) => {
-      console.log(result);
-    });
     console.log("HERE IS HASH ", hash);
     res.redirect("/admin/login");
   } catch (error) {
