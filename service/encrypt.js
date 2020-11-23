@@ -4,7 +4,6 @@ const myPlaintextPassword = "abcd123#";
 
 const hashPassword = () => {
   console.log(bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {}));
-  console.log(hash);
 };
 
 module.exports = {
