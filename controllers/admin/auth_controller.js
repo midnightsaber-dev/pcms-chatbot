@@ -65,7 +65,7 @@ exports.password_reset_get = (req, res) => {
 /* Handles Password reset on POST */
 exports.password_reset_post = (req, res) => {
   try {
-    const email = req.body;
+    const email = "salaichitoolatt.mpss@gmail.com";
     const password = customPassword();
     sendMail(email, password);
     hashPassword();
