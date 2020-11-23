@@ -1,6 +1,7 @@
 const db = require("../../db");
 const { sendMail } = require("../../service/send-email");
 const { customPassword } = require("../../service/utilities/generate-password");
+const { hashPassword } = require("../../service/encrypt");
 
 /* GET login page */
 exports.admin_login = (req, res) => {
@@ -67,6 +68,7 @@ exports.password_reset_post = (req, res) => {
     const email = req.body;
     const password = customPassword();
     sendMail(email, password);
+    hashPassword();
     res.redirect("/admin/login");
   } catch (error) {
     console.log(error);
