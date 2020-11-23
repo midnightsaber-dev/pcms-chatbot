@@ -28,12 +28,12 @@
                                                     <h1 class="h4 text-gray-900 mb-4">Update Event</h1>
                                                 </div>
                                                 <form action="/admin/event/update/<%= event.sys_event_id %>" method="POST">
+
+
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control form-control-user" name="sys_event_id" id="sys_event_id" value="<%= event.sys_event_id %> " disabled />
+                                                    </div>
                                                     <div class="row">
-
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control form-control-user" name="sys_event_id" id="sys_event_id" value="<%= event.sys_event_id %> " disabled />
-                                                        </div>
-
                                                         <div class="col-lg-6">
                                                             <label>Event ID</label>
                                                             <div class="form-group">
@@ -65,8 +65,8 @@
                                                                   <% } }) %>
                                                                 </select>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
+
+
 
                                                             <label>Event Start Date</label>
                                                             <div class="form-group">
@@ -85,6 +85,7 @@
                                                                   <option value="inactive">Inactive</option>
                                                                 </select>
                                                             </div>
+
                                                         </div>
                                                     </div>
                                                     <br>
