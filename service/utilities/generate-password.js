@@ -33,7 +33,7 @@ function isStrongEnough(password) {
 }
 
 const customPassword = () => {
-  const password = "";
+  let password = "";
   const randomLength =
     Math.floor(Math.random() * (maxLength - minLength)) + minLength;
   while (!isStrongEnough(password)) {
