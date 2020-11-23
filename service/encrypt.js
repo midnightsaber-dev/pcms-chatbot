@@ -5,9 +5,10 @@ const myPlaintextPassword = "abcd123#";
 const hashPassword = async () => {
   try {
     const saltKey = await bcrypt.genSalt(saltRounds);
-    await bcrypt.hash(myPlaintextPassword, saltKey).then((hash) => {
+    let hash = await bcrypt.hash(myPlaintextPassword, saltKey).then((hash) => {
       console.log(hash);
     });
+    console.log("HERE IS FIRST HASH ", hash);
   } catch (error) {
     console.log(error);
   }
