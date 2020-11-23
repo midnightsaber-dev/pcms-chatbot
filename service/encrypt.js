@@ -4,9 +4,7 @@ const myPlaintextPassword = "abcd123#";
 
 const hashPassword = () => {
   try {
-    await bcrypt.hash(myPlaintextPassword, saltRounds).then((hash) => {
-      console.log(hash);
-    });
+    let text = bcrypt.hash(myPlaintextPassword, saltRounds);
   } catch (error) {
     console.log(error);
   }
