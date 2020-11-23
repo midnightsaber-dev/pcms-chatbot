@@ -32,7 +32,7 @@ function isStrongEnough(password) {
   );
 }
 
-const customPassword = () => {
+const generatePassword = () => {
   const password = "";
   const randomLength =
     Math.floor(Math.random() * (maxLength - minLength)) + minLength;
@@ -42,4 +42,4 @@ const customPassword = () => {
   return password;
 };
 
-module.exports = { customPassword };
+module.exports = { generatePassword };
