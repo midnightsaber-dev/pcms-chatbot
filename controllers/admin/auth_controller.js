@@ -72,6 +72,22 @@ exports.password_reset_post = (req, res) => {
   }
 };
 
+/* Handles change password on GET */
+exports.admin_change_password_get = (req, res) => {
+  try {
+    if (req.session.loggedin) {
+      res.render("admin/changepassword", {
+        title: "Change Password | PCMS",
+        place: "Change Password",
+      });
+    } else {
+      res.redirect("/admin/login");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 /* Handles logout on GET */
 exports.admin_logout_get = (req, res) => {
   try {
