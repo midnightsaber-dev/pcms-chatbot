@@ -3,7 +3,7 @@ const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const sendMail = ({ email, password }) => {
-  console.log(password);
+  console.log(`Here is the password in mail ${password}`);
   const msg = {
     to: email, // Change to your recipient
     from: "swteam.mpss@gmail.com", // Change to your verified sender
