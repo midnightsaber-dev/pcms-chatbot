@@ -21,6 +21,9 @@ router.get("/reset", auth_controller.password_reset_get);
 /* Post Reset Password */
 router.post("/reset", auth_controller.password_reset_post);
 
+/* GET Change Password form */
+router.get("/changepwd", auth_controller.admin_change_password_get);
+
 /*  Logout */
 router.get("/logout", auth_controller.admin_logout_get);
 
@@ -87,21 +90,6 @@ router.get("/report/item", function (req, res, next) {
       res.render("admin/report/item_report", {
         title: "Item List | PCMS",
         place: "Report (Item)",
-      });
-    } else {
-      res.redirect("/admin/login");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-/* GET change password form. */
-router.get("/changepwd", function (req, res, next) {
-  try {
-    if (req.session.loggedin) {
-      res.render("admin/changepassword", {
-        title: "Change Password | PCMS",
       });
     } else {
       res.redirect("/admin/login");
