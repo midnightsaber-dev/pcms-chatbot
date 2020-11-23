@@ -9,8 +9,8 @@ const specialMinCount = 1;
 const UPPERCASE_RE = /([A-Z])/g;
 const LOWERCASE_RE = /([a-z])/g;
 const NUMBER_RE = /([\d])/g;
-const SPECIAL_CHAR_RE = /([\?\-])/g;
-const NON_REPEATING_CHAR_RE = /([\w\d\?\-])\1{2,}/g;
+const SPECIAL_CHAR_RE = /([\?])/g;
+const NON_REPEATING_CHAR_RE = /([\w\d\?])\1{2,}/g;
 
 function isStrongEnough(password) {
   const uc = password.match(UPPERCASE_RE);
