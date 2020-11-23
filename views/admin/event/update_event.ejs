@@ -29,11 +29,12 @@
                                                 </div>
                                                 <form action="/admin/event/update/<%= event.sys_event_id %>" method="POST">
                                                     <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control form-control-user" name="sys_event_id" id="sys_event_id" value="<%= event.sys_event_id %> " disabled />
-                                                            </div>
 
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control form-control-user" name="sys_event_id" id="sys_event_id" value="<%= event.sys_event_id %> " disabled />
+                                                        </div>
+
+                                                        <div class="col-lg-6">
                                                             <label>Event ID</label>
                                                             <div class="form-group">
                                                                 <input type="text" class="form-control form-control-user" name="pcms_event_id" id="pcms_event_id" placeholder="Event ID .." value="<%= event.pcms_event_id %> " required />
