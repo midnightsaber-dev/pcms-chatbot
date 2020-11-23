@@ -1,5 +1,8 @@
 const db = require("../../db");
 const { sendMail } = require("../../service/send-email");
+const {
+  generatePassword,
+} = require("../../service/utilities/generate-password");
 
 /* GET login page */
 exports.admin_login = (req, res) => {
@@ -66,6 +69,8 @@ exports.password_reset_post = (req, res) => {
     const email = req.body;
     let text = sendMail(email);
     console.log(`Email has been sent at ${text}`);
+    const password = generatePassword();
+    console.log(password);
     res.redirect("/admin/login");
   } catch (error) {
     console.log(error);
