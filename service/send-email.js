@@ -5,7 +5,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const sendMail = (email, password) => {
   const msg = {
     to: email, // Change to your recipient
-    from: "swteam.mpss@gmail.com", // Change to your verified sender
+    from: { email: "swteam.mpss@gmail.com", name: "MPSS Technical Team" }, // Change to your verified sender
     subject: "Password Reset Alert",
     text: "Your password is successfully resetted.",
     html: `<div>
