@@ -30,15 +30,16 @@ const sendMail = (email, password) => {
 </footer>`,
   };
 
-  sgMail
-    .send(msg)
-    .then(() => {
-      let text = Date.now();
-      console.log("Timestamp: ", text);
-    })
-    .catch((error) => {
+  sgMail.send(msg).then(
+    () => {},
+    (error) => {
       console.error(error);
-    });
+
+      if (error.response) {
+        console.error(error.response.body);
+      }
+    }
+  );
 };
 
 module.exports = { sendMail };
