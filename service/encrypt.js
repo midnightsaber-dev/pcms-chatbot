@@ -3,9 +3,7 @@ const saltRounds = 10;
 const myPlaintextPassword = "abcd123#";
 
 const hashPassword = () => {
-  const hash = bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
-    return hash;
-  });
+  console.log(bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {}));
   console.log(hash);
 };
 
