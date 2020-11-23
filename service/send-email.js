@@ -16,7 +16,7 @@ const sendMail = (email, password) => {
     .send(msg)
     .then(() => {
       let text = Date.now();
-      console.log(text);
+      console.log("Timestamp: ", text);
       return text;
     })
     .catch((error) => {
