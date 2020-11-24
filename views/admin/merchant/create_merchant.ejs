@@ -32,28 +32,36 @@
                                                 <form action="/admin/merchant/create" method="POST">
                                                     <div class="row">
                                                         <div class="col-lg-6">
+                                                            <label>Merchant ID</label>
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control form-control-user" name="pcms_merchant_id" id="pcms_merchant_id" placeholder="Merchant ID .." />
+                                                                <input type="text" class="form-control form-control-user" name="pcms_merchant_id" id="pcms_merchant_id" />
                                                             </div>
+                                                            <label>Merchant Name</label>
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control form-control-user" name="name" id="name" placeholder="Merchant Name .. " />
+                                                                <input type="text" class="form-control form-control-user" name="name" id="name" />
                                                             </div>
+                                                            <label>Email</label>
                                                             <div class="form-group">
-                                                                <input type="email" class="form-control form-control-user" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter your email .." />
+                                                                <input type="email" class="form-control form-control-user" name="email" id="email" aria-describedby="emailHelp" />
                                                             </div>
+                                                            <label>Phone Number</label>
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control form-control-user" name="phone_number" id="phone_number" placeholder="Phone Number .." />
+                                                                <input type="text" class="form-control form-control-user" name="phone_number" id="phone_number" />
+                                                            </div>
+                                                            <label>API Key</label>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="apikey" id="apikey" />
+                                                            </div>
+                                                            <label>Organization Key</label>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="orgkey" id="orgkey" />
+                                                            </div>
+                                                            <label>Address</label>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="address" id="address" />
                                                             </div>
 
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control form-control-user" name="apikey" id="apikey" placeholder="API Key .." />
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control form-control-user" name="orgkey" id="orgkey" placeholder="Organization Key .." />
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control form-control-user" name="address" id="address" placeholder="Address .." />
-                                                            </div>
+                                                            <label>Status</label>
                                                             <div class="form-group">
                                                                 <select class="form-control form-control-user" id="status" name="status">
                                                                   <option value="active" selected>Active</option>

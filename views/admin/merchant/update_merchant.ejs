@@ -32,30 +32,37 @@
                                                     <div class="row">
                                                         <div class="col-lg-6">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control form-control-user" name="sys_merchant_id" id="sys_merchant_id" value="<%= merchant.sys_merchant_id %>" disabled />
+                                                                <input type="text" class="form-control form-control-user" name="sys_merchant_id" id="sys_merchant_id" value="<%= merchant.sys_merchant_id %>" disabled hidden/>
                                                             </div>
+                                                            <label>Merchant ID</label>
                                                             <div class="form-group">
                                                                 <input type="text" class="form-control form-control-user" name="pcms_merchant_id" id="pcms_merchant_id" value="<%= merchant.pcms_merchant_id %>" />
                                                             </div>
+                                                            <label>Merchant Name</label>
                                                             <div class="form-group">
                                                                 <input type="text" class="form-control form-control-user" name="name" id="name" value="<%= merchant.merchant_name %>" />
                                                             </div>
+                                                            <label>Email</label>
                                                             <div class="form-group">
                                                                 <input type="email" class="form-control form-control-user" name="email" id="email" aria-describedby="emailHelp" value="<%= merchant.merchant_email %>" />
                                                             </div>
+                                                            <label>Phone Number</label>
                                                             <div class="form-group">
                                                                 <input type="text" class="form-control form-control-user" name="phone_number" id="phone_number" value="<%= merchant.merchant_phone_number %>" />
                                                             </div>
-
+                                                            <label>API Key</label>
                                                             <div class="form-group">
                                                                 <input type="text" class="form-control form-control-user" name="apikey" id="apikey" value="<%= merchant.api_key %>" />
                                                             </div>
+                                                            <label>Organization Key</label>
                                                             <div class="form-group">
                                                                 <input type="text" class="form-control form-control-user" name="orgkey" id="orgkey" value="<%= merchant.org_key %>" />
                                                             </div>
+                                                            <label>Address</label>
                                                             <div class="form-group">
                                                                 <input type="text" class="form-control form-control-user" name="address" id="address" value="<%= merchant.address %>" />
                                                             </div>
+                                                            <label>Status</label>
                                                             <div class="form-group">
                                                                 <select class="form-control form-control-user" id="status" name="status">
                                                               <option value="active" selected>Active</option>
