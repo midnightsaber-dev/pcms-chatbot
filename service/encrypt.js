@@ -8,6 +8,7 @@ const hashPassword = (plaintext) => {
       .hash(plaintext, saltRounds)
       .then((value) => {
         encrypted = value;
+        console.log(encrypted);
         return value;
       })
       .catch((err) => {
