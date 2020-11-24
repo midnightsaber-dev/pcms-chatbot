@@ -1,122 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <% include ../partials/head %>
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="wrapper">
-      <% include ../partials/sidebar %>
-      <!-- Content Wrapper -->
-      <div id="content-wrapper" class="d-flex flex-column">
-        <!-- Main Content -->
-        <div id="content">
-          <% include ../partials/topbar %>
-          <div class="container">
-            <!-- Outer Row -->
-            <div class="row justify-content-center">
-              <div class="col-xl-10 col-lg-12 col-md-9">
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                  <div class="card-body p-0">
-                    <!-- Nested Row within Card Body -->
-                 
-                      
-                    
-                        <div class="p-5">
-                          <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">
-                              Create New Merchant
-                            </h1>
-                          </div>
-                          <form action="/admin/merchant/create" method="POST">
-                            <div class="form-group">
-                              <input
-                                type="text"
-                                class="form-control form-control-user"
-                                name="pcms_merchant_id"
-                                id="pcms_merchant_id"
-                                placeholder="Merchant ID .."
-                              />
-                            </div>
-                            <div class="form-group">
-                              <input
-                                type="text"
-                                class="form-control form-control-user"
-                                name="name"
-                                id="name"
-                                placeholder="Merchant Name .. "
-                              />
-                            </div>
-                            <div class="form-group">
-                              <input
-                                type="email"
-                                class="form-control form-control-user"
-                                name="email"
-                                id="email"
-                                aria-describedby="emailHelp"
-                                placeholder="Enter your email .."
-                              />
-                            </div>
-                            <div class="form-group">
-                              <input
-                                type="text"
-                                class="form-control form-control-user"
-                                name="phone_number"
-                                id="phone_number"
-                                placeholder="Phone Number .."
-                              />
-                            </div>
+        <% include ../partials/sidebar %>
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+                <!-- Main Content -->
+                <div id="content">
+                    <% include ../partials/topbar %>
+                        <div class="container">
+                            <!-- Outer Row -->
+                            <div class="row justify-content-center">
+                                <div class="col-xl-10 col-lg-12 col-md-9">
+                                    <div class="card o-hidden border-0 shadow-lg my-5">
+                                        <div class="card-body p-0">
+                                            <!-- Nested Row within Card Body -->
 
-                            <div class="form-group">
-                              <input
-                                type="text"
-                                class="form-control form-control-user"
-                                name="apikey"
-                                id="apikey"
-                                placeholder="API Key .."
-                              />
-                            </div>
-                            <div class="form-group">
-                              <input
-                                type="text"
-                                class="form-control form-control-user"
-                                name="orgkey"
-                                id="orgkey"
-                                placeholder="Organization Key .."
-                              />
-                            </div>
-                            <div class="form-group">
-                              <input
-                                type="text"
-                                class="form-control form-control-user"
-                                name="address"
-                                id="address"
-                                placeholder="Address .."
-                              />
-                            </div>
-                            <div class="form-group">
-                              <select
-                                class="form-control form-control-user"
-                                id="status"
-                                name="status"
-                              >
-                                <option value="active" selected>Active</option>
-                                <option value="inactive">Inactive</option>
-                              </select>
-                            </div>
-                            <div class="row">
-                              <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input
-                                  class="btn btn-primary butn-user btn-block"
-                                  type="submit"
-                                />
-                              </div>
-                            </div>
-                          </form>
-                          <hr />
-                          <div class="text-center">
-                            <a class="small" href="/admin/merchant/view"
-                              >Back to Merchant Management</a
+
+
+                                            <div class="p-5">
+                                                <div class="text-center">
+                                                    <h1 class="h4 text-gray-900 mb-4">
+                                                        Create New Merchant
+                                                    </h1>
+                                                </div>
+                                                <form action="/admin/merchant/create" method="POST">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <label>Merchant ID</label>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="pcms_merchant_id" id="pcms_merchant_id" />
+                                                            </div>
+                                                            <label>Merchant Name</label>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="name" id="name" />
+                                                            </div>
+                                                            <label>Email</label>
+                                                            <div class="form-group">
+                                                                <input type="email" class="form-control form-control-user" name="email" id="email" aria-describedby="emailHelp" />
+                                                            </div>
+                                                            <label>Phone Number</label>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="phone_number" id="phone_number" />
+                                                            </div>
+                                                            <label>API Key</label>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="apikey" id="apikey" />
+                                                            </div>
+                                                            <label>Organization Key</label>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="orgkey" id="orgkey" />
+                                                            </div>
+                                                            <label>Address</label>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="address" id="address" />
+                                                            </div>
+
+                                                            <label>Status</label>
+                                                            <div class="form-group">
+                                                                <select class="form-control form-control-user" id="status" name="status">
+                                                                  <option value="active" selected>Active</option>
+                                                                  <option value="inactive">Inactive</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                                            <input class="btn btn-primary butn-user btn-block" type="submit" />
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <hr />
+                                                <div class="text-center">
+                                                    <a class="small" href="/admin/merchant/view">Back to Merchant Management</a
                             >
                           </div>
                         </div>
