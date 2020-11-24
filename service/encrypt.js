@@ -9,13 +9,12 @@ const hashPassword = (plaintext) => {
       .then((value) => {
         encrypted = value;
         console.log(encrypted);
-        return value;
       })
       .catch((err) => {
         console.log(err);
       });
-    console.log("encrypt function result : ", value);
-    return value;
+    console.log("encrypt function result : ", encrypted);
+    return encrypted;
   } catch (error) {
     console.log(error);
   }
