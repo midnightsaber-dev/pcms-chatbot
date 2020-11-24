@@ -13,6 +13,7 @@ const hashPassword = (plaintext) => {
       .catch((err) => {
         console.log(err);
       });
+    console.log("encrypt function result : ", encrypted);
     return encrypted;
   } catch (error) {
     console.log(error);
