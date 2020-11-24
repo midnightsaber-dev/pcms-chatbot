@@ -14,8 +14,8 @@ const hashPassword = (plaintext) => {
       .catch((err) => {
         console.log(err);
       });
-    console.log("encrypt function result : ", encrypted);
-    return encrypted;
+    console.log("encrypt function result : ", value);
+    return value;
   } catch (error) {
     console.log(error);
   }
