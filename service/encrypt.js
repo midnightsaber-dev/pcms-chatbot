@@ -1,16 +1,15 @@
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
-const hashPassword = async (plaintext) => {
+async function hashPassword(plaintext) {
   try {
-    const text = await bcrypt.hash(plaintext, saltRounds, (err, hash) => {
-      return hash;
-    });
-    return text;
+    const salt = await bcrypt.genSalt(saltRounds);
+    const hash = await bcrypt.hash(plaintext, salt);
+    return hash;
   } catch (error) {
     console.log(error);
   }
-};
+}
 
 module.exports = {
   hashPassword,
