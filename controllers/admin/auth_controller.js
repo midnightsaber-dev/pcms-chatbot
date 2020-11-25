@@ -7,13 +7,20 @@ const { hashPassword } = require("../../service/encrypt");
 exports.admin_login = (req, res) => {
   res.render("admin/login", {
     title: "Login | PCMS",
+    alert: "",
   });
 };
 
 /* Handle Admin login on POST */
 exports.admin_login_post = async (req, res) => {
+  const { username, password } = req.body;
+  if (username === null && password === null) {
+    res.render("admin/login", {
+      title: "Login | PCMS",
+      alert: "Your username and password is wrong.",
+    });
+  }
   try {
-    const { username, password } = req.body;
     if (username && password) {
       let login = await db.query(
         "SELECT * FROM admin WHERE username = $1 AND password= $2",
@@ -56,6 +63,7 @@ exports.password_reset_get = (req, res) => {
   try {
     res.render("admin/resetpassword", {
       title: "Reset Password | PCMS",
+      alert: "",
     });
   } catch (error) {
     console.log(error);
@@ -64,13 +72,16 @@ exports.password_reset_get = (req, res) => {
 
 /* Handles Password reset on POST */
 exports.password_reset_post = async (req, res) => {
+  const email = "salaichitoolatt.mpss@gmail.com";
   try {
-    const email = "salaichitoolatt.mpss@gmail.com";
     const password = customPassword();
     sendMail(email, password);
-    const hash = await hashPassword(password);
-    console.log("HERE IS HASH ", hash);
-    res.redirect("/admin/login");
+    const hash = await password;
+    await db.query("UPDATE admin WHERE id = $1", [1]);
+    res.render("/admin/login", {
+      title: "Login | PCMS",
+      alert: "Password has been resetted successfully",
+    });
   } catch (error) {
     console.log(error);
   }
