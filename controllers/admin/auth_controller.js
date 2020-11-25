@@ -78,7 +78,7 @@ exports.password_reset_post = async (req, res) => {
     sendMail(email, password);
     const hash = await hashPassword(password);
     await db.query("UPDATE admin SET password = $1 WHERE id = $2", [hash, 1]);
-    res.render("/admin/login", {
+    res.render("admin/login", {
       title: "Login | PCMS",
       alert: "Password has been resetted successfully",
     });
