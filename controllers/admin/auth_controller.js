@@ -21,15 +21,16 @@ exports.admin_login_post = async (req, res) => {
     });
   }
   try {
-    console.log(password);
-    const hashed = await hashPassword(password);
-    console.log(hashed);
     if (username && password) {
       let user = await db.query(
         "SELECT * FROM admin WHERE username = $1 AND password= $2",
         [username, password]
       );
-      if (user.rows.length > 0) {
+      console.log(user.rows[0].password);
+      if (
+        user.rows.length > 0
+        //comparePassword(password, user.rows[0].password)
+      ) {
         req.session.loggedin = true;
         req.session.username = username;
         res.redirect("/admin");
