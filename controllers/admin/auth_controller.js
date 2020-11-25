@@ -22,6 +22,7 @@ exports.admin_login_post = async (req, res) => {
   }
   try {
     const hashed = await hashPassword(password);
+    console.log(hashed);
     if (username && password) {
       let user = await db.query(
         "SELECT * FROM admin WHERE username = $1 AND password= $2",
