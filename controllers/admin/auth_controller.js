@@ -22,11 +22,12 @@ exports.admin_login_post = async (req, res) => {
   }
   try {
     if (username && password) {
-      let user = await db.query(
-        "SELECT * FROM admin WHERE username = $1 AND password= $2",
-        [username, password]
-      );
-      const match = await comparePassword(password, user.rows[0].password);
+      let user = await db.query("SELECT * FROM admin WHERE username = $1", [
+        username,
+      ]);
+      console.log(user.rows[0].password);
+      const pass = user.rows[0].password;
+      const match = await comparePassword(password, pass);
       if (user.rows.length > 0 && match === true) {
         req.session.loggedin = true;
         req.session.username = username;
