@@ -21,6 +21,7 @@ exports.admin_login_post = async (req, res) => {
     });
   }
   try {
+    console.log(password);
     const hashed = await hashPassword(password);
     console.log(hashed);
     if (username && password) {
