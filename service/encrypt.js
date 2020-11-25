@@ -3,8 +3,18 @@ const saltRounds = 10;
 
 const hashPassword = async (plaintext) => {
   try {
-    let text = await bcrypt.hash(plaintext.trim(), 10);
+    let text = await bcrypt.hash(plaintext.trim(), saltRounds);
     return text;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const comparePassword = async (plaintext, hash) => {
+  try {
+    const match = await bcrypt.compare(plaintext, hash.trim());
+    console.log(`The comparison result is ${match}`);
+    return match;
   } catch (error) {
     console.log(error);
   }
@@ -12,4 +22,5 @@ const hashPassword = async (plaintext) => {
 
 module.exports = {
   hashPassword,
+  comparePassword,
 };

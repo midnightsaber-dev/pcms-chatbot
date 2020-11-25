@@ -1,7 +1,7 @@
 const db = require("../../db");
 const { sendMail } = require("../../service/send-email");
 const { customPassword } = require("../../service/utilities/generate-password");
-const { hashPassword } = require("../../service/encrypt");
+const { hashPassword, comparePassword } = require("../../service/encrypt");
 
 /* GET login page */
 exports.admin_login = (req, res) => {
@@ -22,16 +22,17 @@ exports.admin_login_post = async (req, res) => {
   }
   try {
     if (username && password) {
-      let login = await db.query(
+      let user = await db.query(
         "SELECT * FROM admin WHERE username = $1 AND password= $2",
         [username, password]
       );
-      if (login.rows.length > 0) {
+      console.log(user.rows);
+      if (user.rows.length > 0) {
         req.session.loggedin = true;
         req.session.username = username;
         res.redirect("/admin");
       } else {
-        res.send("your input is wrong." + login.rows);
+        res.send("your input is wrong." + user.rows);
       }
     } else {
       res.send("there is error");
