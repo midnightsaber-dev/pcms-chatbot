@@ -27,7 +27,6 @@ exports.admin_login_post = async (req, res) => {
         [username, password]
       );
       console.log(user.rows);
-      console.log(user.rows[0].password);
       console.log(comparePassword(password, user.rows[0].password));
       if (
         user.rows.length > 0 &&
