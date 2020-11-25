@@ -15,9 +15,12 @@ exports.admin_login = (req, res) => {
 exports.admin_login_post = async (req, res) => {
   const { username, password } = req.body;
   if (username === null && password === null) {
-    res.render("admin/login", {
-      title: "Login | PCMS",
-      alert: "Your username and password is wrong.",
+    res.render("error", {
+      message: "Your data is wrong",
+      error: {
+        status: "Error",
+        stack: "login error",
+      },
     });
   }
   try {
@@ -25,7 +28,6 @@ exports.admin_login_post = async (req, res) => {
       let user = await db.query("SELECT * FROM admin WHERE username = $1", [
         username,
       ]);
-      console.log(user.rows[0].password);
       const pass = user.rows[0].password;
       const match = await comparePassword(password, pass);
       if (user.rows.length > 0 && match === true) {
@@ -33,7 +35,13 @@ exports.admin_login_post = async (req, res) => {
         req.session.username = username;
         res.redirect("/admin");
       } else {
-        res.send("your input is wrong." + user.rows);
+        res.render("error", {
+          message: "Your data is wrong",
+          error: {
+            status: "Error",
+            stack: "login error",
+          },
+        });
       }
     } else {
       res.send("there is error");
