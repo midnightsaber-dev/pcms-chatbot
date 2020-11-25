@@ -25,7 +25,7 @@ exports.admin_login_post = async (req, res) => {
     if (username && password) {
       let user = await db.query(
         "SELECT * FROM admin WHERE username = $1 AND password= $2",
-        [username, password]
+        [username, hashed]
       );
       if (user.rows.length > 0) {
         req.session.loggedin = true;
