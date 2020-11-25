@@ -27,7 +27,11 @@ exports.admin_login_post = async (req, res) => {
         [username, password]
       );
       console.log(user.rows);
-      if (user.rows.length > 0) {
+      console.log(comparePassword(password, user.rows[0].password));
+      if (
+        user.rows.length > 0 &&
+        comparePassword(password, user.rows[0].password)
+      ) {
         req.session.loggedin = true;
         req.session.username = username;
         res.redirect("/admin");
