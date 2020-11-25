@@ -8,14 +8,13 @@
     <div class="container">
       <!-- Outer Row -->
       <div class="card w-50 my-5 mx-auto">
+        <div class="card-header">Admin Login</div>
         <div class="card-body">
-          <h1 class="h4 card-center text-gray-900 mb-4 text-center">
             <% if (alert) { %>
               <div class="alert alert-info" role="alert">
                 <%= alert %>
               </div>
             <% } %>
-          </h1>
           <p class="card-text">
             <form action="/admin/login" method="POST" >
                 <div class="form-group">
