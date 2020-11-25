@@ -1,20 +1,10 @@
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
-const hashPassword = (plaintext) => {
+const hashPassword = async (plaintext) => {
   try {
-    let encrypted = "";
-    bcrypt
-      .hash(plaintext, saltRounds)
-      .then((value) => {
-        encrypted = value;
-        console.log(encrypted);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    console.log("encrypt function result : ", encrypted);
-    return encrypted;
+    let text = await bcrypt.hash(plaintext, 10);
+    return text;
   } catch (error) {
     console.log(error);
   }

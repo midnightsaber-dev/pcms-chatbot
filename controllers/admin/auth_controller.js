@@ -63,12 +63,12 @@ exports.password_reset_get = (req, res) => {
 };
 
 /* Handles Password reset on POST */
-exports.password_reset_post = (req, res) => {
+exports.password_reset_post = async (req, res) => {
   try {
     const email = "salaichitoolatt.mpss@gmail.com";
     const password = customPassword();
     sendMail(email, password);
-    const hash = hashPassword(password);
+    const hash = await hashPassword(password);
     console.log("HERE IS HASH ", hash);
     res.redirect("/admin/login");
   } catch (error) {
