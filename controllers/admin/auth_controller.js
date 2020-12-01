@@ -121,8 +121,8 @@ exports.admin_change_password_post = async (req, res) => {
     if (req.session.loggedin) {
       if (!errors.isEmpty()) {
         const alert = errors.array();
-        const { newPassword } = req.body.newPassword;
-        const hash = await hashPassword(newPassword);
+        const password = req.body.newPassword;
+        const hash = await hashPassword(password);
         await db.query("UPDATE admin SET password = $1 WHERE id = $2", [
           hash,
           1,
