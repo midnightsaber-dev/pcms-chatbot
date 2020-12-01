@@ -121,7 +121,7 @@ exports.admin_change_password_post = async (req, res) => {
     if (req.session.loggedin) {
       if (!errors.isEmpty()) {
         const alert = errors.array();
-        console.log(req.body.newPassword);
+        console.log(req.body);
         // console.log("Here is password ", password);
         // const hash = await hashPassword(password);
         // console.log(`Here is hash ${hash}`);
