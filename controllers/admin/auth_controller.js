@@ -115,15 +115,18 @@ exports.admin_change_password_get = (req, res) => {
 };
 
 /* Handles change password on POST */
-exports.admin_change_password_post = (req, res) => {
+exports.admin_change_password_post = async (req, res) => {
   const errors = validationResult(req);
   try {
     if (req.session.loggedin) {
       if (!errors.isEmpty()) {
         const alert = errors.array();
-        const {newPassword} = req.body.newPassword;
+        const { newPassword } = req.body.newPassword;
         const hash = await hashPassword(newPassword);
-        await db.query("UPDATE admin SET password = $1 WHERE id = $2", [hash, 1]);
+        await db.query("UPDATE admin SET password = $1 WHERE id = $2", [
+          hash,
+          1,
+        ]);
         res.render("admin/changepassword", {
           title: "Change Password | PCMS",
           place: "Change Password",
