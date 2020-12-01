@@ -121,14 +121,14 @@ exports.admin_change_password_post = async (req, res) => {
     if (req.session.loggedin) {
       if (!errors.isEmpty()) {
         const alert = errors.array();
-        const password = req.body.newPassword;
-        console.log("Here is password ", password);
-        const hash = await hashPassword(password);
-        console.log(`Here is hash ${hash}`);
-        await db.query("UPDATE admin SET password = $1 WHERE id = $2", [
-          hash,
-          1,
-        ]);
+        console.log(req.body.newPassword);
+        // console.log("Here is password ", password);
+        // const hash = await hashPassword(password);
+        // console.log(`Here is hash ${hash}`);
+        // await db.query("UPDATE admin SET password = $1 WHERE id = $2", [
+        //   hash,
+        //   1,
+        // ]);
         res.render("admin/changepassword", {
           title: "Change Password | PCMS",
           place: "Change Password",
