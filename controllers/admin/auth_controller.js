@@ -121,6 +121,9 @@ exports.admin_change_password_post = (req, res) => {
     if (req.session.loggedin) {
       if (!errors.isEmpty()) {
         const alert = errors.array();
+        const {newPassword} = req.body.newPassword;
+        const hash = await hashPassword(newPassword);
+        await db.query("UPDATE admin SET password = $1 WHERE id = $2", [hash, 1]);
         res.render("admin/changepassword", {
           title: "Change Password | PCMS",
           place: "Change Password",
