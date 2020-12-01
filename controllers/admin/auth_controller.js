@@ -2,6 +2,7 @@ const db = require("../../db");
 const { sendMail } = require("../../service/send-email");
 const { customPassword } = require("../../service/utilities/generate-password");
 const { hashPassword, comparePassword } = require("../../service/encrypt");
+const { body, validationResult } = require("express-validator");
 
 /* GET login page */
 exports.admin_login = (req, res) => {
@@ -112,6 +113,41 @@ exports.admin_change_password_get = (req, res) => {
     console.log(error);
   }
 };
+
+/* Handles change password on POST */
+(exports.admin_change_password_post = [
+  body("newPassword")
+    .isLength({ min: 5 })
+    .withMessage("must be at least 5 chars long"),
+  body("verifyPassword").custom((value, { req }) => {
+    if (value !== req.body.newPassword) {
+      throw new Error("Password confirmation does not match password");
+    }
+
+    // Indicates the success of this synchronous custom validator
+    return true;
+  }),
+]),
+  (req, res) => {
+    const errors = validationResult(req);
+    try {
+      if (req.session.loggedin) {
+        if (!errors.isEmpty()) {
+          // return res.status(422).jsonp(errors.array())
+          const alert = errors.array();
+          res.render("admin/changepassword", {
+            title: "Change Password | PCMS",
+            place: "Change Password",
+            alert,
+          });
+        }
+      } else {
+        res.redirect("/admin/login");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 /* Handles logout on GET */
 exports.admin_logout_get = (req, res) => {

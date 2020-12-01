@@ -24,6 +24,9 @@ router.post("/reset", auth_controller.password_reset_post);
 /* GET Change Password form */
 router.get("/changepwd", auth_controller.admin_change_password_get);
 
+/* POST Change Password form */
+router.post("/changepwd", auth_controller.admin_change_password_post);
+
 /*  Logout */
 router.get("/logout", auth_controller.admin_logout_get);
 
