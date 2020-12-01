@@ -3,6 +3,7 @@ const router = express.Router();
 const merchant_controller = require("../controllers/admin/merchant_controller");
 const auth_controller = require("../controllers/admin/auth_controller");
 const event_controller = require("../controllers/admin/event_controller");
+const form_validation_controller = require("../controllers/form-validation/form_validation_controller");
 
 /* DASHBOARD, LOGIN AND LOGOUT ROUTES*/
 // =========================================
@@ -25,7 +26,11 @@ router.post("/reset", auth_controller.password_reset_post);
 router.get("/changepwd", auth_controller.admin_change_password_get);
 
 /* POST Change Password form */
-router.post("/changepwd", auth_controller.admin_change_password_post);
+router.post(
+  "/changepwd",
+  form_validation_controller.form_validate,
+  auth_controller.admin_change_password_post
+);
 
 /*  Logout */
 router.get("/logout", auth_controller.admin_logout_get);
