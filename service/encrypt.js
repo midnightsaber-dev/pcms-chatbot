@@ -13,7 +13,6 @@ const hashPassword = async (plaintext) => {
 const comparePassword = async (plaintext, hash) => {
   try {
     const match = await bcrypt.compare(plaintext, hash.trim());
-    console.log(`The comparison result is ${match}`);
     return match;
   } catch (error) {
     console.log(error);
