@@ -129,8 +129,9 @@ exports.admin_change_password_post = async (req, res) => {
         });
       } else {
         console.log(req.body);
-        console.log("Here is password ", password);
-        const hash = await hashPassword(password);
+        console.log("Here is password ", req.body.newPassword);
+        const newPassword = req.body.newPassword;
+        const hash = await hashPassword(newPassword);
         console.log(`Here is hash ${hash}`);
         await db.query("UPDATE admin SET password = $1 WHERE id = $2", [
           hash,
