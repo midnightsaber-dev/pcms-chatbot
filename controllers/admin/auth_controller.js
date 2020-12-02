@@ -137,7 +137,11 @@ exports.admin_change_password_post = async (req, res) => {
         res.render("admin/changepassword", {
           title: "Change Password | PCMS",
           place: "Change Password",
-          alert: ["Password has been changed successfully."],
+          alert: [
+            {
+              msg: "Password has been changed successfully.",
+            },
+          ],
         });
       }
     } else {
