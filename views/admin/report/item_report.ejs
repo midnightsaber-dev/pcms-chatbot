@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %> <% include ../partials/table_head %>
+  </head>
+  <body>
+    <div id="wrapper">
+      <% include ../partials/sidebar %>
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <% include ../partials/topbar %>
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">Transaction Report(Item)</h1>
+            <div
+              class="d-sm-flex align-items-center justify-content-between mb-4"
+            >
+              <a
+                href="#"
+                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                ><i class="fas fa-download fa-sm text-white-50"></i> Generate
+                Report</a
+              >
+            </div>
+            <div
+              class="d-sm-flex align-items-center justify-content-between mb-4"
+            >
+              <table class="table table-borderless">
+                <tbody>
+                  <tr>
+                    <td>
+                      <!-- Search form -->
+                      <input
+                        class="form-control"
+                        type="text"
+                        placeholder="Transaction ID"
+                        aria-label="Search"
+                        id="trans_id"
+                        name="trans_id"
+                      />
+                    </td>
+                    <td>
+                      <!-- Search form -->
+                      <input
+                        class="form-control"
+                        type="text"
+                        placeholder="PIN Number"
+                        aria-label="Search"
+                        id="pin_number"
+                        name="pin_number"
+                      />
+                    </td>
+                    <td>
+                      <select class="browser-default custom-select">
+                        <option value="all">All</option>
+                        <option value="merchant_option1">
+                          Merchant Option 1
+                        </option>
+                        <option value="merchant_option2">
+                          Merchant Option 2
+                        </option>
+                        <option value="merchant_option3">
+                          Merchant Option 3
+                        </option>
+                        <option value="merchant_option4">
+                          Merchant Option 4
+                        </option>
+                        <option value="merchant_option5">
+                          Merchant Option 5
+                        </option>
+                      </select>
+                    </td>
+                    <td>
+                      <select
+                        name="event"
+                        id="event"
+                        class="browser-default custom-select"
+                      >
+                        <option value="all" selected>All</option>
+                        <option value="event_option1">Event Option 1</option>
+                        <option value="event_option2">Event Option 2</option>
+                        <option value="event_option3">Event Option 3</option>
+                        <option value="event_option4">Event Option 4</option>
+                      </select>
+                    </td>
+                    <td>
+                      <!-- Search form -->
+                      <input
+                        class="form-control"
+                        type="text"
+                        placeholder="Phone-Number"
+                        aria-label="Search"
+                      />
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-outline-primary">
+                        Search
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table
+                    class="table table-bordered dataTables_wrapper"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                    <thead align="center">
+                      <tr>
+                        <th>No.</th>
+                        <th>Transaction ID</th>
+                        <th>Date/Time</th>
+                        <th>PIN Number</th>
+                        <th>Event</th>
+                        <th>Merchant</th>
+                        <th>Contact Phone Number</th>
+                        <th>Status</th>
+                        <th colspan="2">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>cell 1</td>
+                        <td>cell 2</td>
+                        <td>cell 3</td>
+                        <td>cell 4</td>
+                        <td>cell 5</td>
+                        <td>cell 6</td>
+                        <td>cell 7</td>
+                        <td>cell 8</td>
+                        <td>cell 9</td>
+                        <td>cell 10</td>
+                      </tr>
+                      <tr>
+                        <td>cell 1</td>
+                        <td>cell 2</td>
+                        <td>cell 3</td>
+                        <td>cell 4</td>
+                        <td>cell 5</td>
+                        <td>cell 6</td>
+                        <td>cell 7</td>
+                        <td>cell 8</td>
+                        <td>cell 9</td>
+                        <td>cell 10</td>
+                      </tr>
+                      <tr>
+                        <td>cell 1</td>
+                        <td>cell 2</td>
+                        <td>cell 3</td>
+                        <td>cell 4</td>
+                        <td>cell 5</td>
+                        <td>cell 6</td>
+                        <td>cell 7</td>
+                        <td>cell 8</td>
+                        <td>cell 9</td>
+                        <td>cell 10</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Your Website 2020</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <% include ../partials/scripts %> <% include ../partials/table_scripts %>
+  </body>
+</html>
