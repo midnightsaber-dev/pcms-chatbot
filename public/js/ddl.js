@@ -1,4 +1,3 @@
-/* State and Division */
 const stateAndDivs = [
   {
     name: "Kachin",
@@ -485,7 +484,9 @@ const stateAndDivs = [
     ],
   },
 ];
-
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("stateNDiv").addEventListener("focus", getStateNDiv);
+});
 function getStateNDiv() {
   let selectBox = document.getElementById("stateNDiv");
   while (selectBox.options.length > 0) {
@@ -501,6 +502,10 @@ function getStateNDiv() {
       .setAttribute("value", stateNDiv.name);
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("township").addEventListener("focus", getTownship);
+});
 function getTownship() {
   let result = document.getElementById("stateNDiv").value;
   let selectBox = document.getElementById("township");
