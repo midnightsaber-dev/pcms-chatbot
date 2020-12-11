@@ -24,10 +24,10 @@
                 <div class="wrap-input100 input100-select">
                     <span class="label-input100">Choose Gender :</span>
                     <div>
-                        <select class="selection-2" name="gender">                       <option>Male</option>
-                        <option>Female</option>
-                        
-                    </select>
+                        <select class="selection-2" name="gender">
+                            <option>Male</option>
+                            <option>Female</option>  
+                        </select>
                     </div>
                     <span class="focus-input100"></span>
                 </div>
@@ -38,35 +38,27 @@
                     <span class="focus-input100"></span>
                 </div>
                 <!-- </br> -->
-
-                <div class="row">
-                    <div class="col">
-                        <div class="wrap-input100 input100-select">
-                            <span class="label-input100">
-                                State and Division:
-                            </span>
-                            <br>
-                            <select class="selection-2" id="stateNDiv" name="stateNDiv">
-                                <option selected>Choose State And Division</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="wrap-input100 input100-select">
-                            <span class="label-input100">
-                                Township:
-                            </span>
-                            <br>
-                            <select class="selection-2" name="township" id="township">
-                                <option selected>Select Township</option>
-                            </select>
-                        </div>
-                    </div>
-                    <span class="focus-input100"></span>
+                <div class="wrap-input100 input100-select">
+                    <span class="label-input100">
+                        State and Division:
+                    </span>
+                    <br>
+                    <select class="selection-2" id="stateNDiv" name="stateNDiv">
+                        <option selected>Choose State And Division</option>
+                    </select>
+                </div>
+                <div class="wrap-input100 input100-select">
+                    <span class="label-input100">
+                        Township:
+                    </span>
+                    <br>
+                    <select class="selection-2" name="township" id="township">
+                        <option selected>Select Township</option>
+                    </select>
                 </div>
                 <div class="wrap-input100 validate-input" data-validate="Valid phonenum is required">
                     <span class="label-input100">Phone Number :</span>
-                    <input class="input100" type="tel" name="phonenum" placeholder="09xx-xxx-xxxx" pattern="^\d{4}-\d{3}-\d{4}$" required>
+                    <input class="input100" type="tel" name="phonenum" placeholder="Please start with 09xxxxxxxxx" pattern="/^(09)[0-9]{9}/gm" required>
                     <span class="focus-input100"></span>
                 </div>
 
