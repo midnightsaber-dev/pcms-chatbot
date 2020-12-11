@@ -42,32 +42,23 @@
                 <div class="row">
                     <div class="col">
                         <div class="wrap-input100 input100-select">
-                            <span class="label-input100">State:</span><br>
-                            <select class="selection-2" id="ddl" onchange="configureDropDownLists(this,document.getElementById('ddl2'))">
-                                <option value=""></option>
-                                <option value="Chin">Chin State</option>
-                                <option value="Kachin">Kachin State</option>
-                                <option value="Kayah">Kayah State</option>
-                                <option value="Kayin">Kayin State</option>
-                                <option value="Mon">Mon State</option>
-                                <option value="Rakhine">Rakhine State</option>
-                                <option value="Shan">Shan State</option>
-                                <option value="Ayeyawady">Ayeyawady Division</option>
-                                <option value="Bago">Bago Division</option>
-                                <option value="Magwe">Magwe Division</option>
-                                <option value="Mandalay">Mandalay Division</option>
-                                <option value="Sagaing">Sagaing Division</option>
-                                <option value="Thaninthayi">Thaninthayi Division</option>
-                                <option value="Yangon">Yangon Division</option>
+                            <span class="label-input100">
+                                State and Division:
+                            </span>
+                            <br>
+                            <select class="selection-2" id="stateNDiv" name="stateNDiv" onfocus="getStateNDiv()">
+                                <option selected>Choose State And Division</option>
                             </select>
                         </div>
                     </div>
                     <div class="col">
                         <div class="wrap-input100 input100-select">
-                            <span class="label-input100">Township:</span>
+                            <span class="label-input100">
+                                Township:
+                            </span>
                             <br>
-                            <select class="selection-2" id="ddl2">
-                                <option value=""></option>
+                            <select class="selection-2" name="township" id="township" onfocus="getTownship()">
+                                <option selected>Select Township</option>
                             </select>
                         </div>
                     </div>
@@ -136,8 +127,7 @@
 
         };
     </script>
-
-
+    <% include ./partials/script %> 
 </body>
 
 </html>

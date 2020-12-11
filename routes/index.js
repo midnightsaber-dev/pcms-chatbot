@@ -12,4 +12,5 @@ router.post(
   "/callback/admin/password/reset/",
   callback_controller.reset_callback_post
 );
+
 module.exports = router;
