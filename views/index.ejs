@@ -1,127 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <% include ./partials/head %>
+  </head>
 
-</head>
-
-<body>
-    <div class="container-contact100">
-        <div class="wrap-contact100">
-            <form class="contact100-form validate-form" action="/webviews/save" method="GET">
-                <input type="hidden" name="psid" id="psid">
-                <span class="contact100-form-title">
-                Please Fill Your Information!
-            </span>
-
-                <div class="wrap-input100 validate-input" data-validate="Name is required">
-                    <span class="label-input100">Your Name :</span>
-                    <input class="input100" type="text" name="name" placeholder="Enter your name">
-                    <span class="focus-input100"></span>
-                </div>
-
-                <div class="wrap-input100 input100-select">
-                    <span class="label-input100">Choose Gender :</span>
-                    <div>
-                        <select class="selection-2" name="gender">
-                            <option>Male</option>
-                            <option>Female</option>  
-                        </select>
-                    </div>
-                    <span class="focus-input100"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Name is required">
-                    <span class="label-input100">Your Age :</span>
-                    <input class="input100" type="text" name="age" placeholder="Enter your age">
-                    <span class="focus-input100"></span>
-                </div>
-                <!-- </br> -->
-                <div class="wrap-input100 input100-select">
-                    <span class="label-input100">
-                        State and Division:
-                    </span>
-                    <br>
-                    <select class="selection-2" id="stateNDiv" name="stateNDiv">
-                        <option selected>Choose State And Division</option>
-                    </select>
-                </div>
-                <div class="wrap-input100 input100-select">
-                    <span class="label-input100">
-                        Township:
-                    </span>
-                    <br>
-                    <select class="selection-2" name="township" id="township">
-                        <option selected>Select Township</option>
-                    </select>
-                </div>
-                <div class="wrap-input100 validate-input" data-validate="Valid phonenum is required">
-                    <span class="label-input100">Phone Number :</span>
-                    <input class="input100" type="tel" name="phonenum" placeholder="Please start with 09xxxxxxxxx" pattern="/^(09)[0-9]{9}/gm" required>
-                    <span class="focus-input100"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="pin-code is required">
-                    <span class="label-input100">Pin-Code Number :</span>
-                    <input class="input100" type="text" name="pin-code" placeholder="Enter your Pin-Number">
-                    <span class="focus-input100"></span>
-                </div>
-
-                <div class="container-contact100-form-btn">
-                    <div class="wrap-contact100-form-btn">
-                        <div class="contact100-form-bgbtn"></div>
-
-                        <button class="contact100-form-btn" type="submit" name="action" id="submitButton">
-                        
-                        <span>
-                        
-                            Submit
-                             <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i> 
-                            
-                        </span>
-                    </button>
-
-                    </div>
-                </div>
-            </form>
+  <body
+    class="bg-gradient-to-r from-green-600 to-blue-500 h-screen flex items-start justify-center"
+  >
+    <form
+      action="#"
+      method="post"
+      class="bg-white p-10 text-center rounded mt-2"
+    >
+      <h2 class="text-lg font-bold">Please fill your information.</h2>
+      <!-- User Info div -->
+      <div class="block" id="user-info">
+        <div class="text-left mt-2">
+          <label for="name" class="text-xs text-gray-700">Your Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-1 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+            placeholder="Enter your name"
+            required
+          />
         </div>
-    </div>
-    <!-- <script>
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_US/messenger.Extensions.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'Messenger'));
-
-        window.extAsyncInit = function() {
-            // the Messenger Extensions JS SDK is done loading 
-
-            MessengerExtensions.getContext('598713654164093', function success(thread_context) {
-                    document.getElementById('psid').value = thread_context.psid;
-                },
-                function error(err) {
-                    // error
-                }
-            );
-
-
-            MessengerExtensions.requestCloseBrowser(function success() {
-                // webview closed
-            }, function error(err) {
-                // an error occurred
-            });
-
-        };
-    </script> -->
-    <% include ./partials/script %> 
-</body>
-
-</html>
-
+        <div class="text-left mt-2">
+          <label for="age" class="text-xs text-gray-700">Age</label
+          ><input
+            type="text"
+            name="age"
+            id="age"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-1 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+            placeholder="Enter your age"
+          />
+        </div>
+        <div class="text-left mt-2">
+          <label for="phoneNo" class="text-xs text-gray-700"
+            >Your Phone Number</label
+          ><input
+            type="text"
+            name="phoneNo"
+            id="phoneNo"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-1 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+            placeholder="Enter your phone number"
+          />
+        </div>
+        <div class="text-left mt-2">
+          <label for="luckydraw" class="text-xs text-gray-700"
+            >Luckydraw Code</label
+          ><input
+            type="text"
+            name="luckydraw"
+            id="luckydraw"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-1 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+            placeholder="Enter your Luckydraw code"
+          />
+        </div>
+        <div class="text-left mt-2">
+          <label for="stateNDiv" class="text-xs text-gray-700"
+            >State and Division</label
+          >
+          <select
+            name="stateNDiv"
+            id="stateNDiv"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-1 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+          >
+            <option value="1">Select state and division</option>
+            <option value="2">Yangon</option>
+            <option value="2">Yangon</option>
+            <option value="2">Yangon</option>
+            <option value="2">Yangon</option>
+          </select>
+        </div>
+        <div class="text-left mt-2">
+          <label for="township" class="text-xs text-gray-700">Township</label>
+          <select
+            name="township"
+            id="township"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-1 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+          >
+            <option value="1">Select township</option>
+            <option value="2">Yangon</option>
+            <option value="2">Yangon</option>
+            <option value="2">Yangon</option>
+          </select>
+        </div>
+        <button
+          type="button"
+          id="nextBtn1"
+          class="bg-gray-800 text-gray-100 mt-4 text-sm px-3 py-1 w-full rounded hover:bg-gray-700"
+        >
+          Next
+        </button>
+      </div>
+      <!-- User Info copy div -->
+      <div class="hidden" id="product">
+        <div class="text-left mt-2">
+          <label for="name" class="text-xs text-gray-700">Your Name Copy</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-1 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        <div class="text-left mt-2">
+          <label for="age" class="text-xs text-gray-700">Age Copy</label
+          ><input
+            type="text"
+            name="age"
+            id="age"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-1 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+            placeholder="Enter your age"
+          />
+        </div>
+        <div class="text-left mt-2">
+          <label for="phoneNo" class="text-xs text-gray-700"
+            >Your Phone Number</label
+          ><input
+            type="text"
+            name="phoneNo"
+            id="phoneNo"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-1 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+            placeholder="Enter your phone number"
+          />
+        </div>
+        <div class="text-left mt-2">
+          <label for="luckydraw" class="text-xs text-gray-700"
+            >Luckydraw Code</label
+          ><input
+            type="text"
+            name="luckydraw"
+            id="luckydraw"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-1 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+            placeholder="Enter your Luckydraw code"
+          />
+        </div>
+        <div class="text-left mt-2">
+          <label for="stateNDiv" class="text-xs text-gray-700"
+            >State and Division</label
+          >
+          <select
+            name="stateNDiv"
+            id="stateNDiv"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-1 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+          >
+            <option value="1">Select state and division</option>
+            <option value="2">Yangon</option>
+            <option value="2">Yangon</option>
+            <option value="2">Yangon</option>
+            <option value="2">Yangon</option>
+          </select>
+        </div>
+        <div class="text-left mt-2">
+          <label for="township" class="text-xs text-gray-700">Township</label>
+          <select
+            name="township"
+            id="township"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-1 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+          >
+            <option value="1">Select township</option>
+            <option value="2">Yangon</option>
+            <option value="2">Yangon</option>
+            <option value="2">Yangon</option>
+          </select>
+        </div>
+        <button
+          type="button"
+          id="prevBtn1"
+          class="bg-gray-800 text-gray-100 mt-4 text-sm px-3 py-1 w-full rounded hover:bg-gray-700"
+        >
+          Previous
+        </button>
+        <button
+          type="button"
+          id="nextBtn2"
+          class="bg-gray-800 text-gray-100 mt-4 text-sm px-3 py-1 w-full rounded hover:bg-gray-700"
+        >
+          Next
+        </button>
+      </div>
+      <!-- User Info copy div -->
+      <div class="hidden" id="luckydraw-form">
+        <div class="text-left mt-2">
+          <label for="luckydraw" class="text-xs text-gray-700"
+            >Luckydraw Code</label
+          ><input
+            type="text"
+            name="luckydraw"
+            id="luckydraw"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-1 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+            placeholder="Enter your Luckydraw code"
+          />
+        </div>
+        <button
+          type="button"
+          id="prevBtn2"
+          class="bg-gray-800 text-gray-100 mt-4 text-sm px-3 py-1 w-full rounded hover:bg-gray-700"
+        >
+          Previous
+        </button>
+        <button
+          type="submit"
+          class="bg-gray-800 text-gray-100 mt-4 text-sm px-3 py-1 w-full rounded hover:bg-gray-700"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+    <% include ./partials/script %>
+  </body>
 </html>
