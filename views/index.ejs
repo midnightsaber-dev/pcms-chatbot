@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <% include ./partials/head %>
-  </head>
+</head>
 
   <body
     class="bg-gradient-to-r from-green-800 to-blue-500 h-screen flex h-full items-start justify-center "
@@ -76,26 +77,19 @@
         </div>
         <div class="text-left mt-2">
           <label for="township" class="text-base py-4 text-gray-700 flex space-y-2">Township</label>
-          <select
-            name="township"
-            id="township"
-            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-2 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500 flex space-y-2"
-          >
+                <select name="township" id="township" class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-2 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500 flex space-y-2">
             <option value="1">Select township</option>
             <option value="2">Yangon</option>
             <option value="2">Yangon</option>
             <option value="2">Yangon</option>
           </select>
-        </div>
-        <button
-          type="button"
-          id="nextBtn1"
-          class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-4 w-full rounded  "  >
+            </div>
+            <button type="button" id="nextBtn1" class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-4 w-full rounded  ">
           Submit
         </button>
-      </div>
-      <!-- User Info copy div -->
-      <!-- <div class="hidden" id="product">
+        </div>
+        <!-- User Info copy div -->
+        <!-- <div class="hidden" id="product">
         <div class="text-left mt-2">
           <label for="name" class="text-xs text-gray-700">Your Name Copy</label>
           <input
@@ -183,8 +177,8 @@
         </button>
       </div> -->
 
-      <!-- User Info copy div -->
-      <!-- <div class="hidden" id="luckydraw-form">
+        <!-- User Info copy div -->
+        <!-- <div class="hidden" id="luckydraw-form">
         <div class="text-left mt-2">
           <label for="luckydraw" class="text-xs text-gray-700"
             >Luckydraw Code</label
@@ -212,5 +206,6 @@
       </div> -->
     </form>
     <% include ./partials/script %>
-  </body>
+</body>
+
 </html>
