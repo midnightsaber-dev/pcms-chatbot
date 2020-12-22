@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <% include ./partials/head %>
-</head>
+  </head>
 
-<body class="bg-gradient-to-r from-green-800 to-blue-500 h-screen flex h-full items-start justify-center">
-    <form action="/results" method="post" class="shadow-2xl bg-white p-10 text-center rounded mt-2">
-        <h2 class="text-3xl font-bold">Please fill your information</h2>
-        <!-- User Info div -->
-        <div class="block" id="user-info">
-            <div class="text-left mt-2">
-                <label for="name" class="text-base py-2 text-gray-700 flex space-y-2">Your Name</label
+  <body
+    class="bg-gradient-to-r from-green-800 to-blue-500 h-screen flex h-full items-start justify-center"
+  >
+    <form
+      action="/results"
+      method="post"
+      class="shadow-2xl bg-white p-10 text-center rounded mt-2"
+    >
+      <h2 class="text-3xl font-bold">Please fill your information</h2>
+      <!-- User Info div -->
+      <div class="block" id="user-info">
+        <div class="text-left mt-2">
+          <label for="name" class="text-base py-2 text-gray-700 flex space-y-2"
+            >Your Name</label
           >
           <input
             type="text"
@@ -173,8 +179,8 @@
         </div>
         -->
 
-        <!-- User Info copy div -->
-        <!-- <div class="hidden" id="luckydraw-form">
+      <!-- User Info copy div -->
+      <!-- <div class="hidden" id="luckydraw-form">
         <div class="text-left mt-2">
           <label for="luckydraw" class="text-xs text-gray-700"
             >Luckydraw Code</label
@@ -202,6 +208,5 @@
       </div> -->
     </form>
     <% include ./partials/script %>
-</body>
-
+  </body>
 </html>
