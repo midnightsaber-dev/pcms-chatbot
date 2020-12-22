@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ["././index.ejs", "././result.ejs"],
+  purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
