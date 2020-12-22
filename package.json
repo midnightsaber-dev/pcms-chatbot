@@ -15,7 +15,8 @@
     "express"
   ],
   "scripts": {
-    "start": "node ./bin/www",
+    "tailwind:css": "postcss public/css/tailwind.css -o public/css/compiled/tailwind.css",
+    "start": "npm run tailwind:css & node ./bin/www",
     "devstart": "nodemon ./bin/www",
     "serverstart": "DEBUG=pcms-chatbot:* npm run devstart"
   },
@@ -37,6 +38,7 @@
     "password-generator": "^2.3.2",
     "pg": "^8.4.1",
     "postcss": "^8.2.1",
+    "postcss-cli": "^8.3.1",
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
