@@ -7,7 +7,7 @@ router.get("/", function(req, res, next) {
     res.render("index", { title: "Paymal" });
 });
 
-router.get("/result", function(req, res, next) {
+router.get("/results", function(req, res, next) {
     res.render("result");
 })
 
