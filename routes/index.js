@@ -8,7 +8,7 @@ router.get("/", function(req, res, next) {
 });
 
 router.get("/result", function(req, res, next) {
-    res.render("/partials/result");
+    res.render("result");
 })
 
 /* Reset password callback */
