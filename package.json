@@ -15,8 +15,7 @@
     "express"
   ],
   "scripts": {
-    "tailwind:css": "postcss public/css/tailwind.css -o public/css/compiled/tailwind.css",
-    "start": "npm run tailwind:css & node ./bin/www",
+    "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
     "serverstart": "DEBUG=pcms-chatbot:* npm run devstart"
   },
