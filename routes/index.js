@@ -8,7 +8,9 @@ router.get("/", function(req, res, next) {
 });
 
 router.post("/results", function(req, res, next) {
-    res.render("result"), { title: "Paymal" };
+    res.render("result", {
+        title: "Paymal"
+    });
 });
 
 /* Reset password callback */
