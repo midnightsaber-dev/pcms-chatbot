@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <% include ./partials/head %>
-  </head>
 
-  <body
+<head>
+    <% include ./partials/head %>
+</head>
+
+<body>
+    <!-- <body
     class="bg-gradient-to-r from-green-600 to-blue-500 h-full flex items-start justify-center"
   >
-    <h1>Data is received</h1>
+    <h1>Data is received</h1> -->
+    <div class="min-w-screen min-h-screen bg-gradient-to-r from-green-600 to-blue-500 flex items-center justify-center px-2 py-2">
+        <div class="w-full mx-auto rounded-lg bg-white shadow-lg px-5 pt-5 pb-10 text-gray-800" style="max-width: 500px">
+            <div class="w-full pt-1 pb-5">
+                <div class="overflow-hidden rounded-full w-24 h-24 mt-2 mx-auto shadow-lg">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#10B981">
+                      <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="w-full">
+                <p class="text-md text-gray-900 font-bold text-center pt-5">Data is received</p>
+
+
+            </div>
+        </div>
+
+    </div>
+
     <% include ./partials/script %>
-  </body>
+</body>
+
 </html>
