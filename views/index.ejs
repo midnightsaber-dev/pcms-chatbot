@@ -105,7 +105,7 @@
         </button>
       </div>
       <!-- 2User Info copy div -->
-       <div class="hidden" id="product">
+       <!-- <div class="hidden" id="product">
         <div class="text-left mt-2">
           <label for="name" class="text-xs text-gray-700">Your Name Copy</label>
                 <input type="text" name="name" id="name" class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-1 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500" placeholder="Enter your name" required />
@@ -173,8 +173,61 @@
             <button type="button" id="nextBtn2" class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-1 w-full rounded hover:bg-gray-700">
           Next
         </button>
-        </div>
+        </div> -->
 
+          <!-- tailwind.config.js -->
+module.exports = {
+  plugins: [require("@tailwindcss/custom-forms")]
+};
+
+
+
+<!-- component -->
+<div class="bg-gray-200">
+  <div class="flex flex-col items-center justify-center h-screen">
+      <div class="flex flex-col">
+          <label class="inline-flex items-center mt-3">
+              <input type="radio" class="form-radio h-5 w-5 text-gray-600" checked><span class="ml-2 text-gray-700">label</span>
+          </label>
+
+          <label class="inline-flex items-center mt-3">
+              <input type="radio" class="form-radio h-5 w-5 text-red-600" checked><span class="ml-2 text-gray-700">label</span>
+          </label>
+
+          <label class="inline-flex items-center mt-3">
+              <input type="radio" class="form-radio h-5 w-5 text-orange-600" checked><span class="ml-2 text-gray-700">label</span>
+          </label>
+
+          <label class="inline-flex items-center mt-3">
+              <input type="radio" class="form-radio h-5 w-5 text-yellow-600" checked><span class="ml-2 text-gray-700">label</span>
+          </label>
+
+          <label class="inline-flex items-center mt-3">
+              <input type="radio" class="form-radio h-5 w-5 text-green-600" checked><span class="ml-2 text-gray-700">label</span>
+          </label>
+
+          <label class="inline-flex items-center mt-3">
+              <input type="radio" class="form-radio h-5 w-5 text-teal-600" checked><span class="ml-2 text-gray-700">label</span>
+          </label>
+
+          <label class="inline-flex items-center mt-3">
+              <input type="radio" class="form-radio h-5 w-5 text-blue-600" checked><span class="ml-2 text-gray-700">label</span>
+          </label>
+
+          <label class="inline-flex items-center mt-3">
+              <input type="radio" class="form-radio h-5 w-5 text-indigo-600" checked><span class="ml-2 text-gray-700">label</span>
+          </label>
+
+          <label class="inline-flex items-center mt-3">
+              <input type="radio" class="form-radio h-5 w-5 text-purple-600" checked><span class="ml-2 text-gray-700">label</span>
+          </label>
+
+          <label class="inline-flex items-center mt-3">
+              <input type="radio" class="form-radio h-5 w-5 text-pink-600" checked><span class="ml-2 text-gray-700">label</span>
+          </label>
+      </div>
+  </div>
+</div>
 
         <!-- 3User Info copy div -->
         <div class="hidden" id="luckydraw-form">
