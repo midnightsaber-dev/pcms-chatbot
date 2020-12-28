@@ -1,18 +1,20 @@
 const db = require("../db");
 
 exports.user_create_get = (req, res) => {
+    let psid = 3288339677891256;
     if (
-        req.psid,
+
         req.name,
         req.region,
         req.township,
         req.gender,
         req.phonenum,
-        req.product
-        // req.luckydraw
+        req.product,
+        req.luckydraw
     ) {
-        let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFICT (ref_user_id) DO NOTHING", [
-            req.psid,
+        // let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFICT (ref_user_id) DO NOTHING", [
+        let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7)", [
+            psid,
             req.name,
             req.region,
             req.township,
