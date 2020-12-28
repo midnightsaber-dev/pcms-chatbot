@@ -2,6 +2,7 @@ const db = require("../db");
 
 exports.user_create_get = (req, res) => {
     let psid = 3288339677891256;
+    console.log(req);
     if (
 
         req.name,
