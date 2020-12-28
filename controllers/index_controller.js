@@ -7,18 +7,20 @@ exports.user_create_get = (req, res) => {
         req.name,
         req.region,
         req.township,
-        req.gender,
+        req.sex,
+        req.age,
         req.phonenum,
         req.product,
         req.luckydraw
     ) {
         // let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFICT (ref_user_id) DO NOTHING", [
-        let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7)", [
+        let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, age, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7)", [
             psid,
             req.name,
             req.region,
             req.township,
-            req.gender,
+            req.sex,
+            req.age,
             req.phonenum,
 
         ], function(err, result) {
