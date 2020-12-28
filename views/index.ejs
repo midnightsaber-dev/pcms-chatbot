@@ -10,6 +10,7 @@
         <h2 class="text-3xl font-bold">Please fill your information</h2>
         <!-- User Info div -->
         <div class="block" id="user-info">
+            <input type="hidden" name="psid">
             <div class="text-left mt-2">
                 <label for="name" class="text-base py-2 text-gray-700 flex space-y-2">Your Name</label
           >
@@ -174,19 +175,17 @@
         </button>
             <button type="button" id="nextBtn2" class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-1 w-full rounded hover:bg-gray-700">
           Next
-        </button>  -->
+        </button> -->
             <div class="text-left mt-2">
-          <label for="product"
-            class="text-base py-4 text-black-700 flex space-y-2 text-center"
-            >Choose Your Product:</label>
-          
+                <label for="product" class="text-base py-4 text-black-700 flex space-y-2 text-center">Choose Your Product:</label>
+
             </div>
-<!-- <span class="text-gray-700">Radio Buttons</span> -->
-   
+            <!-- <span class="text-gray-700">Radio Buttons</span> -->
+
 
             <div>
-              <label class="inline-flex items-center">
-                <input type="radio" class="form-radio text-indigo-600" name="radio-colors" value="1" checked>
+                <label class="inline-flex items-center">
+                <input type="radio" class="form-radio text-indigo-600" name="product" value="1" checked>
                 <span class="ml-4">
                    <!--img-->
                    <div class="flex items-center justify-center mt-8">
@@ -205,9 +204,9 @@
                 </span>
               </label>
             </div>
-              <div>
+            <div>
                 <label class="inline-flex items-center mt-2">
-                  <input type="radio" class="form-radio text-indigo-600" name="radio-colors" value="1" checked>
+                  <input type="radio" class="form-radio text-indigo-600" name="product" value="1" checked>
                   <span class="ml-4">
                      <!--img-->
                      <div class="flex items-center justify-center mt-8">
@@ -225,10 +224,10 @@
                     </div>
                   </span>
                 </label>
-              </div>
-              <div>
+            </div>
+            <div>
                 <label class="inline-flex items-center mt-2">
-                  <input type="radio" class="form-radio text-indigo-600" name="radio-colors" value="1" checked>
+                  <input type="radio" class="form-radio text-indigo-600" name="product" value="1" checked>
                   <span class="ml-4">
                      <!--img-->
                      <div class="flex items-center justify-center mt-8">
@@ -246,10 +245,10 @@
                     </div>
                   </span>
                 </label>
-              </div>
-              <div>
+            </div>
+            <div>
                 <label class="inline-flex items-center">
-                  <input type="radio" class="form-radio text-indigo-600" name="radio-colors" value="1" checked>
+                  <input type="radio" class="form-radio text-indigo-600" name="product" value="1" checked>
                   <span class="ml-4">
                      <!--img-->
                      <div class="flex items-center justify-center mt-8">
@@ -267,26 +266,24 @@
                     </div>
                   </span>
                 </label>
-              </div>
-        
-        
-          <button type="button" id="prevBtn1" 
-          class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-4 w-full rounded">
+            </div>
+
+
+            <button type="button" id="prevBtn1" class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-4 w-full rounded">
             Previous
           </button>
-              <button type="button" id="nextBtn2" class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-4 w-full rounded">
+            <button type="button" id="nextBtn2" class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-4 w-full rounded">
             Next
           </button>
         </div>
-        
-    
-        
+
+
+
 
         <!-- 3User Info copy div -->
         <div class="hidden" id="luckydraw-form">
-        <div class="text-left mt-2">
-          <label for="luckydraw" class="text-xs text-gray-700"
-            >Luckydraw Code</label
+            <div class="text-left mt-2">
+                <label for="luckydraw" class="text-xs text-gray-700">Luckydraw Code</label
           ><input
             type="text"
             name="luckydraw"
