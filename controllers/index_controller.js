@@ -1,33 +1,37 @@
 const db = require("../../db");
 
 exports.user_create_get = (req, res) => {
-        if (
-            psid,
-            body.name,
-            body.region,
-            body.township,
-            body.gender,
-            body.phonenum
-        ) {
-            let data = await db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFICT (ref_user_id) DO NOTHING", [
-                    psid,
-                    body.name,
-                    body.region,
-                    body.township,
-                    body.gender,
-                    body.phonenum,
+    if (
+        req.psid,
+        req.name,
+        req.region,
+        req.township,
+        req.gender,
+        req.phonenum,
+        req.product,
+        req.luckydraw
+    ) {
+        let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFICT (ref_user_id) DO NOTHING", [
+            req.psid,
+            req.name,
+            req.region,
+            req.township,
+            req.gender,
+            req.phonenum,
 
-                ], function(err, result) {
-                    if (err === null) {
-
-                    } else {
-                        console.log(err);
-                        res.send("database query error");
-                    }
-                }
+        ], function(err, result) {
+            if (err) {
+                res.send("database query error");
             }
-            else {
-                res.send("please fill correctly.");
-            }
+            // if (err === null) {
+            //     let data = db.query("")
+            // } else {
+            //     console.log(err);
+            //     res.send("database query error");
+            // }
+        })
+    } else {
+        res.send("please fill correctly.");
+    }
 
-        }
+}
