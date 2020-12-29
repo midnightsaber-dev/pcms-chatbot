@@ -16,11 +16,11 @@
   }
   
   .visa {
-    background-image: url(http://i.imgur.com/lXzJ1eB.png);
+    background-image: url(img/nivea.jpg);
   }
   
   .mastercard {
-    background-image: url(http://i.imgur.com/SJbRQF7.png);
+    background-image: url(img/nivea.jpg);
   }
   
   .cc-selector-2 input:active+.drinkcard-cc,
