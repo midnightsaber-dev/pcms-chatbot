@@ -6,7 +6,7 @@ exports.user_create_get = (req, res) => {
     if (
 
         req.name,
-        req.region,
+        req.stateDiv,
         req.township,
         req.sex,
         req.age,
@@ -18,7 +18,7 @@ exports.user_create_get = (req, res) => {
         let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, age, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7)", [
             psid,
             req.name,
-            req.region,
+            req.stateDiv,
             req.township,
             req.sex,
             req.age,
