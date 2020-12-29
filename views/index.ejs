@@ -3,6 +3,7 @@
 
 <head>
     <% include ./partials/head %>
+    
 </head>
 
 <body class="bg-gradient-to-r from-green-800 to-blue-500 h-screen flex h-full items-start justify-center">
@@ -285,6 +286,32 @@
               <div class="flex-1 ..."> <img class="rounded-lg shadow-xl hover:shadow-2xl w-40 h-60" src="/img/nivea.jpg"></div>
              
             </div>
+            <form>
+              <p>Previously:</p>
+              <div>
+                  <input checked="checked"  id="a1" type="radio" name="a" value="visa" />
+                  <label for="a1">Visa</label><br/>
+                  <input id="a2" type="radio" name="a" value="mastercard" />
+                  <label for="a2">Mastercard</label>
+              </div>
+              <p>Now, with CSS3: </p>
+              <div class="cc-selector">
+                  <input checked="checked" id="visa" type="radio" name="credit-card" value="visa" />
+                  <label class="drinkcard-cc visa" for="visa"></label>
+                  <input id="mastercard" type="radio" name="credit-card" value="mastercard" />
+                  <label class="drinkcard-cc mastercard"for="mastercard"></label>
+              </div>
+              <p>A simple mod:</p>
+              <div class="cc-selector-2">
+                  <input id="visa2" type="radio" name="creditcard" value="visa" />
+                  <label class="drinkcard-cc visa" for="visa2"></label>
+                  <input  checked="checked" id="mastercard2" type="radio" name="creditcard" value="mastercard" />
+                  <label class="drinkcard-cc mastercard"for="mastercard2"></label>
+              </div>
+              
+          </form>
+          <small><a href="https://github.com/rcotrina94/icons">
+              &copy; Icons by <span class="cc">@rcotrina94</span> on <span class="cc">Github </span></a></small>
 
             <button type="button" id="prevBtn1" class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-4 w-full rounded">
             Previous
