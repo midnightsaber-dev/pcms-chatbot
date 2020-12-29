@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.button1 input[type="radio"] {
+.buttonn input[type="radio"] {
     display: none;
 }
 
 input[type="radio"]:checked + label {
-    border: 200px solid red;
+    border: 2px solid red;
 }
