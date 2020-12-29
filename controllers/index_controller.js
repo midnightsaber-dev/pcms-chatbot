@@ -10,7 +10,7 @@ exports.user_create_get = (req, res) => {
         req.township,
         req.sex,
         req.age,
-        req.phonenum,
+        req.phoneNo,
         req.product,
         req.luckydraw
     ) {
@@ -22,7 +22,7 @@ exports.user_create_get = (req, res) => {
             req.township,
             req.sex,
             req.age,
-            req.phonenum,
+            req.phoneNo,
 
         ], function(err, result) {
             if (err === null) {
