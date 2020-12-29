@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.button input[type="radioo"] {
+    display: none;
+}
+
+input[type="radioo"]:checked + label {
+    border: 1px solid red;
+}
