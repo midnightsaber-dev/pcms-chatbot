@@ -44,7 +44,7 @@ exports.user_create_get = (req, res) => {
                     console.log(err);
                     res.send("database query error");
                 }
-            })
+            });
         } else {
             res.send("please fill correctly.");
         }
