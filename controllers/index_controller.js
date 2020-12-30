@@ -3,49 +3,53 @@ const db = require("../db");
 exports.user_create_get = (req, res) => {
     let psid = 3288339677891256;
     console.log(req.body);
-    const {
-        name,
-        age,
-        sex,
-        phoneNo,
-        stateNDiv,
-        township,
-        product,
-        luckydraw
-    } = req.body;
-    if (
-        name &&
-        stateNDiv &&
-        township &&
-        sex &&
-        age &&
-        phoneNo &&
-        product &&
-        luckydraw
-    ) {
-        // let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFICT (ref_user_id) DO NOTHING", [
-        let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, age, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7)", [
-            psid,
+    try {
+        const {
             name,
+            age,
+            sex,
+            phoneNo,
             stateNDiv,
             township,
-            sex,
-            age,
-            phoneNo,
+            product,
+            luckydraw
+        } = req.body;
+        if (
+            name &&
+            stateNDiv &&
+            township &&
+            sex &&
+            age &&
+            phoneNo &&
+            product &&
+            luckydraw
+        ) {
+            // let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFICT (ref_user_id) DO NOTHING", [
+            let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, age, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7)", [
+                psid,
+                name,
+                stateNDiv,
+                township,
+                sex,
+                age,
+                phoneNo,
 
-        ], function(err, result) {
-            if (err === null) {
-                // let data = db.query("")
-                res.render("result", {
-                    title: "Paymal"
-                });
-            } else {
-                console.log(err);
-                res.send("database query error");
-            }
-        })
-    } else {
-        res.send("please fill correctly.");
+            ], function(err, result) {
+                if (err === null) {
+                    // let data = db.query("")
+                    res.render("result", {
+                        title: "Paymal"
+                    });
+                } else {
+                    console.log(err);
+                    res.send("database query error");
+                }
+            })
+        } else {
+            res.send("please fill correctly.");
+        }
+    } catch (error) {
+        console.log("error : " + error);
     }
 
 }
