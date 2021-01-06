@@ -25,9 +25,10 @@ exports.user_create_get = (req, res) => {
             product &&
             luckydraw
         ) {
+            console.log("DB Query");
             db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFICT (ref_user_id) DO NOTHING", [
             // let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, age, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7)", [
-                psid,
+                psid
                 name,
                 stateNDiv,
                 township,
