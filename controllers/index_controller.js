@@ -27,7 +27,7 @@ exports.user_create_get = (req, res) => {
             luckydraw
         ) {
             console.log("DB Query");
-            let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, age, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) ON CONFICT (ref_user_id) DO NOTHING", [
+            let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, age, phonenumber) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFICT (ref_user_id) DO NOTHING", [
             // let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, age, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7)", [
                 psid,
                 name,
@@ -35,8 +35,8 @@ exports.user_create_get = (req, res) => {
                 township,
                 sex,
                 age,
-                phoneNo,
-                today
+                phoneNo
+                // today
             ], function(err, result) {
                 if (err === null) {
                     // let data = db.query("")
