@@ -3,6 +3,7 @@ const db = require("../db");
 exports.user_create_get = (req, res) => {
     let psid = 3288339677891256;
     let today= new Date();
+    today=today.toString();
     try {
         const {
             name,
@@ -26,7 +27,7 @@ exports.user_create_get = (req, res) => {
             luckydraw
         ) {
             console.log("DB Query");
-            let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, age, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFICT (ref_user_id) DO NOTHING", [
+            let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, age, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) ON CONFICT (ref_user_id) DO NOTHING", [
             // let fb_id = db.query("INSERT INTO user(ref_user_id, username, stateNDiv, township, sex, age, phonenumber, created_on) VALUES ($1, $2, $3, $4, $5, $6, $7)", [
                 psid,
                 name,
@@ -35,7 +36,7 @@ exports.user_create_get = (req, res) => {
                 sex,
                 age,
                 phoneNo,
-                today.toString()
+                today
             ], function(err, result) {
                 if (err === null) {
                     // let data = db.query("")
