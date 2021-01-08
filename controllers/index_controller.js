@@ -2,8 +2,6 @@ const db = require("../db");
 
 exports.user_create_get = (req, res) => {
     let psid = 3288339677891256;
-    // let today= new Date();
-    // today=today.toString();
     try {
         const {
             name,
@@ -34,8 +32,7 @@ exports.user_create_get = (req, res) => {
                 township,
                 sex,
                 age,
-                phoneNo,
-                // today
+                phoneNo
             ], function(err, result) {
                 if (err === null) {
                     // let data = db.query("")
