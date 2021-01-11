@@ -7,7 +7,7 @@ router.get("/", function(req, res, next) {
     res.render("index", { title: "Paymal" });
 });
 
-router.post("/results", index_controller.user_create_get);
+router.post("/results", resolvedAfterXSeconds(2), index_controller.user_create_get);
 
 /* Reset password callback */
 router.post(
@@ -15,4 +15,11 @@ router.post(
     callback_controller.reset_callback_post
 );
 
+async function resolvedAfterXSeconds(x){
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(x);
+        }, x * 1000);
+    })
+}
 module.exports = router;
