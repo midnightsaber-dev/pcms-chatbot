@@ -14,7 +14,7 @@ exports.user_create_get = (req, res) => {
             luckydraw
         } = req.body;
         console.log(name+"\n"+ age+"\n"+stateNDiv);
-        resolvedAfterXSeconds(2);
+        await resolvedAfterXSeconds(2);
         if (
             name &&
             stateNDiv &&
