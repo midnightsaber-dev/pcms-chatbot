@@ -54,7 +54,7 @@ exports.user_create_get = (req, res) => {
 
 }
 
-async function resolvedAfterXSeconds(x){
+function resolvedAfterXSeconds(x){
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(x);
