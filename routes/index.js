@@ -7,10 +7,7 @@ router.get("/", function(req, res, next) {
     res.render("index", { title: "Paymal" });
 });
 
-router.post("/results", function(req,res) {
-    await resolvedAfterXSeconds(2);
-   index_controller.user_create_get
-});
+router.post("/results", index_controller.user_create_get);
 
 /* Reset password callback */
 router.post(
