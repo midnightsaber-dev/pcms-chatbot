@@ -52,5 +52,5 @@ exports.user_create_get = (req, res) => {
         console.log("error : " + error);
     }
 
-}
+};
 
