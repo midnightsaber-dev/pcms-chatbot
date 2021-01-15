@@ -35,6 +35,7 @@ exports.user_create_get = (req, res) => {
                 age,
                 phoneNo
             ]);
+            console.log("data"+data.rows);
             if (data.rows.length > 0) {
                 res.render("result", {
                     title: "Paymal"
@@ -42,6 +43,9 @@ exports.user_create_get = (req, res) => {
               } else {
                 res.send("database query error");
               }
+              res.render("result", {
+                title: "Paymal"
+            });
         } else {
             res.send("please fill correctly.");
         }
