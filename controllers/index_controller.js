@@ -26,7 +26,7 @@ exports.user_create_get = (req, res) => {
             luckydraw
         ) {
             console.log("DB Query");
-            const data = await db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (ref_user_id) DO NOTHING", [
+            let data = await db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (ref_user_id) DO NOTHING", [
                 psid,
                 name,
                 stateNDiv,
