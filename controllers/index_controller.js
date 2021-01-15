@@ -35,7 +35,7 @@ exports.user_create_get = (req, res) => {
                 age,
                 phoneNo
             ]);
-            console.log("user id :"+user_id);
+            console.log("user id :"+user_id.body);
             if (user_id===null) {
                 res.send("database query error");
               } else {
