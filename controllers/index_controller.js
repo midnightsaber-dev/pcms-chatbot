@@ -22,7 +22,7 @@ exports.user_create_get = (req, res) => {
             sex &&
             age &&
             phoneNo &&
-            product &&
+            // product &&
             luckydraw
         ) {
             console.log("DB Query");
