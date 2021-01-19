@@ -55,8 +55,10 @@ btnExportToCsv_Event.addEventListener("click", () => {
     const csvOutput = exporter.convertToCSV();
     const csvBlob = new Blob([csvOutput], { type: "text/csv" });
     const blobUrl = URL.createObjectURL(csvBlob);
-    const anchorElement = document.createElement("a"); anchorElement.href = blobUrl;
-    anchorElement.download = "table-export.csv"; anchorElement.click();
+    const anchorElement = document.createElement("a");
+    anchorElement.href = blobUrl;
+    anchorElement.download = "table-export.csv";
+    anchorElement.click();
 
     setTimeout(() => {
         URL.revokeObjectURL(blobUrl);
