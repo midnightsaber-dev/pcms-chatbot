@@ -75,8 +75,7 @@ exports.merchant_create_post = async (req, res) => {
           res.redirect(
             `/admin/merchant/detail/${data.rows[0].sys_merchant_id}`
           );
-
-          res.status(200).
+          res.status(200);
         } else {
           res.send("database query error");
         }
