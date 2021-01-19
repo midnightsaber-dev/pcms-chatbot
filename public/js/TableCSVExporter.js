@@ -50,7 +50,7 @@ class TableCSVExporter {
 const dataTable_Event = document.getElementById("dataTable_Event");
 const btnExportToCsv_Event = document.getElementById("btnExportToCsv_Event");
 
-btnExportToCsvEvent.addEventListener("click", () => {
+btnExportToCsv_Event.addEventListener("click", () => {
     const exporter = new TableCSVExporter(dataTable_Event);
     const csvOutput = exporter.convertToCSV();
     const csvBlob = new Blob([csvOutput], { type: "text/csv" });
