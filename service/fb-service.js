@@ -1,3 +1,4 @@
+
 // 'use strict';
 const request = require("request");
 const crypto = require("crypto");
@@ -147,50 +148,6 @@ module.exports = {
       sequenceNumber
     );
   },
-
-  receivedMessage: function(event){
-    var senderID = event.sender.id;
-    var recipientID = event.recipient.id;
-    var timeOfMessage = event.timestamp;
-    var message = event.message;
-
-    /* if (!sessionIds.has(senderID)) {
-             sessionIds.set(senderID, uuid.v1());
-         }*/
-    //console.log("Received message for user %d and page %d at %d with message:", senderID, recipientID, timeOfMessage);
-    //console.log(JSON.stringify(message));
-
-    setSessionAndUser(senderID);
-    var isEcho = message.is_echo;
-    var messageId = message.mid;
-    var appId = message.app_id;
-    var metadata = message.metadata;
-
-    // You may get a text or attachment but not both
-    var messageText = message.text;
-    var messageAttachments = message.attachments;
-    var quickReply = message.quick_reply;
-
-    if (isEcho) {
-        handleEcho(messageId, appId, metadata);
-        return;}
-    // } else if (quickReply) {
-    //     handleQuickReply(senderID, quickReply, messageId);
-    //     return;
-    // }
-
-    if (messageText) {
-        //send message to DialogFlow
-        dialogflowService.sendTextQueryToDialogFlow(
-            sessionIds,
-            handleDialogFlowResponse,
-            senderID,
-            messageText
-        );
-    } else if (messageAttachments) {
-        handleMessageAttachments(messageAttachments, senderID);
-    }
-},
 
   /*
    * Account Link Event
@@ -680,67 +637,4 @@ module.exports = {
 
     return obj != null;
   },
-
-  
-/*
- * Postback Event
- *
- * This event is called when a postback is tapped on a Structured Message.
- * https://developers.facebook.com/docs/messenger-platform/webhook-reference/postback-receivedf
- *
- */
-
-receivedPostback : function (event)  {
-  var senderID = event.sender.id;
-  var recipientID = event.recipient.id;
-  var timeOfPostback = event.timestamp;
-
-  setSessionAndUser(senderID);
-  // The 'payload' param is a developer-defined field which is set in a postback
-  // button for Structured Messages.
-  var payload = event.postback.payload;
-
-  switch (payload) {
-      case "FUN_NEWS":
-          sendFunNewsSubscribe(senderID);
-          break;
-      case "JOB_APPLY":
-          //get feedback with new jobs
-          dialogflowService.sendTextQueryToDialogFlow(
-              sessionIds,
-              handleDialogFlowResponse,
-              senderID,
-              "JOB_OPENINGS"
-          );
-          break;
-      case "CHAT":
-          //user wants to chat
-          //
-          sendTextMessage(
-              senderID,
-              "I love chatting too. Do you have any other questions for me?"
-          );
-          break;
-      case "GET_STARTED":
-          greetUserText(senderID);
-          break;
-      default:
-          //unindentified payload
-          sendTextMessage(
-              senderID,
-              "I'm not sure what you want. Can you be more specific?"
-          );
-          break;
-  }
-
-  console.log(
-      "Received postback for user %d and page %d with payload '%s' " + "at %d",
-      senderID,
-      recipientID,
-      payload,
-      timeOfPostback
-  );
-},
-
-
 };
