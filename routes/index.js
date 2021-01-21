@@ -15,15 +15,15 @@ router.post(
     callback_controller.reset_callback_post
 );
 
-async function resolvedAfterXSeconds(x){
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(x);
-        }, x * 1000);
-    })
-}
+// async function resolvedAfterXSeconds(x){
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve(x);
+//         }, x * 1000);
+//     })
+// }
 
-app.get("/webhook/", function(req, res) {
+router.get("/webhook/", function(req, res) {
     console.log("request");
     if (
         req.query["hub.mode"] === "subscribe" &&
@@ -37,7 +37,7 @@ app.get("/webhook/", function(req, res) {
 });
 
 
-app.post("/webhook/", function(req, res) {
+router.post("/webhook/", function(req, res) {
     var data = req.body;
     console.log(JSON.stringify(data));
 
