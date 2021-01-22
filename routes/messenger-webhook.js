@@ -1,12 +1,12 @@
 'use strict';
 const express = require("express");
-const router = express.Router();
+const router = express();
 const fbService = require('../service/fb-service');
 router.get("/webhook/", function(req, res) {
     console.log("request");
     if (
         req.query["hub.mode"] === "subscribe" &&
-        req.query["hub.verify_token"] === process.env.FB_VERIFY_TOKEN
+        req.query["hub.verify_token"] ===  process.env.FB_VERIFY_TOKEN
     ) {
         res.status(200).send(req.query["hub.challenge"]);
     } else {
