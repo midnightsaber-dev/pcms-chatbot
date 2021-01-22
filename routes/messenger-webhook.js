@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express();
 const fbService = require('../service/fb-service');
-router.get("/webhook/", function(req, res) {
+router.get("/webhook", function(req, res) {
     console.log("request");
     if (
         req.query["hub.mode"] === "subscribe" &&
