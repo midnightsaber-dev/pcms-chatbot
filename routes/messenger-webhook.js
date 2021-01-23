@@ -20,7 +20,8 @@ const fbService = require('../service/fb-service');
 router.get('/webhook', (req, res) => {
 
     // Your verify token. Should be a random string.
-    let VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN
+    // let VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN
+    console.log("verify token : "+process.env.FB_VERIFY_TOKEN);
       
     // Parse the query params
     let mode = req.query['hub.mode'];
