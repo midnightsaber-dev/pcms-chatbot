@@ -16,7 +16,7 @@ const fbService = require('../service/fb-service');
 // });
 
 // Adds support for GET requests to our webhook
-app.get('/webhook', (req, res) => {
+router.get('/webhook', (req, res) => {
 
     // Your verify token. Should be a random string.
     let VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN
