@@ -14,7 +14,7 @@ exports.user_create_get = (req, res) => {
             product,
             luckydraw
         } = req.body;
-        console.log(name+"\n"+ age+"\n"+stateNDiv);
+        console.log(req.body);
        
         if (
             name &&
