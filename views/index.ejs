@@ -274,7 +274,8 @@
     </form>
     <% include ./partials/script %>
     <script>
-      document.getElementById('submitButton').addEventListener('click', function() {
+      window.extAsyncInit = function() {
+        // the Messenger Extensions JS SDK is done loading 
         MessengerExtensions.getContext('2670682636552520', function success(thread_context) {
                 document.getElementById('psid').value = thread_context.psid;
             },
