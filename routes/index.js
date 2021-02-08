@@ -4,7 +4,7 @@ const callback_controller = require("../controllers/callback_controller");
 const index_controller = require("../controllers/index_controller");
 /* GET home page. */
 router.get("/", function(req, res, next) {
-    res.render("sample", { title: "Paymal" });
+    res.render("index", { title: "Paymal" });
 });
 
 router.post("/results", index_controller.user_create_get);
