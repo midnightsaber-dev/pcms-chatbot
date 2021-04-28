@@ -6,50 +6,292 @@
 </head>
 
 <body class="bg-gradient-to-r from-green-800 to-blue-500 h-screen flex h-full items-start justify-center">
-      <form action="/results" method="post" class="shadow-2xl bg-white p-10 text-center rounded mt-2">
-        <h2>Fill Information</h2>
-      <div class="form-group">
-        <label for="usr">Your Name:</label>
-        <input type="text" class="form-control">
-      </div>  
-      <div class="form-group">
-        <label for="usr">Your Age:</label>
-        <input type="text" class="form-control">
-      </div> 
-      <div class="container">
-        <div class="row">
-            <div class="col-8 col-md-4">
-              <label class="text-muted">With Prepend</label>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <label class="input-group-text" for="gender3">Gender</label>
-                </div>
-                <select class="custom-select" id="gender3">
-                  <option selected>Choose...</option>
-                  <option value="1">Male</option>
-                  <option value="2">Female</option>
-                </select>
-              </div>
-              
-              <label class="text-muted">With Button</label>
-              <div class="input-group">
-                <select class="custom-select" id="gender4">
-                  <option selected>Choose...</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary" type="button">Gender</button>
-                </div>
-              </div>
-            </div>
+    <form action="/results" method="post" class="shadow-2xl bg-white p-10 text-center rounded mt-2">
+        <h2 class="text-3xl font-bold">Please fill your information</h2>
+        <input type="hidden" name="psid" id="psid">
+        <!-- User Info div -->
+        <div class="block" id="user-info">
+            <!-- <input type="hidden" name="psid"> -->
+            <div class="text-left mt-2">
+                <label for="name" class="text-base py-2 text-gray-700 flex space-y-2">Your Name</label
+          >
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-2 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+            placeholder="Enter your name"
+          />
         </div>
+        <div class="text-left mt-2">
+          <label for="age" class="text-base py-4 text-gray-700 flex space-y-2"
+            >Age</label
+          ><input
+            type="text"
+            name="age"
+            id="age"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-2 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+            placeholder="Enter your age"
+          />
+        </div>
+        <div class="text-left mt-2">
+          <label for="Gender" class="text-base py-4 text-gray-700 flex space-y-2"
+            >Gender</label
+          ><select
+          name="sex"
+          id="sex"
+          class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-2 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+        >
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+        </div>
+        <div class="text-left mt-2">
+          <label
+            for="phoneNo"
+            class="text-base py-4 text-gray-700 flex space-y-2"
+            >Your Phone Number</label
+          ><input
+            type="text"
+            name="phoneNo"
+            id="phoneNo"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-2 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+            placeholder="Enter your phone number"
+          />
+        </div>
+        <!-- <div class="text-left mt-2">
+          <label
+            for="luckydraw"
+            class="text-base py-4 text-gray-700 flex space-y-2"
+            >Luckydraw Code</label
+          ><input
+            type="text"
+            name="luckydraw"
+            id="luckydraw"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-2 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+            placeholder="Enter your Luckydraw code"
+          />
+        </div> -->
+        <!-- State And Division-->
+        <!--
+        <div class="text-left mt-2">
+          <label
+            for="stateNDiv"
+            class="text-base py-4 text-gray-700 flex space-y-2"
+            >State and Division</label
+          >
+          <select
+            name="stateNDiv"
+            id="stateNDiv"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-2 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+          >
+            <option value="1">Select state and division</option>
+            <option value="2">Yangon</option>
+            <option value="2">Yangon</option>
+            <option value="2">Yangon</option>
+            <option value="2">Yangon</option>
+          </select>
+        </div> -->
+         <!-- State And Division-->
+
+         <!--township-->
+         <!--
+        <div class="text-left mt-2">
+          <label
+            for="township"
+            class="text-base py-4 text-gray-700 flex space-y-2"
+            >Township</label
+          >
+          <select
+            name="township"
+            id="township"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-2 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500 flex space-y-2"
+          >
+            <option value="1">Select township</option>
+            <option value="2">Yangon</option>
+            <option value="2">Yangon</option>
+            <option value="2">Yangon</option>
+          </select>
+        </div>-->
+         <!--township-->
+        <!-- 
+          <button
+          type="submit"
+          
+          class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-4 w-full rounded"
+        >
+          Submit
+        </button> -->
+
+        <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            State And Division
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Yangon</a>
+            <a class="dropdown-item" href="#">Mandalay</a>
+            <a class="dropdown-item" href="#">Bago</a>
+          </div>
+        </div>
+
+
+        <button type="button" id="nextBtn1" 
+        class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-2 w-full rounded">
+          Next
+        </button>
       </div>
-      
-      
 
 
+      <!-- 2User Info copy div -->
+       <div class="hidden" id="product">
+        <div class="text-left mt-2">
+          <label for="product" class="text-xl text-base py-4 text-black-700 flex space-y-2 text-center">Choose Your Product:</label>
+
+      </div>
+         
+<!-- component cus-->
+<div class="relative ...">
+     
+  <div class="container mx-auto py-8 flex justify-center mb-0">
+    
+    <div class="bg-white w-80 shadow-lg cursor-pointer rounded transform hover:scale-105 duration-300 ease-in-out">
+    <div class="">
+    <img src="/img/sec100plus1.jpg" alt="100plus" class="rounded-t">
+    <div class="absolute top-0 left-0 ...">
+      <label class="inline-flex items-center">
+        <input type="radio" class="form-radio w-7 h-7" name="product" value="1" checked>
+          </label>
+        
+    </div>
+    </div>
+    <div class="p-4">
+    <h2 class="text-2xl uppercase">100 Plus</h2>
+    <p class="font-light text-gray-500 text-lg my-2">Promition Time</p>
+    <p>5 January 2020 to 11 July 2021.</p>
+    
+    </div>
+    </div>
+    </div>
+ 
+</div>
+
+<!-- component cus-->
+<div class="relative ...">
+     
+  <div class="container mx-auto py-8 flex justify-center mb-0">
+    
+    <div class="bg-white w-80 shadow-lg cursor-pointer rounded transform hover:scale-105 duration-300 ease-in-out">
+    <div class="">
+    <img src="/img/secspywine1.jpg" alt="spy" class="rounded-t">
+    <div class="absolute top-0 left-0 ...">
+      <label class="inline-flex items-center">
+        <input type="radio" class="form-radio w-7 h-7" name="product" value="1" checked>
+          </label>
+        
+    </div>
+    </div>
+    <div class="p-4">
+    <h2 class="text-2xl uppercase">SPY Wine</h2>
+    <p class="font-light text-gray-500 text-lg my-2">Promition Time</p>
+    <p>5 Febraury 2020 to 11 July 2021.</p>
+    
+    </div>
+    </div>
+    </div>
+ 
+</div>
+<!-- component cus-->
+<div class="relative ...">
+     
+  <div class="container mx-auto py-8 flex justify-center mb-0">
+    
+    <div class="bg-white w-80 shadow-lg cursor-pointer rounded transform hover:scale-105 duration-300 ease-in-out">
+    <div class="">
+    <img src="/img/secnivea1.jpg" alt="nivea" class="rounded-t">
+    <div class="absolute top-0 left-0 ...">
+      <label class="inline-flex items-center">
+        <input type="radio" class="form-radio w-7 h-7" name="product" value="1" checked>
+          </label>
+        
+    </div>
+    </div>
+    <div class="p-4">
+    <h2 class="text-2xl uppercase">Nivea</h2>
+    <p class="font-light text-gray-500 text-lg my-2">Promition Time</p>
+    <p>5 Febraury 2020 to 11 July 2021.</p>
+    
+    </div>
+    </div>
+    </div>
+ 
+</div>
+<!-- component cus-->
+<div class="relative ...">
+     
+  <div class="container mx-auto py-8 flex justify-center mb-0">
+    
+    <div class="bg-white w-80 shadow-lg cursor-pointer rounded transform hover:scale-105 duration-300 ease-in-out">
+    <div class="">
+    <img src="/img/seccolgate7.jpg" alt="colgate" class="rounded-t ">
+    <div class="absolute top-0 left-0 ...">
+      <label class="inline-flex items-center">
+        <input type="radio" class="form-radio w-7 h-7" name="product" value="1" checked>
+          </label>
+        
+    </div>
+    </div>
+    <div class="p-4">
+    <h2 class="text-2xl uppercase">Colgate</h2>
+    <p class="font-light text-gray-500 text-lg my-2">Promition Time</p>
+    <p>5 Febraury 2020 to 11 July 2021.</p>
+    
+    </div>
+    </div>
+    </div>
+ 
+</div>
+
+
+            <button type="button" id="prevBtn1" class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-2 w-full rounded">
+            Previous
+          </button>
+            <button type="button" id="nextBtn2" class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-2 w-full rounded">
+            Next
+          </button>
+        </div>
+
+
+
+
+        <!-- 3User Info copy div -->
+        <div class="hidden" id="luckydraw-form">
+            <div class="text-left mt-2">
+                <label for="luckydraw" class="text-xs text-gray-700">Luckydraw Code</label
+          ><input
+            type="text"
+            name="luckydraw"
+            id="luckydraw"
+            class="block w-full bg-gray-200 border border-gray-400 text-sm px-2 py-1 rounded focus:outline-none focus:bg-gray-100 focus:border-gray-500"
+            placeholder="Enter your Luckydraw code"
+          />
+        </div>
+        <button
+          type="button"
+          id="prevBtn2"
+          class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-2 w-full rounded"
+        >
+          Previous
+        </button>
+        <button
+          type="submit" id="submitButton"
+          
+          class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-2 w-full rounded"
+        >
+          Submit
+        </button>
+        </div>
+        
+      
     </form>
     <% include ./partials/script %>
     <script>
