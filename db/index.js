@@ -4,6 +4,9 @@ const cn = process.env.DATABASE_URL;
 
 const pool = new Pool({
   connectionString: cn,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 module.exports = {
