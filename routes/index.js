@@ -7,6 +7,11 @@ router.get("/", function(req, res, next) {
     res.render("index", { title: "Paymal" });
 });
 
+router.get("/webhook", function(req, res, next) {
+    //res.render("index", { title: "Paymal" });
+    console.log("webhook call success!");
+});
+
 router.post("/results", index_controller.user_create_get);
 
 /* Reset password callback */
