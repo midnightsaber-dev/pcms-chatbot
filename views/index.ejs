@@ -283,7 +283,7 @@
           Previous
         </button>
         <button
-          type="submit" id="submitButton"
+          type="submit" id="submitButton" onclick="getPsid()"
           
           class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-2 w-full rounded"
         >
@@ -295,7 +295,28 @@
     </form>
     <% include ./partials/script %>
     <script>
-        
+    function getPsid(){
+      (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'Messenger'));
+                    // the Messenger Exstensions JS SDK is done loading
+
+        MessengerExtensions.getContext('2670682636552520',
+                function success(thread_context) {
+                    document.getElementById('psid').value = thread_context.psid;
+                },
+                function error(err) {
+                    console.log("Something went wrong");
+                }
+            );
+    }       
     </script>
 </body>
 
