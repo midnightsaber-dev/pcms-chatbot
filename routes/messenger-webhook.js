@@ -1,7 +1,6 @@
-'use strict';
-const express = require("express");
+const express = require('express');
 const bodyParser = require('body-parser');
-const router = express().use(bodyParser.json());
+const router = express.Router();
 const fbService = require('../service/fb-service');
 // router.get("/webhook", function(req, res) {
 //     console.log("request");
