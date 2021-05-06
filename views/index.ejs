@@ -10,7 +10,7 @@
     <form action="/results" method="post" class="mx-auto w-50">
 
         <h2 class="text-center">Please fill your information</h2>
-        <input type="hidden" value="12345" id="psid">
+        <!-- <input type="hidden" value="12345" id="psid"> -->
         <!-- User Info div -->
         <div class="block" id="user-info">
             <!-- <input type="hidden" name="psid"> -->
@@ -64,17 +64,98 @@
 
       <!-- 2User Info copy div -->
        <div class="hidden" id="product">
-        <div class="text-left mt-2">
-          <label for="product" class="text-xl text-base py-4 text-black-700 flex space-y-2 text-center">Choose Your Product:</label>
-
+        <div class="form-group">
+   
+          <div class="form-group">
+      <label for="luckydrawcode">Lucky Draw Code</label>
+      <input type="text" class="form-control" id="luckydrawcode" placeholder="Enter Your Lucky Draw Code">
+    </div>
+      <div id="myproduct">
+      <label for="chooseproduct">Choose Your Product :</label>
+    <div class="row">
+        <div class="col-sm-6">Product Name:</div>
+        <div class="col-sm-6" >    
+      <select class="form-control" id="chooseproduct">
+       <option data-toggle="collapse" href="#SPY">SPY Wine</option>  
+      <option data-toggle="collapse" href="#plus">100 Plus</option>
+           
+      <option data-toggle="collapse" href="#coca">Coca Cola</option>
+       
+      </select>
+    </div>
       </div>
+      <br>
+        <div id="SPY" class="collapse show" data-parent="#myproduct">
+        <div class="row">
+        <div class="col-sm-6" >Promotion Time: </div>
+        <div class="col-sm-6" >5 January 2020 to 11 July 2021</div>
+      </div>
+      <br>
+    <!-- Gallery -->
+    <div class="row">
+    <div class="col-md-12">
+      <img
+        src="spy1.png"
+        class="shadow-1-strong mb-4 mx-auto d-block" 
+        alt="SPY"/>
+      <h3 class="text-center">SPY Wine Cooler</h3>
+      <h5 class="text-center">has been the premier Ready To Drinkbrand among Thais for the past 30 years and has dominated the market with more than 70%, lead in both the domestic Thai and the overall South East Asian market alike.</h5>
+    </div>
+  
+  </div>
+  <!-- Gallery -->
+      </div>
+      
+      <div id="plus" class="collapse" data-parent="#myproduct">
+        <div class="row">
+        <div class="col-sm-6" >Promotion Time: </div>
+        <div class="col-sm-6" >4 Feb 2020 to 11 March 2021</div>
+      </div>
+      <br>
+    <!-- Gallery -->
+    <div class="row">
+    <div class="col">
+      <img
+        src="100plus2.png" width="460" height="380"
+        class="shadow-1-strong mb-4 mx-auto d-block" 
+        alt="100plus"/>
+      <h3 class="text-center">100 Plus</h3>
+      <h5 class="text-center">Peak performance is driven by two things passion and a healthy body. Loaded with glucose and minerals, 100PLUS keeps your body properly hydrated for optimum bodily function and speedy recovery. </h5>
+    </div>
+  
+  </div>
+      </div>
+      <div id="coca" class="collapse" data-parent="#myproduct">
+        <div class="row">
+        <div class="col-sm-6" >Promotion Time: </div>
+        <div class="col-sm-6" >7 April 2020 to 16June 2021</div>
+      </div>
+      <br>
+    <!-- Gallery -->
+    <div class="row">
+    <div class="col">
+      <img
+        src="coca2.png"
+        class="shadow-1-strong mb-4 mx-auto d-block" 
+        alt="CocaCola"/>
+      <h3 class="text-center">Coca Cola Myanmar</h3>
+      <h5 class="text-center">Peak performance is driven by two things passion and a healthy body. Loaded with glucose and minerals, 100PLUS keeps your body properly hydrated for optimum bodily function and speedy recovery. </h5>
+    </div>
+  
+  </div>
+      </div>
+      
+    
+    
+    </div>
+    </div>
          
 
 
-            <button type="button" id="prevBtn1" class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-2 w-full rounded">
+            <button type="button" id="prevBtn1">
             Previous
           </button>
-            <button type="button" id="nextBtn2" class="bg-gradient-to-r from-teal-400 to-blue-500 text-gray-100 mt-4 text-sm px-3 py-2 w-full rounded">
+            <button type="button" id="nextBtn2">
             Next
           </button>
         </div>
