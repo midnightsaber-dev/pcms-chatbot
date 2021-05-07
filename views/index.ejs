@@ -240,7 +240,7 @@
     <label for="luckydrawcode">Lucky Draw Code</label>
     <input type="text" class="form-control" id="luckydrawcode" placeholder="Enter Your Lucky Draw Code">
   </div>
-	
+  <input type="hidden" id="psid">
 	<div class="col-md-12 text-center">
 	<button type="button" id=" P3-PrevBtn" class="btn btn-outline-primary" onclick="demoVisibilitythreePre()"> Previous  </button>
 	<button type="button" id="SubmitBtn" class="btn btn-outline-primary"> Submit </button>
@@ -252,7 +252,7 @@
     
     <% include ./partials/script %>
     <script>
-    function getPsid(){
+    
       (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) {
@@ -264,17 +264,17 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'Messenger'));
                     // the Messenger Exstensions JS SDK is done loading
-
+                    window.extAsyncInit = function() {
         MessengerExtensions.getContext('2670682636552520',
                 function success(thread_context) {
-                    document.getElementById("psid").value = thread_context.psid;
+                    document.getElementById("psid").nodeValue = thread_context.psid;
                     console.log()
                 },
                 function error(err) {
                     console.log("Something went wrong");
                 }
             );
-    }       
+              };
     </script>
 </body>
 
