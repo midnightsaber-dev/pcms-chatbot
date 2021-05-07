@@ -12,6 +12,7 @@
         <h2 class="text-center">Please fill your information</h2>
         <!-- <input type="hidden" value="12345" id="psid"> -->
         <!-- User Info div -->
+        <input type="hidden" id="psid" value="">
         <div class="block" id="user-info">
             <!-- <input type="hidden" name="psid"> -->
             <div class="form-group">
@@ -197,7 +198,6 @@
     
     <% include ./partials/script %>
     <script>
-    function getPsid(){
       (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) {
@@ -209,16 +209,22 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'Messenger'));
                     // the Messenger Exstensions JS SDK is done loading
+    function getPsid(){
+      window.extAsyncInit = function() {
+          // the Messenger Extensions JS SDK is done loading
+              MessengerExtensions.getUserID(function success(uids) {
+                  // User ID was successfully obtained. 
+                  var psid = uids.psid;
+                  document.getElementById('psid').nodeValue=psid;
+                  console.log("psid", psid)
+                      $('.error').html(psid)
 
-        MessengerExtensions.getContext('2670682636552520',
-                function success(thread_context) {
-                    document.getElementById("psid").value = thread_context.psid;
-                    console.log()
-                },
-                function error(err) {
-                    console.log("Something went wrong");
-                }
-            );
+              }, function error(err, errorMessage) {      
+                  // Error handling code
+                  console.log(err, errorMessage)
+                  $('.error').html(errorMessage)
+              });    
+    };
     }       
     </script>
 </body>
