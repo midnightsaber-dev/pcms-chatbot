@@ -66,14 +66,9 @@
       <!-- 2User Info copy div -->
        <div class="hidden" id="product">
         <div class="form-group">
-   
-          <div class="form-group">
-      <label for="luckydrawcode">Lucky Draw Code</label>
-      <input type="text" class="form-control" id="luckydrawcode" placeholder="Enter Your Lucky Draw Code">
-    </div>
-      <div id="myproduct">
-      <label for="chooseproduct">Choose Your Product :</label>
-    <div class="row">
+         <div id="myproduct">
+           <label for="chooseproduct">Choose Your Product :</label>
+            <div class="row">
         <div class="col-sm-6">Product Name:</div>
         <div class="col-sm-6" >    
       <select class="form-control" id="chooseproduct">
@@ -209,7 +204,7 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'Messenger'));
                     // the Messenger Exstensions JS SDK is done loading
-    function getPsid(){
+    
       window.extAsyncInit = function() {
           // the Messenger Extensions JS SDK is done loading
               MessengerExtensions.getUserID(function success(uids) {
@@ -225,7 +220,7 @@
                   $('.error').html(errorMessage)
               });    
     };
-    }       
+
     </script>
 </body>
 
