@@ -1,4 +1,5 @@
 const db = require("../db");
+const fbservice = require("../service/fb-service");
 
 exports.user_create_get = (req, res) => {
     
@@ -62,7 +63,7 @@ exports.user_create_get = (req, res) => {
               }
             ////
         } else {
-            res.send("please fill correctly.");
+            fbservice.sendTextMessage(body.psid, "Please Fill Again!");
         }
         
     } catch (error) {
