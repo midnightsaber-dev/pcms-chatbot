@@ -1,7 +1,7 @@
 // 'use strict';
 const request = require("request");
 const crypto = require("crypto");
-const config = require("../config");
+// const config = require("../config");
 module.exports = {
   handleMessages: function (messages, sender) {
     let self = module.exports;
@@ -296,7 +296,7 @@ module.exports = {
       var signatureHash = elements[1];
 
       var expectedHash = crypto
-        .createHmac("sha1", config.FB_APP_SECRET)
+        .createHmac("sha1", process.env.FB_APP_SECRET)
         .update(buf)
         .digest("hex");
 
@@ -409,7 +409,7 @@ module.exports = {
         attachment: {
           type: "image",
           payload: {
-            url: config.SERVER_URL + "/assets/instagram_logo.gif",
+            url: process.env.SERVER_URL + "/assets/instagram_logo.gif",
           },
         },
       },
@@ -432,7 +432,7 @@ module.exports = {
         attachment: {
           type: "audio",
           payload: {
-            url: config.SERVER_URL + "/assets/sample.mp3",
+            url: process.env.SERVER_URL + "/assets/sample.mp3",
           },
         },
       },
@@ -455,7 +455,7 @@ module.exports = {
         attachment: {
           type: "video",
           payload: {
-            url: config.SERVER_URL + videoName,
+            url: process.env.SERVER_URL + videoName,
           },
         },
       },
@@ -478,7 +478,7 @@ module.exports = {
         attachment: {
           type: "file",
           payload: {
-            url: config.SERVER_URL + fileName,
+            url: process.env.SERVER_URL + fileName,
           },
         },
       },
@@ -601,7 +601,7 @@ module.exports = {
             buttons: [
               {
                 type: "account_link",
-                url: config.SERVER_URL + "/authorize",
+                url: process.env.SERVER_URL + "/authorize",
               },
             ],
           },
@@ -635,7 +635,7 @@ module.exports = {
       {
         uri: "https://graph.facebook.com/v2.6/me/messages",
         qs: {
-          access_token: config.FB_PAGE_TOKEN,
+          access_token: process.env.FB_PAGE_TOKEN,
         },
         method: "POST",
         json: messageData,
