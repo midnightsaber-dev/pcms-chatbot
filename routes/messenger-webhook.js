@@ -1,5 +1,4 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require("express");
 const router = express.Router();
 const fbService = require('../service/fb-service');
 // router.get("/webhook", function(req, res) {
