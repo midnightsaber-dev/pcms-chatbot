@@ -63,7 +63,8 @@ exports.user_create_get = (req, res) => {
               }
             ////
         } else {
-            fbservice.sendTextMessage(body.psid, "Please Fill Again!");
+            // fbservice.sendTextMessage(body.psid, "Please Fill Again!");
+            res.send("please fill correctly.");
         }
         
     } catch (error) {
