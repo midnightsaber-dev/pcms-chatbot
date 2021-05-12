@@ -9,7 +9,7 @@ router.get("/", function(req, res, next) {
 
 
 
-router.get("/results", index_controller.user_create_get);
+router.post("/results", index_controller.user_create_get);
 
 /* Reset password callback */
 router.post(
