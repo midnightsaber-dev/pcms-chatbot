@@ -1,7 +1,6 @@
-// 'use strict';
 const request = require("request");
 const crypto = require("crypto");
-// const config = require("../config");
+
 module.exports = {
   handleMessages: function (messages, sender) {
     let self = module.exports;
@@ -147,6 +146,21 @@ module.exports = {
       sequenceNumber
     );
   },
+
+  setSessionAndUser: function(senderID) {
+
+      if (!sessionIds.has(senderID)) {
+        sessionIds.set(senderID, uuid.v1());
+    }
+
+    if (!usersMap.has(senderID)) {
+        userService.addUser(function(user) {
+            usersMap.set(senderID, user);
+        }, senderID);
+    }
+
+  },
+
 
   receivedMessage: function(event){
     var senderID = event.sender.id;
