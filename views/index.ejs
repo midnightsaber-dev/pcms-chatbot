@@ -18,6 +18,7 @@
             function success(thread_context){
                 // success
                 document.getElementsByName("psid").value= thread_context.psid ;
+                document.getElementsByName("name").value= "Zin Min Myat";
             },
             function error(err){
                 // error
@@ -74,7 +75,7 @@
         <label for="luckydraw">Lucky draw code</label>
         <input type="text" class="form-control" id="luckydraw" name="luckydraw" placeholder="Enter your Code">
       </div>
-      
+
       <input type="text" hidden id="psid" name="psid" value="123123" >
 
       <div class="col-md-12 text-center">
