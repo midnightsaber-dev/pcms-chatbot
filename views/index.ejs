@@ -4,7 +4,29 @@
 <head>
   <% include ./partials/head %>
 </head>
-
+<script>
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'Messenger'));
+  // the Messenger Exstensions JS SDK is done loading
+  window.extAsyncInit = function () {
+    MessengerExtensions.getContext('2670682636552520',
+      function success(thread_context) {
+        document.getElementById("psid").value = thread_context.psid;
+      },
+      function error(err) {
+        console.log("Something went wrong");
+      }
+    );
+  };
+</script>
 <body class="container">
 
   <form action="/results" method="post" class="mx-auto w-50">
@@ -57,36 +79,12 @@
 
     </div>
 
-    
-    <input type="hidden" id="psid" name="psid" value="">
-    <input type="hidden" id="luckydraw" name="luckydraw" value="111111">
+    <input type="text" hidden id="luckydraw" name="luckydraw" >
   </form>
 
 
   <% include ./partials/script %>
-  <script>
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {
-        return;
-      }
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'Messenger'));
-    // the Messenger Exstensions JS SDK is done loading
-    window.extAsyncInit = function () {
-      MessengerExtensions.getContext('2670682636552520',
-        function success(thread_context) {
-          document.getElementById("psid").value = thread_context.psid;
-        },
-        function error(err) {
-          console.log("Something went wrong");
-        }
-      );
-    };
-  </script>
+  
 </body>
 
 </html>
