@@ -53,6 +53,7 @@ exports.user_create_get = (req, res) => {
                     topup_amount,
                     status
                 ])
+                res.sed("data submitted!");
               }
                else {
                    
