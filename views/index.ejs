@@ -19,10 +19,11 @@
   window.extAsyncInit = function () {
     MessengerExtensions.getContext('2670682636552520',
       function success(thread_context) {
+        alert(thread_context.psid);
         document.getElementById("psid").value = thread_context.psid;
       },
       function error(err) {
-        console.log("Something went wrong");
+        alert(JSON.stringify(err));
       }
     );
   };
