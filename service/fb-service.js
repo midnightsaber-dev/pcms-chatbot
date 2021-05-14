@@ -756,32 +756,31 @@ receivedPostback : function (event)  {
       timeOfPostback
   );
 },
+greetUserText : async function(userId) {
+    let user = usersMap.get(userId);
+    if (!user) {
+        await resolveAfterXSeconds(2);
+        user = usersMap.get(userId);
+    } 
 
-greetUserText : function(userId){
-  let user = usersMap.get(userId);
-  if (!user) {
-      await resolveAfterXSeconds(2);
-      user = usersMap.get(userId);
-  } 
-
-  if (user) {
-      //add fbservice at sendTextMessage
-      self.sendTextMessage(
-          userId,
-          "Welcome " +
-          user.first_name +
-          "! " +
-          "I can answer frequently asked questions for you " +
-          "and I perform job interviews. What can I help you with?"
-      );
-  } else {
-      self.sendTextMessage(
-          userId,
-          "Welcome! " +
-          "I can answer frequently asked questions for you " +
-          "and I perform job interviews. What can I help you with?"
-      );
-  }
+    if (user) {
+        //add fbservice at sendTextMessage
+        fbService.sendTextMessage(
+            userId,
+            "Welcome " +
+            user.first_name +
+            "! " +
+            "I can answer frequently asked questions for you " +
+            "and I perform job interviews. What can I help you with?"
+        );
+    } else {
+        fbService.sendTextMessage(
+            userId,
+            "Welcome! " +
+            "I can answer frequently asked questions for you " +
+            "and I perform job interviews. What can I help you with?"
+        );
+    }
 }
 
 
