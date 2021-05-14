@@ -9,7 +9,6 @@ const session = require("express-session");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const adminsRouter = require("./routes/admin");
-const webhookRouter = require("./routes/messenger-webhook");
 
 const app = express();
 app.use(helmet());
@@ -34,7 +33,7 @@ app.use(
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/admin", adminsRouter);
-app.use("/webhook",webhookRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
