@@ -1,5 +1,6 @@
 const request = require("request");
 const crypto = require("crypto");
+const usersMap = new Map();
 
 module.exports = {
   handleMessages: function (messages, sender) {
@@ -755,6 +756,33 @@ receivedPostback : function (event)  {
       timeOfPostback
   );
 },
+
+greetUserText : function(userId){
+  let user = usersMap.get(userId);
+  if (!user) {
+      await resolveAfterXSeconds(2);
+      user = usersMap.get(userId);
+  } 
+
+  if (user) {
+      //add fbservice at sendTextMessage
+      self.sendTextMessage(
+          userId,
+          "Welcome " +
+          user.first_name +
+          "! " +
+          "I can answer frequently asked questions for you " +
+          "and I perform job interviews. What can I help you with?"
+      );
+  } else {
+      self.sendTextMessage(
+          userId,
+          "Welcome! " +
+          "I can answer frequently asked questions for you " +
+          "and I perform job interviews. What can I help you with?"
+      );
+  }
+}
 
 
 };
