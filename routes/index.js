@@ -44,7 +44,7 @@ router.get('/webhook', (req, res) => {
     }
   });
 
-router.post("/webhook/", function(req, res) {
+router.post("/webhook", function(req, res) {
     var data = req.body;
     console.log(JSON.stringify(data));
 
