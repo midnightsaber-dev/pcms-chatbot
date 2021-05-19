@@ -247,10 +247,8 @@
     
     </div>
     </form>
-
-  <% include ./partials/script %>
-  <script>
-    function demoVisibilityone() {
+    <script>
+      function demoVisibilityone() {
     document.getElementById("one").style.display = "none";
     document.getElementById("two").style.visibility = "visible";
     document.getElementById("two").style.display = "";
@@ -269,6 +267,8 @@
      document.getElementById("three").style.display = "none";
      document.getElementById("two").style.display = "";
   }
-  </script>
+    </script>
+  <% include ./partials/script %>
+  
  </body>
 </html>
