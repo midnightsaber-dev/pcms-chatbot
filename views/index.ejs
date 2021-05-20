@@ -4,7 +4,7 @@
 <head>
   <% include ./partials/head %>
 </head>
-
+<% include ./partials/script %>
 <body class="container">
   <form action="/results" method="post" class="mx-auto w-50" >
     <div class="container-sm w-50 pt-4" id="one">
@@ -247,7 +247,7 @@
     
     </div>
     </form>
-    <% include ./partials/script %>
+   
     <script>
      $(document).ready(function(){
     $('#nextBtn1').click(function(){
