@@ -8,3 +8,22 @@ $(document).ready(function(){
           }
     });
   });
+
+  $(document).ready(function(){
+    $('#p2-PrevBtn').click(function(){
+        function demoVisibilitytwoPre() {
+            document.getElementById("one").style.display = "";
+             document.getElementById("two").style.display = "none";
+          }
+    });
+  });
+
+  $(document).ready(function(){
+    $('#P2-NextBtn').click(function(){
+        function demoVisibilitytwoNext() {
+            document.getElementById("two").style.display = "none";
+            document.getElementById("three").style.visibility = "visible";
+            document.getElementById("three").style.display = "";
+         }
+    });
+  });
