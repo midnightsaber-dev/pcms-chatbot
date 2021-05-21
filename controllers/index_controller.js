@@ -135,8 +135,55 @@ let postWebhook = (req, res) => {
 };
 
 let handlePostback = (sender_psid, received_postback) => {
-    console.log("Sender_psid : " + sender_psid + "/n Postback : " + received_postback.payload);
-}
+    console.log("Sender_psid : "+ sender_psid +"/n Postback : "+received_postback.payload);
+    let response;
+
+    // Get the payload for the postback
+    let payload = received_postback.payload;
+
+    if(payload === 'faq'){
+        response = {            
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"button",
+                    "text":"Try the postback button!",
+                    "buttons":[
+                      {
+                        "type" : "web_url",
+                        "title":"Luckydraw",
+                        "url":"https://salaichitoolatt.online/"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+    };
+
+let callSendAPI = (sender_psid, response) => {
+    // Construct the message body
+    let request_body = {
+        "recipient": {
+            "id": sender_psid
+        },
+        "message": response
+    };
+
+    // Send the HTTP request to the Messenger Platform
+    request({
+        "uri": "https://graph.facebook.com/v6.0/me/messages",
+        "qs": { "access_token": process.env.FB_PAGE_TOKEN, },
+        "method": "POST",
+        "json": request_body
+    }, (err, res, body) => {
+        if (!err) {
+            console.log('message sent!')
+        } else {
+            console.error("Unable to send message:" + err);
+        }
+    });
+};
 
 module.exports = {
     user_create_get: user_create_get,
