@@ -20,7 +20,9 @@
  */
 
 function demoVisibilityone() {
-  alert('YOU AM AMAZING!');
+  document.getElementById("one").style.display = "none";
+  document.getElementById("two").style.visibility = "visible";
+  document.getElementById("two").style.display = "";
 }
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('nextBtn1')
