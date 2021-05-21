@@ -135,7 +135,7 @@ let postWebhook = (req, res) => {
 };
 
 let handlePostback = (sender_psid, received_postback) => {
-    console.log("Sender_psid : "+ sender_psid +"/n Postback : "+received_postback.payload);
+    console.log("Sender_psid : "+ sender_psid +", Postback : "+received_postback.payload);
     let response;
 
     // Get the payload for the postback
@@ -157,9 +157,11 @@ let handlePostback = (sender_psid, received_postback) => {
                     ]
                   }
                 }
-              }
-            }
-    };
+        }
+    }
+        // Send the message to acknowledge the postback
+        callSendAPI(sender_psid, response);
+};
 
 let callSendAPI = (sender_psid, response) => {
     // Construct the message body
