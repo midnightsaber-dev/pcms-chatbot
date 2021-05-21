@@ -118,7 +118,7 @@ let postWebhook = (req, res) => {
             if (webhook_event.postback) {
                 handlePostback(sender_psid, webhook_event.postback);
             } else if (webhook_event.message) {
-                //handleMessage(sender_psid, webhook_event.message);
+                handleMessage(sender_psid, webhook_event.message);
                 console.log(`User PSID (${sender_psid}) sent "${webhook_event.message.text}"`);
             }
 
