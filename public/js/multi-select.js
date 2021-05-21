@@ -20,6 +20,6 @@
 
 $(document).ready(function(){
   $('#nextBtn1').click(function(){
-     alert ("Hii")
+     alert ("Hii");
   });
 });
