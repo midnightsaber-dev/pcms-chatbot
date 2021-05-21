@@ -9,7 +9,7 @@ router.get("/", function(req, res, next) {
 
 router.get("/webhook", index_controller.getWebhook);
 
-router.post("/webhook", index_controller.postWebhook);
+router.post("/webhook/", index_controller.postWebhook);
 
 router.post("/results", index_controller.user_create_get);
 
