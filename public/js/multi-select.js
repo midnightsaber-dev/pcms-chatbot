@@ -1,4 +1,4 @@
-/* function demoVisibilityone() {
+/*  function demoVisibilityone() {
   document.getElementById("one").style.display = "none";
   document.getElementById("two").style.visibility = "visible";
   document.getElementById("two").style.display = "";
@@ -16,10 +16,13 @@
 	function demoVisibilitythreePre() {
    document.getElementById("three").style.display = "none";
    document.getElementById("two").style.display = "";
-} */
+} 
+ */
 
-$(document).ready(function(){
-  $('#nextBtn1').click(function(){
-     alert ("Hii");
-  });
+function demoVisibilityone() {
+  alert('YOU AM AMAZING!');
+}
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('nextBtn1')
+    .addEventListener('click', demoVisibilityone);
 });
