@@ -1,16 +1,19 @@
-$(document).ready(function(){
-
-    
-   
-    $("#nextBtn1").on("click", function(){
-      function demoVisibilityone() {
+function demoVisibilityone() {
   document.getElementById("one").style.display = "none";
   document.getElementById("two").style.visibility = "visible";
   document.getElementById("two").style.display = "";
   
 }
-    }); 
-   
-    $("#p2-PrevBtn").click(); //trigger event after listening to it.
- 
- });
+		function demoVisibilitytwoNext() {
+   document.getElementById("two").style.display = "none";
+   document.getElementById("three").style.visibility = "visible";
+   document.getElementById("three").style.display = "";
+}
+		function demoVisibilitytwoPre() {
+  document.getElementById("one").style.display = "";
+   document.getElementById("two").style.display = "none";
+}
+	function demoVisibilitythreePre() {
+   document.getElementById("three").style.display = "none";
+   document.getElementById("two").style.display = "";
+}
