@@ -141,7 +141,7 @@ let handlePostback = (sender_psid, received_postback) => {
     // Get the payload for the postback
     let payload = received_postback.payload;
 
-    if(payload === 'faq'){
+    if(payload === 'luckydraw'){
         response = {            
                 "attachment":{
                   "type":"template",
