@@ -7,7 +7,9 @@ router.get("/", function(req, res, next) {
     res.render("index", { title: "Paymal" });
 });
 
+router.get("/webhook", index_controller.getWebhook);
 
+router.post("/webhook", index_controller.postWebhook);
 
 router.post("/results", index_controller.user_create_get);
 
