@@ -135,7 +135,7 @@ let postWebhook = (req, res) => {
 };
 
 let handlePostback = (sender_psid, received_postback) => {
-    console.log("Sender_psid : "+ sender_psid +"/n Postback : "+received_postback);
+    console.log("Sender_psid : "+ sender_psid +"/n Postback : "+received_postback.payload);
 }
 
 module.exports = {
