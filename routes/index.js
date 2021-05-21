@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const callback_controller = require("../controllers/callback_controller");
 const index_controller = require("../controllers/index_controller");
-const fbService = require('../service/fb-service');
 /* GET home page. */
 router.get("/", function(req, res, next) {
     res.render("index", { title: "Paymal" });
