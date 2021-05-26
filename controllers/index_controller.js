@@ -142,7 +142,8 @@ let handlePostback = (sender_psid, received_postback) => {
     let payload = received_postback.payload;
 
     if(payload === 'luckydraw'){
-        response = {            
+        response = 
+        {            
                 "attachment":{
                   "type":"template",
                   "payload":{
@@ -164,6 +165,7 @@ let handlePostback = (sender_psid, received_postback) => {
 };
 
 let callSendAPI = (sender_psid, response) => {
+    console.log("Loading callSendAPI");
     // Construct the message body
     let request_body = {
         "recipient": {
