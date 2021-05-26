@@ -1,5 +1,6 @@
 const db = require("../db");
 const request = require("request");
+const { response } = require("express");
 
 let user_create_get = (req, res) => {
 
@@ -109,6 +110,7 @@ let postWebhook = (req, res) => {
 
             // Gets the body of the webhook event
             let webhook_event = entry.messaging[0];
+            console.log(webhook_event);
 
             // Get the sender PSID
             let sender_psid = webhook_event.sender.id;
@@ -119,7 +121,10 @@ let postWebhook = (req, res) => {
             if (webhook_event.postback) {
                 handlePostback(sender_psid, webhook_event.postback);
             } else if (webhook_event.message) {
-                handleMessage(sender_psid, webhook_event.message);
+                response = {
+                    "text": `You sent the message: "${received_message.text}". Now send me an image!`
+                }
+                callSendAPI(sender_psid, response);
                 console.log(`User PSID (${sender_psid}) sent "${webhook_event.message.text}"`);
             }
 
@@ -209,26 +214,8 @@ let handlePostback = (sender_psid, received_postback) => {
         }
     }
         // Send the message to acknowledge the postback
-        //callSendAPI(sender_psid, response);
-        let request_body = {
-            "recipient": {
-                "id": sender_psid
-            },
-            "message": response
-        };
-        // Send the HTTP request to the Messenger Platform
-    request({
-        "uri": "https://graph.facebook.com/v6.0/me/messages",
-        "qs": { "access_token": process.env.FB_PAGE_TOKEN, },
-        "method": "POST",
-        "json": request_body
-    }, (err, res, body) => {
-        if (!err) {
-            console.log('message sent!')
-        } else {
-            console.error("Unable to send message:" + err);
-        }
-    });
+        callSendAPI(sender_psid, response);
+      
 };
 
 let callSendAPI = (sender_psid, response) => {
