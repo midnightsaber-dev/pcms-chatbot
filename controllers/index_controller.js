@@ -112,7 +112,7 @@ let postWebhook = (req, res) => {
 
             // Get the sender PSID
             let sender_psid = webhook_event.sender.id;
-            //console.log('Sender PSID: ' + sender_psid);
+            console.log('Sender PSID: ' + sender_psid);
 
             // Check if the event is a message or postback and
             // pass the event to the appropriate handler function
@@ -135,6 +135,7 @@ let postWebhook = (req, res) => {
 //Handles messages events
 let handleMessage = (sender_psid, received_message) => {
     let response;
+    console.log("Handling messages ......");
 
     // Check if the message contains text
     if (received_message.text) {
@@ -159,6 +160,7 @@ let handleMessage = (sender_psid, received_message) => {
 let callWebviewTemplate = (sender_psid) => {
     // document fb message template
     // https://developers.facebook.com/docs/messenger-platform/send-messages/templates
+    console.log("Retrieving webview template.....");
     let response = {
         "attachment": {
             "type": "template",
@@ -181,7 +183,7 @@ let callWebviewTemplate = (sender_psid) => {
 
 
 let callSendAPI = (sender_psid, response) => {
-    console.log("Loading callSendAPI");
+    console.log("Loading callSendAPI....");
     // Construct the message body
     let request_body = {
         "recipient": {
