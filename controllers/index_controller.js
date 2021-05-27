@@ -40,8 +40,7 @@ let user_create_get = (req, res) => {
             ]);
             let user_id = db.query("SELECT sys_user_id FROM users WHERE ref_user_id=$1", [
                 psid
-            ]
-            );
+            ]);
             console.log("user id :" + user_id);
             if (user_id === null) {
                 const topup_amount = '1,000',
@@ -55,8 +54,7 @@ let user_create_get = (req, res) => {
                     status
                 ])
                 res.sed("data submitted!");
-            }
-            else {
+            } else {
 
                 res.send("database query error");
                 // res.render("result", {
@@ -106,11 +104,11 @@ let postWebhook = (req, res) => {
     if (body.object === 'page') {
 
         // Iterate over each entry - there may be multiple if batched
-        body.entry.forEach(function (entry) {
+        body.entry.forEach(function(entry) {
 
             // Gets the body of the webhook event
             let webhook_event = entry.messaging[0];
-            console.log(webhook_event);
+            //console.log(webhook_event);
 
             // Get the sender PSID
             let sender_psid = webhook_event.sender.id;
@@ -118,14 +116,8 @@ let postWebhook = (req, res) => {
 
             // Check if the event is a message or postback and
             // pass the event to the appropriate handler function
-            if (webhook_event.postback) {
-                handlePostback(sender_psid, webhook_event.postback);
-            } else if (webhook_event.message) {
-                response = {
-                    "text": `You sent the message: "${received_message.text}". Now send me an image!`
-                }
-                callSendAPI(sender_psid, response);
-                console.log(`User PSID (${sender_psid}) sent "${webhook_event.message.text}"`);
+            if (webhook_event.message) {
+
             }
 
         });
@@ -141,7 +133,7 @@ let postWebhook = (req, res) => {
 };
 
 //Handles messages events
-function handleMessage(sender_psid, received_message) {
+let handleMessage = (sender_psid, received_message) => {
     let response;
 
     // Check if the message contains text
@@ -149,74 +141,44 @@ function handleMessage(sender_psid, received_message) {
 
         // Create the payload for a basic text message
         response = {
-            "text": `You sent the message: "${received_message.text}". Now send me an image!`
+            "text": `You sent the message: "${received_message.text}"!`
         }
     } else if (received_message.attachments) {
 
-    // Gets the URL of the message attachment
-    let attachment_url = received_message.attachments[0].payload.url;
-        response = {
-            "attachment": {
-                "type": "template",
-                "payload": {
-                    "template_type": "generic",
-                    "elements": [{
-                        "title": "Is this the right picture?",
-                        "subtitle": "Tap a button to answer.",
-                        "image_url": attachment_url,
-                        "buttons": [
-                            {
-                                "type": "postback",
-                                "title": "Yes!",
-                                "payload": "yes",
-                            },
-                            {
-                                "type": "postback",
-                                "title": "No!",
-                                "payload": "no",
-                            }
-                        ],
-                    }]
-                }
-            }
-        }
-
-}
-
-// Sends the response message
-    callSendAPI(sender_psid, response);
-}
-
-let handlePostback = (sender_psid, received_postback) => {
-    console.log("Sender_psid : "+ sender_psid +", Postback : "+received_postback.payload);
-    let response;
-
-    // Get the payload for the postback
-    let payload = received_postback.payload;
-
-    if(payload === 'luckydraw'){
-        response = 
-        {            
-                "attachment":{
-                  "type":"template",
-                  "payload":{
-                    "template_type":"button",
-                    "text":"Try the postback button!",
-                    "buttons":[
-                      {
-                        "type" : "web_url",
-                        "title":"Luckydraw",
-                        "url":"https://salaichitoolatt.online/"
-                      }
-                    ]
-                  }
-                }
+        // Gets the URL of the message attachment
+        let payload = received_message.attachments[0].payload;
+        if (payload === 'luckydraw') {
+            response = callWebviewTemplate(sender_psid);
         }
     }
-        // Send the message to acknowledge the postback
-        callSendAPI(sender_psid, response);
-      
+
+    // Sends the response message
+    callSendAPI(sender_psid, response);
 };
+
+let callWebviewTemplate = (sender_psid) => {
+    // document fb message template
+    // https://developers.facebook.com/docs/messenger-platform/send-messages/templates
+    let response = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                    "title": "ကံစမ်းမယ်",
+                    "image_url": "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX13678039.jpg",
+                    "buttons": [{
+                        "type": "web_url",
+                        "url": "https://pure-gorge-15699.herokuapp.com/" + sender_psid,
+                        "title": "Luckydraw"
+                    }]
+                }]
+            }
+        }
+    };
+    return response;
+};
+
 
 let callSendAPI = (sender_psid, response) => {
     console.log("Loading callSendAPI");
@@ -248,4 +210,3 @@ module.exports = {
     getWebhook: getWebhook,
     postWebhook: postWebhook
 };
-
