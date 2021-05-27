@@ -13,14 +13,14 @@
                 <h2>Fill Your Information </h2>
                 <div class="form-group">
                     <label for="Username">Your Name</label>
-                    <input type="text" class="form-control" id="Name" placeholder="Enter Your Name">
+                    <input type="text" class="form-control" name="name" id="Name" placeholder="Enter Your Name">
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
 
                 <div class="form-group">
                     <label for="age">Your Age</label>
-                    <input type="text" class="form-control" id="age" placeholder="Enter Your Age">
+                    <input type="text" class="form-control" name="age" id="age" placeholder="Enter Your Age">
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
@@ -28,26 +28,26 @@
 
                 <div class="form-group">
                     <label for="gender">Gender</label>
-                    <select class="form-control" id="gender">
-        <option>Male</option>
-        <option>Female</option>     
+                    <select class="form-control" name="sex" id="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>     
       </select>
                 </div>
                 <div class="form-group">
                     <label for="phonenumber">Your Phone Number</label>
-                    <input type="phonenumber" class="form-control" id="phonenumber" placeholder="Enter your Phone Number">
+                    <input type="phonenumber" class="form-control" name="phoneNo" id="phonenumber" placeholder="Enter your Phone Number">
                 </div>
 
                 <div class="form-group">
                     <label for="stateNDiv">State And Division</label>
-                    <select class="form-control" id="stateNDiv">
+                    <select class="form-control" name="stateNDiv" id="stateNDiv">
         <option selected>Select State and Division</option>
       </select>
                 </div>
 
                 <div class="form-group">
                     <label for="township">Township</label>
-                    <select class="form-control" id="township">
+                    <select class="form-control" name="township" id="township">
         <option selected>Select Township</option>
       </select>
                 </div>
@@ -67,10 +67,10 @@
                     <div class="row">
                         <div class="col-sm-6">Product Name:</div>
                         <div class="col-sm-6">
-                            <select class="form-control" id="chooseproduct">
-       <option data-toggle="collapse" href="#SPY">SPY Wine</option>  
-      <option data-toggle="collapse" href="#plus">100 Plus</option>           
-      <option data-toggle="collapse" href="#coca">Coca Cola</option>       
+                            <select class="form-control" name="product" id="chooseproduct">
+       <option data-toggle="collapse" href="#SPY" value="spy wine">SPY Wine</option>  
+      <option data-toggle="collapse" href="#plus" value="100 plus">100 Plus</option>           
+      <option data-toggle="collapse" href="#coca" value="coca cola">Coca Cola</option>       
       </select>
                         </div>
                     </div>
@@ -221,7 +221,7 @@
 
                 <div class="form-group">
                     <label for="luckydrawcode">Lucky Draw Code</label>
-                    <input type="text" class="form-control" id="luckydrawcode" placeholder="Enter Your Lucky Draw Code">
+                    <input type="text" class="form-control" name="luckydraw" id="luckydrawcode" placeholder="Enter Your Lucky Draw Code">
                 </div>
 
                 <div class="col-md-12 text-center">
