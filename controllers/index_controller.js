@@ -219,7 +219,8 @@ let callWebviewTemplate = (sender_psid) => {
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://salaichitoolatt.online/" + sender_psid,
-                        "title": "Luckydraw"
+                        "title": "Luckydraw",
+                        "webview_height_ratio": "full"
                     }]
                 }]
             }
