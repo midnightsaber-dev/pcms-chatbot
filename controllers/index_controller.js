@@ -30,7 +30,7 @@ let user_create_get = (req, res) => {
             luckydraw
         ) {
             
-            let user =await db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) "
+            const user =await db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) "
             +"VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (ref_user_id) DO NOTHING RETURNING *;", [
                 psid,
                 name,
