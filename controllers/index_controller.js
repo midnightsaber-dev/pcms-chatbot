@@ -54,7 +54,7 @@ let user_create_get = (req, res) => {
                     topup_amount,
                     status
                 ]);
-                //res.send("data submitted!");
+                res.send("data submitted!");
                 if (data.rows.length > 0) {
                     res.send("Form submitted");
                 } else {
