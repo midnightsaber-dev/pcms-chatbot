@@ -39,36 +39,8 @@ let user_create_get = (req, res) => {
                 sex,
                 age,
                 phoneNo
-            ]);
-            console.log("User :" + user);
-            const user_id = await db.query("SELECT sys_user_id FROM users WHERE ref_user_id=$1", [
-                psid
-            ]);
-            console.log("user id :" + user_id.rows[0].sys_user_id);
-            if (user_id === null) {
-                let topup_amount = '1,000',
-                    status = 'Try Again';
-                let data = db.query("INSERT INTO transaction( user_id, event_id, pin_code_number, topup_amount, status) VALUES ($1, $2, $3, $4, $5) RETURNING *", [
-                    user_id,
-                    product,
-                    luckydraw,
-                    topup_amount,
-                    status
-                ]);
-                res.send("data submitted!");
-                if (data.rows.length > 0) {
-                    res.send("Form submitted");
-                } else {
-                    res.send("database query error");
-                }
-            } else {
-
-                res.send("database query error");
-                // res.render("result", {
-                //     title: "Paymal"
-                // });
-            }
-            ////
+            ]);            
+            
         } else {
             res.send("please fill correctly.");
         }
@@ -78,6 +50,8 @@ let user_create_get = (req, res) => {
     }
 
 };
+
+let()
 
 let getWebhook = (req, res) => {
 
