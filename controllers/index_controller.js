@@ -44,7 +44,7 @@ let user_create_get = (req, res) => {
             let user_id = db.query("SELECT sys_user_id FROM users WHERE ref_user_id=$1", [
                 psid
             ]);
-            console.log("user id :" + user_id);
+            console.log("user id :" + user_id.sys_user_id);
             if (user_id === null) {
                 let topup_amount = '1,000',
                     status = 'Try Again';
