@@ -30,7 +30,7 @@ let user_create_get = (req, res) => {
             luckydraw
         ) {
             
-            const user =await db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) "
+            let user = db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) "
             +"VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (ref_user_id) DO NOTHING RETURNING *;", [
                 psid,
                 name,
@@ -41,10 +41,10 @@ let user_create_get = (req, res) => {
                 phoneNo
             ]);
             console.log(user);
-            let user_id = db.query("SELECT sys_user_id FROM users WHERE ref_user_id=$1", [
+            let user_id = await db.query("SELECT sys_user_id FROM users WHERE ref_user_id=$1", [
                 psid
             ]);
-            console.log("user id :" + user_id.sys_user_id);
+            console.log("user id :" + user_id.rows[0].sys_user_id);
             if (user_id === null) {
                 let topup_amount = '1,000',
                     status = 'Try Again';
