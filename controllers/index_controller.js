@@ -40,8 +40,8 @@ let user_create_get = (req, res) => {
                 age,
                 phoneNo
             ]);
-            // console.log(user);
-            let user_id = db.query("SELECT sys_user_id FROM users WHERE ref_user_id=$1 RETURNING sys_user_id", [
+            console.log(user);
+            let user_id = db.query("SELECT sys_user_id FROM users WHERE ref_user_id=$1", [
                 psid
             ]);
             console.log("user id :" + user_id);
