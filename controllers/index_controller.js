@@ -51,7 +51,6 @@ let user_create_get = (req, res) => {
 
 };
 
-let()
 
 let getWebhook = (req, res) => {
 
