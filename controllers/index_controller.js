@@ -39,7 +39,8 @@ let user_create_get = (req, res) => {
                 sex,
                 age,
                 phoneNo
-            ]);            
+            ]);      
+            res.send("Thank you!");      
             
         } else {
             res.send("please fill correctly.");
