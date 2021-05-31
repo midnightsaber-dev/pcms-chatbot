@@ -30,8 +30,8 @@ let user_create_get = (req, res) => {
             luckydraw
         ) {
             
-            db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) "
-            +"VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (ref_user_id) DO NOTHING RETURNING *;", [
+            let data = db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) "
+            +"VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (ref_user_id) DO NOTHING RETURNING *", [
                 psid,
                 name,
                 stateNDiv,
@@ -39,8 +39,20 @@ let user_create_get = (req, res) => {
                 sex,
                 age,
                 phoneNo
-            ]);      
-            res.send("Thank you!");      
+            ], (err, response) =>{
+                if(err){
+                    console.log(err);
+                    res.send(err);
+                } else {
+                    console.log(response);
+                    res.render("/result");
+                }
+            });      
+            // if(data === !null){
+            //     res.send("Thank you!");      
+            // } else {
+
+            // }            
             
         } else {
             res.send("please fill correctly.");
