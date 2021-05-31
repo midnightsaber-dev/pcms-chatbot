@@ -45,7 +45,7 @@ let user_create_get = (req, res) => {
                     res.send(err);
                 } else {
                     console.log(response);
-                    res.render("/result");
+                    res.send("Thank You! ");
                 }
             });      
             // if(data === !null){
