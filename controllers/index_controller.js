@@ -204,7 +204,7 @@ let callWebviewTemplate = (sender_psid) => {
                     "image_url": "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX13678039.jpg",
                     "buttons": [{
                         "type": "web_url",
-                        "url": "https://salaichitoolatt.online/" + sender_psid,
+                        "url": "https://pacific-reef-57485.herokuapp.com/",
                         "title": "Luckydraw",
                         "webview_height_ratio": "full",
                         "messenger_extensions": true
