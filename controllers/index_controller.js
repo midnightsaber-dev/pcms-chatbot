@@ -39,13 +39,20 @@ let user_create_get = (req, res) => {
                 sex,
                 age,
                 phoneNo
-            ]);      
-            if(data === !null){
-                res.send("Thank you!");    
-                console.log(data);  
-            } else {
-                res.send("DB error ");
-            }            
+            ], (err, response) =>{
+                if(err){
+                    console.log(err);
+                    res.send(err);
+                } else {
+                    console.log(response);
+                    res.send("Thank You! ");
+                }
+            });      
+            // if(data === !null){
+            //     res.send("Thank you!");      
+            // } else {
+
+            // }            
             
         } else {
             res.send("please fill correctly.");
