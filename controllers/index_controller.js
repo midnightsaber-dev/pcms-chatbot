@@ -30,7 +30,7 @@ let user_create_get = (req, res) => {
             luckydraw
         ) {
             
-            let data = db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) "
+            let data = await db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) "
             +"VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (ref_user_id) DO NOTHING RETURNING *", [
                 psid,
                 name,
@@ -39,15 +39,7 @@ let user_create_get = (req, res) => {
                 sex,
                 age,
                 phoneNo
-            ], (err, response) =>{
-                if(err){
-                    console.log(err);
-                    res.send(err);
-                } else {
-                    console.log(response);
-                    res.render("result.ejs",{ title : "result"});
-                }
-            }); 
+            ]); 
             if((data.rows.length > 0)){
                 res.render("result.ejs",{ title : "result"});
                 res.status(200);
