@@ -2,7 +2,7 @@ const db = require("../db");
 const request = require("request");
 // const { response } = require("express");
 
-let user_create_get = (req, res) => {
+let user_create_get = async (req, res) => {
 
     try {
         const {
@@ -29,9 +29,8 @@ let user_create_get = (req, res) => {
             psid &&
             luckydraw
         ) {
-            let data;
-            data = db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) VALUES ($1, $2, $3, $4, $5, $6, $7)"
-            +"ON CONFLICT (ref_user_id) RETURNING *;",[
+            let data = await db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) VALUES ($1, $2, $3, $4, $5, $6, $7)"
+            +"RETURNING * ",[
                 psid,
                 name,
                 stateNDiv,
