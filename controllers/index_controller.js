@@ -31,7 +31,7 @@ let user_create_get = (req, res) => {
         ) {
             let data;
             data = db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) VALUES ($1, $2, $3, $4, $5, $6, $7)"
-            +" RETURNING *;",[
+            +"ON CONFILICT (ref_user_id) RETURNING *;",[
                 psid,
                 name,
                 stateNDiv,
@@ -42,13 +42,13 @@ let user_create_get = (req, res) => {
             ]);            
             
             console.log("data :"+ data);
-            // if((data.rows.length > 0)){
-            //     res.render("result.ejs",{ title : "result"});
-            //     res.status(200);
-            // } else {
-            //     res.send("database query error");
-            // }
-            res.render("result.ejs",{ title : "result"});
+            if((data.rows.length > 0)){
+                res.render("result.ejs",{ title : "result"});
+                res.status(200);
+            } else {
+                res.send("database query error");
+            }
+            // res.render("result.ejs",{ title : "result"});
             
         } else {
             res.send("please fill correctly.");
