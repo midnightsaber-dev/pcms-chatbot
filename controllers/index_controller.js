@@ -30,7 +30,7 @@ let user_create_get = async (req, res) => {
             luckydraw
         ) {
             let data = await db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) VALUES ($1, $2, $3, $4, $5, $6, $7)"
-            +"RETURNING * ",[
+            +"ON CONFLCT (ref_user_id) DO NOTHING RETURNING ref_user_id ",[
                 psid,
                 name,
                 stateNDiv,
