@@ -1,6 +1,6 @@
 const db = require("../db");
 const request = require("request");
-const { response } = require("express");
+// const { response } = require("express");
 
 let user_create_get = (req, res) => {
 
@@ -29,9 +29,9 @@ let user_create_get = (req, res) => {
             psid &&
             luckydraw
         ) {
-            
-            let data = db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) "
-            +"VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (ref_user_id) DO NOTHING RETURNING *", [
+            let data;
+            data = await db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) VALUES ($1, $2, $3, $4, $5, $6, $7)"
+            +" RETURNING *;",[
                 psid,
                 name,
                 stateNDiv,
@@ -39,7 +39,8 @@ let user_create_get = (req, res) => {
                 sex,
                 age,
                 phoneNo
-            ]); 
+            ]);            
+            
             console.log("data :"+ data);
             // if((data.rows.length > 0)){
             //     res.render("result.ejs",{ title : "result"});
