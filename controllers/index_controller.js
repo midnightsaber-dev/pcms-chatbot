@@ -47,7 +47,10 @@ let user_create_get = (req, res) => {
                     console.log(response);
                     res.render("result.ejs",{ title : "result"});
                 }
-            });      
+            }); 
+            if((data.rows.length > 0)){
+                res.render("result.ejs",{ title : "result"});
+            }     
             // res.render("result.ejs",{ title : "result"});
             
         } else {
