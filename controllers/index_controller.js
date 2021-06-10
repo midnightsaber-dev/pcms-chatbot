@@ -50,7 +50,10 @@ let user_create_get = (req, res) => {
             }); 
             if((data.rows.length > 0)){
                 res.render("result.ejs",{ title : "result"});
-            }     
+                res.status(200);
+            } else {
+                res.send("database query error");
+            }
             // res.render("result.ejs",{ title : "result"});
             
         } else {
