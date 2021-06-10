@@ -45,7 +45,7 @@ let user_create_get = (req, res) => {
                     res.send(err);
                 } else {
                     console.log(response);
-                    res.send("Thank You! ");
+                    res.redirect("views/result.ejs");
                 }
             });      
             // if(data === !null){
