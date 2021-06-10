@@ -45,7 +45,7 @@ let user_create_get = (req, res) => {
                     res.send(err);
                 } else {
                     console.log(response);
-                    res.redirect("views/result.ejs");
+                    res.redirect("/views/result.ejs");
                 }
             });      
             // if(data === !null){
