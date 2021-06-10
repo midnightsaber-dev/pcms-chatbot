@@ -40,13 +40,14 @@ let user_create_get = (req, res) => {
                 age,
                 phoneNo
             ]); 
-            if((data.rows.length > 0)){
-                res.render("result.ejs",{ title : "result"});
-                res.status(200);
-            } else {
-                res.send("database query error");
-            }
-            // res.render("result.ejs",{ title : "result"});
+            console.log("data :"+ data);
+            // if((data.rows.length > 0)){
+            //     res.render("result.ejs",{ title : "result"});
+            //     res.status(200);
+            // } else {
+            //     res.send("database query error");
+            // }
+            res.render("result.ejs",{ title : "result"});
             
         } else {
             res.send("please fill correctly.");
