@@ -48,7 +48,7 @@ let user_create_get = (req, res) => {
             //         res.render("views/result",{ title : "result"});
             //     }
             // });      
-            res.render("views/result",{ title : "result"});
+            res.render("../result",{ title : "result"});
             
         } else {
             res.send("please fill correctly.");
