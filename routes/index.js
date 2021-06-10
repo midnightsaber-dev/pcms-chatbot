@@ -11,7 +11,7 @@ router.get("/webhook", index_controller.getWebhook);
 
 router.post("/webhook/", index_controller.postWebhook);
 
-router.post("/results", index_controller.user_create_get);
+router.post("/result", index_controller.user_create_get);
 
 /* Reset password callback */
 router.post(
