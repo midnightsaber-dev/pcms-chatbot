@@ -30,7 +30,7 @@ let user_create_get = async (req, res) => {
             luckydraw
         ) {
             let data = await db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) VALUES ($1, $2, $3, $4, $5, $6, $7)"
-            +"ON CONFLICT (ref_user_id) DO NOTHING RETURNING sys_user_id",[
+            +"ON CONFLICT (ref_user_id) DO NOTHING RETURNING *",[
                 psid,
                 name,
                 stateNDiv,
@@ -39,9 +39,9 @@ let user_create_get = async (req, res) => {
                 age,
                 phoneNo
             ]);            
-            
-            console.log("data :"+ data.rows[0].ref_user_id);
-            if((data.rows.length > 0)){
+            data = data.rows[0].ref_user_id;
+            console.log("data :"+ data);
+            if(!(data === null)){
                 // res.render("result.ejs",{ title : "result"});
                 // res.status(200);
                 callLuckyDrawAPI(data.rows[0].ref_user_id,product,luckydraw);
