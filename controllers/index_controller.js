@@ -40,7 +40,7 @@ let user_create_get = async (req, res) => {
                 phoneNo
             ]);            
             
-            console.log("data :"+ data.rows.ref_user_id);
+            console.log("data :"+ data.rows[0].ref_user_id);
             if((data.rows.length > 0)){
                 // res.render("result.ejs",{ title : "result"});
                 // res.status(200);
