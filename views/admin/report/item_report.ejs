@@ -116,20 +116,23 @@
                   >
                     <thead align="center">
                       <tr>
-                        <th>No.</th>
                         <th>Transaction ID</th>
+                        <th>User Name</th>
                         <th>Date/Time</th>
                         <th>PIN Number</th>
                         <th>Event</th>
                         <th>Merchant</th>
+                        <th>Item</th>
                         <th>Contact Phone Number</th>
                         <th>Status</th>
-                        <th colspan="2">Action</th>
+                        
                       </tr>
                     </thead>
                     <tbody>
+                      <% reports.forEach(report => {
+                      %>
                       <tr>
-                        <td>cell 1</td>
+                        <td><%=report. %></td>
                         <td>cell 2</td>
                         <td>cell 3</td>
                         <td>cell 4</td>
@@ -137,34 +140,8 @@
                         <td>cell 6</td>
                         <td>cell 7</td>
                         <td>cell 8</td>
-                        <td>cell 9</td>
-                        <td>cell 10</td>
                       </tr>
-                      <tr>
-                        <td>cell 1</td>
-                        <td>cell 2</td>
-                        <td>cell 3</td>
-                        <td>cell 4</td>
-                        <td>cell 5</td>
-                        <td>cell 6</td>
-                        <td>cell 7</td>
-                        <td>cell 8</td>
-                        <td>cell 9</td>
-                        <td>cell 10</td>
-                      </tr>
-                      <tr>
-                        <td>cell 1</td>
-                        <td>cell 2</td>
-                        <td>cell 3</td>
-                        <td>cell 4</td>
-                        <td>cell 5</td>
-                        <td>cell 6</td>
-                        <td>cell 7</td>
-                        <td>cell 8</td>
-                        <td>cell 9</td>
-                        <td>cell 10</td>
-                      </tr>
-                    </tbody>
+                      <% });
                   </table>
                 </div>
               </div>
