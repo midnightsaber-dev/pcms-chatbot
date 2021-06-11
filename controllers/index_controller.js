@@ -64,10 +64,10 @@ let user_create_get = async (req, res) => {
 
 let callLuckyDrawAPI = async (userId,eventId,pinCode) => {
     //
-    let item = '1,000' ,
+    let item = 'Top-up 1,000' ,
         status = 'WIN';
         let transaction = await db.query("INSERT INTO transaction (user_id, event_id, pin_code_number, item, status)"
-        +" VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;",[
+        +" VALUES ($1, $2, $3, $4, $5) RETURNING *;",[
             userId,
             eventId,
             pinCode,
