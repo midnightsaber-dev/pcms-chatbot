@@ -39,7 +39,7 @@ let user_create_get = async (req, res) => {
                 age,
                 phoneNo
             ]);            
-            data = data.rows[0].values;
+            data = data.rows[0].ref_user_id.toString();
             console.log("data :"+ data);
             if(!(data === null)){
                 // res.render("result.ejs",{ title : "result"});
