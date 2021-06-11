@@ -4,6 +4,7 @@ const merchant_controller = require("../controllers/admin/merchant_controller");
 const auth_controller = require("../controllers/admin/auth_controller");
 const event_controller = require("../controllers/admin/event_controller");
 const form_validation_controller = require("../controllers/form-validation/form_validation_controller");
+const report_controller = require("../controllers/admin/report_controller");
 
 /* DASHBOARD, LOGIN AND LOGOUT ROUTES*/
 // =========================================
@@ -92,19 +93,6 @@ router.get("/report/topup", function (req, res, next) {
 });
 
 /* GET item transaction list. */
-router.get("/report/item", function (req, res, next) {
-  try {
-    if (req.session.loggedin) {
-      res.render("admin/report/item_report", {
-        title: "Item List | PCMS",
-        place: "Report (Item)",
-      });
-    } else {
-      res.redirect("/admin/login");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-});
+router.get("/report/item",report_controller.report_index);
 
 module.exports = router;
