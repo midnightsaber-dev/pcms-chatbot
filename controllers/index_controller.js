@@ -30,7 +30,7 @@ let user_create_get = async (req, res) => {
             luckydraw
         ) {
             let data = await db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) VALUES ($1, $2, $3, $4, $5, $6, $7)"
-            +"ON CONFLICT (ref_user_id) DO NOTHING RETURNING *",[
+            +" RETURNING sys_user_id",[
                 psid,
                 name,
                 stateNDiv,
@@ -39,12 +39,13 @@ let user_create_get = async (req, res) => {
                 age,
                 phoneNo
             ]);            
-            data = data.rows[0].ref_user_id.toString();
+            data = data.rows[0].sys_user_id;
             console.log("data :"+ data);
             if(!(data === null)){
+                callLuckyDrawAPI(data,product,luckydraw);
                 // res.render("result.ejs",{ title : "result"});
                 // res.status(200);
-                callLuckyDrawAPI(data.rows[0].ref_user_id,product,luckydraw);
+                
             } else {
                 res.send("database query error");
             }
@@ -74,8 +75,8 @@ let callLuckyDrawAPI = async (userId,eventId,pinCode) => {
             status
         ]);
         if(transaction.rows.length>0){
-            return res.render("result.ejs",{ title : "result", replay : "Congratulations!You win 1,000 phone bill Top-up."}) 
-                   ,res.status(200);
+            res.status(200);
+            return res.render("result.ejs",{ title : "result", replay : "Congratulations!You win 1,000 phone bill Top-up."}) ;
         }
 };
 
