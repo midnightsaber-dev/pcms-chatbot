@@ -117,8 +117,8 @@
                     <thead align="center">
                       <tr>
                         <th>Transaction ID</th>
-                        <th>User Name</th>
                         <th>Date/Time</th>
+                        <th>User Name</th>
                         <th>PIN Number</th>
                         <th>Event</th>
                         <th>Merchant</th>
@@ -132,14 +132,16 @@
                       <% reports.forEach(report => {
                       %>
                       <tr>
-                        <td><%=report. %></td>
-                        <td>cell 2</td>
-                        <td>cell 3</td>
-                        <td>cell 4</td>
-                        <td>cell 5</td>
-                        <td>cell 6</td>
-                        <td>cell 7</td>
-                        <td>cell 8</td>
+                        <td><%=report.transid %></td>
+                        <td><%=report.trans_date_time %></td>
+                        <td><%=report.username %></td>
+                        <td><%=report.pin_code_number %></td>
+                        <td><%=report.event_name %></td>
+                        <td><%=report.merchant_name %></td>
+                        <td><%=report.item %></td>    
+                        <td><%=report.transid %></td>   
+                        <td><%=report.phonenumber %></td>           
+                        <td><%=report.status %></td>      
                       </tr>
                       <% });
                   </table>

@@ -4,7 +4,10 @@ const db = require("../../db");
 exports.report_index = async (req, res) => {
     try {
       if (req.session.loggedin) {
-        const reports= await db.query("SELECT * FROM transaction;")
+        const reports= await db.query("SELECT transaction.*, users.username, users.phonenumber, merchant.merchant_name, event.event_name FROM transaction  "
+        +"INNER JOIN event On transaction.event_id=event.sys_event_id "
+        +"INNER JOIN merchant  On event.sys_merchant_id=merchant.sys_merchant_id "
+        +"INNER JOIN users ON users.sys_user_id = transaction.user_id")
         res.render("admin/report/item_report", {
           title: "Item List | PCMS",
           reports : reports.rows,
