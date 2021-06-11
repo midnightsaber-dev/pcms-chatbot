@@ -30,7 +30,7 @@ let user_create_get = async (req, res) => {
             luckydraw
         ) {
             let data = await db.query("INSERT INTO users(ref_user_id, username, region, township, sex, age, phonenumber) VALUES ($1, $2, $3, $4, $5, $6, $7)"
-            +"ON CONFLICT (ref_user_id) DO NOTHING RETURNING ref_user_id ",[
+            +"ON CONFLICT (ref_user_id) DO NOTHING RETURNING sys_user_id",[
                 psid,
                 name,
                 stateNDiv,
@@ -42,8 +42,9 @@ let user_create_get = async (req, res) => {
             
             console.log("data :"+ data.rows.ref_user_id);
             if((data.rows.length > 0)){
-                res.render("result.ejs",{ title : "result"});
-                res.status(200);
+                // res.render("result.ejs",{ title : "result"});
+                // res.status(200);
+                callLuckyDrawAPI(data.rows[0].ref_user_id,product,luckydraw);
             } else {
                 res.send("database query error");
             }
@@ -59,7 +60,24 @@ let user_create_get = async (req, res) => {
 
 };
 
-let callLuckyDrawAPI = () => {};
+
+let callLuckyDrawAPI = async (userId,eventId,pinCode) => {
+    //
+    let item = '1,000' ,
+        status = 'WIN';
+        let transaction = await db.query("INSERT INTO transaction (user_id, event_id, pin_code_number, item, status)"
+        +" VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;",[
+            userId,
+            eventId,
+            pinCode,
+            item,
+            status
+        ]);
+        if(transaction.rows.length>0){
+            return res.render("result.ejs",{ title : "result", replay : "Congratulations!You win 1,000 phone bill Top-up."}) 
+                   ,res.status(200);
+        }
+};
 
 let getWebhook = (req, res) => {
 
