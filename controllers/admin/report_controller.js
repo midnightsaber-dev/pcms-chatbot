@@ -8,6 +8,7 @@ exports.report_index = async (req, res) => {
         +"INNER JOIN event On transaction.event_id=event.sys_event_id "
         +"INNER JOIN merchant  On event.sys_merchant_id=merchant.sys_merchant_id "
         +"INNER JOIN users ON users.sys_user_id = transaction.user_id")
+        console.log("reports :"+ reports);
         res.render("admin/report/item_report", {
           title: "Item List | PCMS",
           place: "Item Report",
