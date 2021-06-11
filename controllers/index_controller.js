@@ -44,7 +44,7 @@ let user_create_get = async (req, res) => {
             if(!(data === null)){
                 callLuckyDrawAPI(data,product,luckydraw);
                 res.status(200);
-                res.render("result.ejs",{ title : "result", replay : "Congratulations!You win 1,000 phone bill Top-up."}) 
+                res.render("result.ejs",{ title : "result", reply : "Congratulations!You win 1,000 phone bill Top-up."}) 
                 
             } else {
                 res.send("database query error");
