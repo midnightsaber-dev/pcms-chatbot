@@ -50,7 +50,7 @@ exports.admin_login_post = (req, res) => {
     if (username == "admin" & password == "abcd123#") {
       req.session.loggedin = true;
       req.session.username = username;
-      res.redirect("/admin.ejs");
+      res.redirect("/admin");
     } else {
       res.send("your credentials are wrong. Please check again.")
     }
