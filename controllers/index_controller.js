@@ -40,7 +40,7 @@ let user_create_get = async (req, res) => {
                 phoneNo
             ]);            
             
-            console.log("data :"+ data);
+            console.log("data :"+ data.rows.ref_user_id);
             if((data.rows.length > 0)){
                 res.render("result.ejs",{ title : "result"});
                 res.status(200);
@@ -59,6 +59,7 @@ let user_create_get = async (req, res) => {
 
 };
 
+let callLuckyDrawAPI = () => {};
 
 let getWebhook = (req, res) => {
 
