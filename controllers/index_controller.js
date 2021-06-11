@@ -1,6 +1,6 @@
 const db = require("../db");
 const request = require("request");
-// const { response } = require("express");
+const { response } = require("express");
 
 let user_create_get = async (req, res) => {
 
@@ -43,8 +43,8 @@ let user_create_get = async (req, res) => {
             console.log("data :"+ data);
             if(!(data === null)){
                 callLuckyDrawAPI(data,product,luckydraw);
-                // res.render("result.ejs",{ title : "result"});
-                // res.status(200);
+                res.status(200);
+                res.render("result.ejs",{ title : "result", replay : "Congratulations!You win 1,000 phone bill Top-up."}) 
                 
             } else {
                 res.send("database query error");
@@ -75,8 +75,9 @@ let callLuckyDrawAPI = async (userId,eventId,pinCode) => {
             status
         ]);
         if(transaction.rows.length>0){
-            res.status(200);
-            return res.render("result.ejs",{ title : "result", replay : "Congratulations!You win 1,000 phone bill Top-up."}) ;
+            console.log("transactin saved sucessfully!");
+        } else {
+            console.log("transaction failed!");
         }
 };
 
