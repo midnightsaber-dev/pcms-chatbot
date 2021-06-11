@@ -129,8 +129,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <% reports.forEach(report => {
-                      %>
+                      <% reports.forEach(report => { %>
                       <tr>
                         <td><%=report.transid %></td>
                         <td><%=report.trans_date_time %></td>
@@ -143,7 +142,8 @@
                         <td><%=report.phonenumber %></td>           
                         <td><%=report.status %></td>      
                       </tr>
-                      <% }); %>
+                      <% }) %>
+                    </tbody>
                   </table>
                 </div>
               </div>
