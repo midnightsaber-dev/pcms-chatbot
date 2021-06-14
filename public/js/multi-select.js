@@ -56,3 +56,17 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('P3-PrevBtn')
     .addEventListener('click', demoVisibilitythreePre);
 });
+
+/* for choose product */
+document.getElementById('target')
+		.addEventListener('change', function () {
+    'use strict';
+    var vis = document.querySelector('.vis'),   
+      target = document.getElementById(this.value);
+    if (vis !== null) {
+      vis.className = 'inv';
+    }
+    if (target !== null ) {
+      target.className = 'vis';
+    }
+});
