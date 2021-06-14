@@ -58,15 +58,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /* for choose product */
-document.getElementById('target')
-		.addEventListener('change', function () {
-    'use strict';
-    var vis = document.querySelector('.vis'),   
-      target = document.getElementById(this.value);
-    if (vis !== null) {
-      vis.className = 'inv';
-    }
-    if (target !== null ) {
-      target.className = 'vis';
-    }
+$(document).ready(function(){
+  $('#myselection').on('change', function(){
+    var demovalue = $(this).val(); 
+      $("div.myDiv").hide();
+      $("#show"+demovalue).show();
+  });
 });
