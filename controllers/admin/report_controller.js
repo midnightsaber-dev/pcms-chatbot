@@ -10,8 +10,8 @@ exports.report_index = async (req, res) => {
         +"INNER JOIN users ON users.sys_user_id = transaction.user_id")
         console.log("reports :"+ reports);
         res.render("admin/report/item_report", {
-          title: "Item List | PCMS",
-          place: "Item Report",
+          title: "Transaction List | PCMS",
+          place: "Transaction Report",
           reports : reports.rows,
         });
       } else {

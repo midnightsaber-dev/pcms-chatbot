@@ -76,22 +76,6 @@ router.get("/event/update/:id", event_controller.event_update_get);
 /* Update event */
 router.post("/event/update/:id", event_controller.event_update_post);
 
-/* GET topup transaction list. */
-router.get("/report/topup", function (req, res, next) {
-  try {
-    if (req.session.loggedin) {
-      res.render("admin/report/topup_report", {
-        title: "Topup List | PCMS",
-        place: "Report (Top Up)",
-      });
-    } else {
-      res.redirect("/admin/login");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-});
-
 /* GET item transaction list. */
 router.get("/report/item",report_controller.report_index);
 
