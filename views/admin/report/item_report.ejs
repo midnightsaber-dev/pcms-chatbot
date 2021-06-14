@@ -28,7 +28,7 @@
             <div
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
-              <table class="table table-borderless">
+              <table class="table table-borderless" >
                 <tbody>
                   <tr>
                     <td>
@@ -164,6 +164,17 @@
       </div>
       <!-- End of Content Wrapper -->
     </div>
-    <% include ../partials/scripts %> <% include ../partials/table_scripts %>
+    <% include ../partials/scripts %> 
+    <% include ../partials/table_scripts %>
+    <script>
+      $(document).ready(function() {
+          $('#dataTable').DataTable(
+              {
+                  searching: false, 
+                  info: false
+              });
+      } );
+      
+  </script>
   </body>
 </html>
