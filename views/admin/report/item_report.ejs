@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <% include ../partials/head %> 
     <% include ../partials/table_head %>
+    <% include ../partials/head %> 
+    
   </head>
   <body>
     <div id="wrapper">
@@ -111,7 +112,7 @@
                 <div class="table-responsive">
                   <table
                     class="table table-bordered dataTables_wrapper"
-                    id="dataTable"
+                    id="dt_table"
                     width="100%"
                     cellspacing="0"
                   >
@@ -165,8 +166,17 @@
       </div>
       <!-- End of Content Wrapper -->
     </div>
-    <% include ../partials/scripts %> 
     <% include ../partials/table_scripts %>
+    <% include ../partials/scripts %> 
+    <script>
+      $(document).ready(function() {
+        $('#dt_table').DataTable(
+            {
+                searching: false, 
+                info: false
+            });
+    } );
+    </script>
     
   </body>
 </html>
