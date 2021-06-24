@@ -1,4 +1,4 @@
-body{
+.bgcol{
     background-color: #25274d;
 }
 .contact{
@@ -30,7 +30,7 @@ body{
     font-weight:600;
 }
 .contact-form button{
-    background: red;
+    background: #25274d;
     color: #fff;
     font-weight: 600;
     width: 25%;
