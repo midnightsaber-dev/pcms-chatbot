@@ -10,47 +10,72 @@
         <form action="/result" method="post" class="mx-auto my-auto w-100 h-50">
             <input type="hidden" name="psid" id="psid" value="<%=psid %>">
             <div class="container w-75 pt-2 col-sm-6 col-lg-4" id="one">
-                <h2>Fill Your Information </h2>
-                <div class="form-group">
-                    <label for="Username">Your Name</label>
-                    <input type="text" class="form-control" name="name" id="Name" placeholder="Enter Your Name">
-                    <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">Please fill out this field.</div>
-                </div>
+              <main>   
+                <div class="container mt-4">
+          
+                   
+                          <!-- Grid column -->
+                          <div class="col-md-6 mb-4 ">
+                              <div class="card">
+                                  <div class="card-body">
+                                      <!-- Form subscription -->
+                                      <form>
+                                          <h3 class="text-center indigo-text font-bold py-4">
+                                              <strong>Fill Your Information</strong></h3>
+                                          <div class="md-form">
+                                              <i class="fa fa-user prefix blue-text"></i>
+                                              <input type="text" id="form-name" class="form-control">
+                                              <label for="form-name">Your name</label>
+                                          </div>
+                                          <div class="md-form">
+                                              <i class="fa fa-envelope prefix blue-text"></i>
+                                              <input type="text" id="form-email" class="form-control">
+                                              <label for="form-email">Your email</label>
+                                          </div>
+                                          <div class="md-form">
+                                              <i class="fa fa-pagelines prefix blue-text"></i>  
+                                              <input type="text" id="form-age" class="form-control" >
+                                              <label for="for-mage">Your Age</label>  
+                                          </div>
+                                          <div class="md-form">
+                                              <i class="fa fa-phone prefix blue-text"></i> 
+                                              <input type="tel" class="form-control" id="phonenumber">
+                                              <label for="for-mage">Your PhoneNumber</label> 
+                                          </div>
+          
+                                          <div class="md-form">
+                                              
+                                              <select class="form-select form-select-md mb-3 btn btn-primary" aria-label=".form-select-md example">
+                                                  <option selected>Open this select menu</option>
+                                                  <option value="1">One</option>
+                                                  <option value="2">Two</option>
+                                                  <option value="3">Three</option>
+                                                </select>
+                                               
+                                             
+                                                <select class="form-select btn btn-primary mb-3 ">
+                                                    <option disabled selected>Select Township</option>
+                                                    <option>oneome</option>
+                                                    <option>oneome</option>
+                                                </select>
+                                                
+                                            </div>
+          
+          
+                                          <div class="text-center py-4">
+                                              <button class="btn btn-primary">Send <i class="fa fa-paper-plane-o ml-1"></i></button>
+                                          </div>
+                                      </form>
+                                      <!-- Form subscription -->
+                                  </div>
+                              </div>
+                          </div>
+                        
+                  </div>
+               
+                
+              </main>
 
-                <div class="form-group">
-                    <label for="age">Your Age</label>
-                    <input type="text" class="form-control" name="age" id="age" placeholder="Enter Your Age">
-                    <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">Please fill out this field.</div>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="gender">Gender</label>
-                    <select class="form-control" name="sex" id="gender">
-        <option value="male">Male</option>
-        <option value="female">Female</option>     
-      </select>
-                </div>
-                <div class="form-group">
-                    <label for="phonenumber">Your Phone Number</label>
-                    <input type="tel" class="form-control" name="phoneNo" id="phonenumber" placeholder="Enter your Phone Number">
-                </div>
-
-                <div class="form-group">
-                    <label for="stateNDiv">State And Division</label>
-                    <select class="form-control" name="stateNDiv" id="stateNDiv">
-        <option selected>Select State and Division</option>
-      </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="township">Township</label>
-                    <select class="form-control" name="township" id="township">
-        <option selected>Select Township</option>
-      </select>
-                </div>
 
                 <div class="col-md-12 text-center">
                     <button type="button" class="btn btn-outline-primary" id="nextBtn1" onclick='demoVisibilityone()'> Next  </button>
