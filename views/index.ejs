@@ -10,71 +10,50 @@
         <form action="/result" method="post" class="mx-auto my-auto w-100 h-50">
             <input type="hidden" name="psid" id="psid" value="<%=psid %>">
             <div class="container" id="one">
-              <main>   
-                <div class="container mt-4">
-          
-                   
-                          <!-- Grid column -->
-                          <div class="col-md-6 mb-4 ">
-                              <div class="card">
-                                  <div class="card-body">
-                                      <!-- Form subscription -->
-                                      <form>
-                                          <h3 class="text-center indigo-text font-bold py-4">
-                                              <strong>Fill Your Information</strong></h3>
-                                          <div class="md-form">
-                                              <i class="fa fa-user prefix blue-text"></i>
-                                              <input type="text" id="form-name" class="form-control">
-                                              <label for="form-name">Your name</label>
-                                          </div>
-                                          <div class="md-form">
-                                              <i class="fa fa-envelope prefix blue-text"></i>
-                                              <input type="text" id="form-email" class="form-control">
-                                              <label for="form-email">Your email</label>
-                                          </div>
-                                          <div class="md-form">
-                                              <i class="fa fa-pagelines prefix blue-text"></i>  
-                                              <input type="text" id="form-age" class="form-control" >
-                                              <label for="for-mage">Your Age</label>  
-                                          </div>
-                                          <div class="md-form">
-                                              <i class="fa fa-phone prefix blue-text"></i> 
-                                              <input type="tel" class="form-control" id="phonenumber">
-                                              <label for="for-mage">Your PhoneNumber</label> 
-                                          </div>
-          
-                                          <div class="md-form">
-                                              
-                                              <select class="form-select form-select-md mb-3 btn btn-primary" aria-label=".form-select-md example">
-                                                  <option selected>Open this select menu</option>
-                                                  <option value="1">One</option>
-                                                  <option value="2">Two</option>
-                                                  <option value="3">Three</option>
-                                                </select>
-                                               
-                                             
-                                                <select class="form-select btn btn-primary mb-3 ">
-                                                    <option disabled selected>Select Township</option>
-                                                    <option>oneome</option>
-                                                    <option>oneome</option>
-                                                </select>
-                                                
-                                            </div>
-          
-          
-                                          <div class="text-center py-4">
-                                              <button class="btn btn-primary">Send <i class="fa fa-paper-plane-o ml-1"></i></button>
-                                          </div>
-                                      </form>
-                                      <!-- Form subscription -->
-                                  </div>
+              <div class="container contact">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="contact-info">
+                            <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image"/>
+                            <h2>Contact Us</h2>
+                            <h4>We would love to hear from you !</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="contact-form">
+                            <div class="form-group">
+                              <label class="control-label col-sm-2" for="fname">First Name:</label>
+                              <div class="col-sm-10">          
+                                <input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname">
                               </div>
-                          </div>
-                        
-                  </div>
-               
-                
-              </main>
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label col-sm-2" for="lname">Last Name:</label>
+                              <div class="col-sm-10">          
+                                <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lname">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label col-sm-2" for="email">Email:</label>
+                              <div class="col-sm-10">
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label col-sm-2" for="comment">Comment:</label>
+                              <div class="col-sm-10">
+                                <textarea class="form-control" rows="5" id="comment"></textarea>
+                              </div>
+                            </div>
+                            <div class="form-group">        
+                              <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default">Submit</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
                 <div class="col-md-12 text-center">
@@ -233,8 +212,7 @@
         </form>
 
         <script src="/js/multi-select"></script>
-         <!-- MDB core JavaScript -->
- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/js/mdb.min.js"></script>
+        
         
     </body>
 
