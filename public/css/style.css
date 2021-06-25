@@ -1,8 +1,8 @@
-body{
+.bgcol{
     background-color: #25274d;
 }
 .contact{
-    padding: 0%;
+    padding: 1%;
     height: 400px;
 }
 .col-md-3 {
