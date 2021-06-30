@@ -55,3 +55,31 @@ img{
    
     }
     
+
+
+    .img1 {
+        background-color: rgb(243, 243, 243);
+        
+        
+        
+    }
+    
+    .tt{
+        
+        background: linear-gradient(to right, #514A9D, #24C6DC);
+        position: absolute;
+        top: 60%;
+        left: 30%;
+        right: 20%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        margin-left: 0px;
+        opacity: 0.3;
+        color: black;
+    }
+    
+    .tt:hover {
+        color: white;
+        opacity : 1;
+       
+    }
