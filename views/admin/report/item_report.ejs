@@ -16,7 +16,7 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Transaction Report(Item)</h1>
+            <h1 class="h3 mb-2 text-gray-800">Transaction Report</h1>
             <div
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
@@ -27,84 +27,39 @@
                 Report</a
               >
             </div>
-            <div
-              class="d-sm-flex align-items-center justify-content-between mb-4"
-            >
-              <table class="table table-borderless" >
-                <tbody>
-                  <tr>
-                    <td>
-                      <!-- Search form -->
-                      <input
-                        class="form-control"
-                        type="text"
-                        placeholder="Transaction ID"
-                        aria-label="Search"
-                        id="trans_id"
-                        name="trans_id"
-                      />
-                    </td>
-                    <td>
-                      <!-- Search form -->
-                      <input
-                        class="form-control"
-                        type="text"
-                        placeholder="PIN Number"
-                        aria-label="Search"
-                        id="pin_number"
-                        name="pin_number"
-                      />
-                    </td>
-                    <td>
-                      <select class="browser-default custom-select">
-                        <option value="all">All</option>
-                        <option value="merchant_option1">
-                          Merchant Option 1
-                        </option>
-                        <option value="merchant_option2">
-                          Merchant Option 2
-                        </option>
-                        <option value="merchant_option3">
-                          Merchant Option 3
-                        </option>
-                        <option value="merchant_option4">
-                          Merchant Option 4
-                        </option>
-                        <option value="merchant_option5">
-                          Merchant Option 5
-                        </option>
-                      </select>
-                    </td>
-                    <td>
-                      <select
-                        name="event"
-                        id="event"
-                        class="browser-default custom-select"
-                      >
-                        <option value="all" selected>All</option>
-                        <option value="event_option1">Event Option 1</option>
-                        <option value="event_option2">Event Option 2</option>
-                        <option value="event_option3">Event Option 3</option>
-                        <option value="event_option4">Event Option 4</option>
-                      </select>
-                    </td>
-                    <td>
-                      <!-- Search form -->
-                      <input
-                        class="form-control"
-                        type="text"
-                        placeholder="Phone-Number"
-                        aria-label="Search"
-                      />
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-outline-primary">
-                        Search
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div  class="d-sm-flex align-items-center justify-content-between mb-4" >
+              <form action="/report/filter" method="post">
+                <div class="form-group">
+                  <label for="transionId">Transaction ID</label>
+                  <input id="transionId" class="form-control" type="text" name="transionId">
+                </div>
+                <div class="form-group">
+                  <label for="pin">Pin Number</label>
+                  <input id="pin" class="form-control" type="text" name="pin">
+                </div>
+                <div class="form-group">
+                  <label for="merchant">Merchant</label>
+                  <select id="merchant" class="custom-select" name="merchant">
+                    <option>....</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="event">event</label>
+                  <select id="event" class="custom-select" name="event">
+                    <option>....</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="status">Status</label>
+                  <input id="status" class="form-control" type="text" name="status">
+                </div>
+                <div class="form-group">
+                  <label for="from_date">From</label>
+                  <input id="from_date" class="form-control" type="date" name="from_date">
+                  <label for="to_date">to</label>
+                  <input id="to_date" class="form-control" type="date" name="to_date">
+                </div>
+              </form>
             </div>
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
