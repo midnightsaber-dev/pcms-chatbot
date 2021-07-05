@@ -29,35 +29,41 @@
             </div>
             <div  class="d-sm-flex align-items-center justify-content-between mb-4" >
               <form action="/report/filter" method="post">
-                <div class="form-group">
-                  <label for="transionId">Transaction ID</label>
-                  <input id="transionId" class="form-control" type="text" name="transionId">
+                <div class="row">
+                  <div class="form-group  col-md-4">
+                    <label for="transionId">Transaction ID</label>
+                    <input id="transionId" class="form-control" type="text" name="transionId">
+                  </div>
+                  <div class="form-group  col-md-4">
+                    <label for="pin">Pin Number</label>
+                    <input id="pin" class="form-control" type="text" name="pin">
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="pin">Pin Number</label>
-                  <input id="pin" class="form-control" type="text" name="pin">
+                <div class="row">
+                  <div class="form-group col-md-4">
+                    <label for="merchant">Merchant</label>
+                    <select id="merchant" class="custom-select" name="merchant">
+                      <option>....</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="event">event</label>
+                    <select id="event" class="custom-select" name="event">
+                      <option>....</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="merchant">Merchant</label>
-                  <select id="merchant" class="custom-select" name="merchant">
-                    <option>....</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="event">event</label>
-                  <select id="event" class="custom-select" name="event">
-                    <option>....</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="status">Status</label>
-                  <input id="status" class="form-control" type="text" name="status">
-                </div>
-                <div class="form-group">
-                  <label for="from_date">From</label>
-                  <input id="from_date" class="form-control" type="date" name="from_date">
-                  <label for="to_date">to</label>
-                  <input id="to_date" class="form-control" type="date" name="to_date">
+                <div class="row">
+                  <div class="form-group col-md-4">
+                    <label for="status">Status</label>
+                    <input id="status" class="form-control" type="text" name="status">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="from_date">From</label>
+                    <input id="from_date" class="form-control" type="date" name="from_date">
+                    <label for="to_date">to</label>
+                    <input id="to_date" class="form-control" type="date" name="to_date">
+                  </div>
                 </div>
               </form>
             </div>
