@@ -24,6 +24,7 @@ exports.report_index = async (req, res) => {
 exports.report_filter = async (req, res) =>{
   try {
     if (req.session.loggedin) {
+      console.log(req.body);
         let column=new Array(),
         length=0;
         if(req.body.transionId!==null){
