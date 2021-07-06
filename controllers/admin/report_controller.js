@@ -27,25 +27,25 @@ exports.report_filter = async (req, res) =>{
       console.log(req.body);
         let column=new Array(),
         length=0;
-        if(!(req.body.transionId===null)){
+        if(req.body.transionId){
           column[length++] = "transaction.transid='"+req.body.transionId+"'";
         }
-        if(!(req.body.pin===null)){
+        if(req.body.pin){
           column[length++] = "trans.pin_code_number='"+req.body.pin+"'";
         }
-        if(!(req.body.merchant===null)){
+        if(req.body.merchant){
           column[length++] = "merchant.merchant_name='"+req.body.merchant+"'";
         }
-        if(!(req.body.event===null)){
+        if(req.body.event){
           column[length++] = "event.event_name='"+req.body.event+"'";
         }
-        if(!(req.body.status===null)){
+        if(req.body.status){
           column[length++] = "trans.status='"+req.body.status+"'";
         }
-        if(!(req.body.from_date===null)){
+        if(req.body.from_date){
           column[length++] = "trans.date>='"+req.body.from_date+"'";
         }
-        if(!(req.body.to_date===null)){
+        if(req.body.to_date){
           column[length++] = "trans.date<='"+req.body.to_date+"'";
         }
         console.log("column>"+column.join(","));
