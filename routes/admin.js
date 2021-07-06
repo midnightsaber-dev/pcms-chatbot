@@ -76,7 +76,10 @@ router.get("/event/update/:id", event_controller.event_update_get);
 /* Update event */
 router.post("/event/update/:id", event_controller.event_update_post);
 
-/* GET item transaction list. */
+/* GET transaction list. */
 router.get("/report/item",report_controller.report_index);
+
+/* Filter transaction list.*/
+router.get("/report/filter",report_controller.report_filter);
 
 module.exports = router;

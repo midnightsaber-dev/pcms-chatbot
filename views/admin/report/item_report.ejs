@@ -41,7 +41,9 @@
                   <div class="form-group col-md-4">
                     <label for="merchant">Merchant</label>
                     <select id="merchant" class="custom-select" name="merchant">
-                      <option>....</option>
+                      <% trans_filter.forEach(trans => {  %> 
+                        <option value="<%=trans.merchant_name %>"><%= trans.merchant_name %> </option>
+                        <% }); %> 
                     </select>
                   </div>
                 </div>
@@ -49,12 +51,17 @@
                   <div class="form-group col-md-4">
                     <label for="event">event</label>
                     <select id="event" class="custom-select" name="event">
-                      <option>....</option>
+                      <% trans_filter.forEach(trans => {  %> 
+                        <option value="<%=trans.event_name %>"><%= trans.event_name %> </option>
+                        <% }); %> 
                     </select>
                   </div>
                   <div class="form-group col-md-4">
                     <label for="status">Status</label>
-                    <input id="status" class="form-control" type="text" name="status">
+                    <select id="status" class="custom-select" name="status">
+                      <option value="Win">Win</option>
+                      <option value="Try Again">Try Again</option>
+                    </select>
                   </div>
                   <div class="form-group col-md-4">
                     <label for="from_date">From</label>
