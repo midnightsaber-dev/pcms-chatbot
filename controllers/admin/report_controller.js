@@ -48,6 +48,7 @@ exports.report_filter = async (req, res) =>{
         if(req.body.to_date!==null){
           column[length++] = "trans.date<='"+req.body.to_date+"'";
         }
+        console.log("column>"+column.join(","));
         let results = await db.query("SELECT trans.*,users.username,users.phonenumber,merchant.merchant_name,event.event_name FROM transaction trans "
         +"JOIN event ON trans.event_id = event.sys_event_id"
         +"JOIN merchant ON event.sys_merchant_id = merchant.sys_merchant_id"
