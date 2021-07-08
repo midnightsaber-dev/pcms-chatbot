@@ -149,7 +149,7 @@ img{
 
     /*result.ejs*/
     .success-card{
-        padding: 2rem 0rem;
+        padding: 2rem 0rem;  
       }
       .cus-card {
         border: 0.3rem solid rgba(#fff, 0.3);
@@ -157,3 +157,10 @@ img{
         margin-bottom: 1rem;
         max-width: 9rem;
       }
+      .cad {
+              margin: 0 auto; /* Added */
+              float: none; /* Added */
+              margin-bottom: 10px; /* Added */
+              width: 18rem; 
+      }
+      
