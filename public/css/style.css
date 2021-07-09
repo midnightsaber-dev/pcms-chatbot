@@ -167,5 +167,6 @@ img{
 
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
-  filter: invert(1);
+  /* filter: invert(1); */
+  color: aqua;
 }
