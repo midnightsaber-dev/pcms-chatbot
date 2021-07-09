@@ -168,6 +168,6 @@ img{
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
   /* filter: invert(1); */
-  color: rgb(19, 97, 97);
+  color: red!important;
   font-size: 28px;
 }
